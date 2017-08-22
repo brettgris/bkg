@@ -1,0 +1,224 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+
+$button-color-off: $black;
+$button-color-over: $primary-color;
+$button-ease: $transition-ease;
+$button-total-steps: 4;
+$button-step-speed: $transition-speed/$button-total-steps;
+$button-border-size: 2px;
+
+a.button, button.button{
+  color: $button-color-off;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  position: relative;
+  display: inline-flex;
+  transition: color ($button-step-speed*$button-total-steps) $button-ease;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:after{
+    content: '';
+    width: 0%;
+    left: 50%;
+    height: $button-border-size;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    background: $button-color-off;
+    transform: translatex(-50%);
+
+    transition: width $button-step-speed $button-ease ($button-step-speed*2), background ($button-step-speed*$button-total-steps) $button-ease;
+  }
+
+  span{
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+
+    &:before, &:after{
+      content: '';
+      display:block;
+      position: absolute;
+      background: $button-color-off;
+    }
+
+    &:first-child{
+      height: 100%;
+
+       &:before, &:after{
+         width: $button-border-size;
+         height: 0%;
+         bottom: 0;
+         transition: height $button-step-speed $button-ease ($button-step-speed*1), background ($button-step-speed*$button-total-steps) $button-ease;
+      }
+
+      &:before{
+        left: 0;
+      }
+
+      &:after {
+        right: 0;
+      }
+    }
+
+    &:last-child{
+      width: 100%;
+      height: $button-border-size;
+      position: absolute;
+
+      &:before, &:after{
+        height: $button-border-size;
+        width: 0%;
+
+        transition: width $button-step-speed $button-ease ($button-step-speed*0), background ($button-step-speed*$button-total-steps) $button-ease;
+      }
+
+      &:before{
+        left: 0;
+      }
+
+      &:after{
+        right: 0;
+      }
+    }
+  }
+
+  &:hover{
+    color: $button-color-over;
+
+    &:after{
+      width: 100%;
+      background: $button-color-over;
+      transition: width $button-step-speed $button-ease, background ($button-step-speed*$button-total-steps) $button-ease;
+    }
+
+    span{
+      &:first-child{
+        &:before, &:after{
+          height: 100%;
+          background: $button-color-over;
+        }
+      }
+
+      &:last-child{
+        &:before, &:after{
+          width: 60%;
+          background: $button-color-over;
+          transition: width $button-step-speed $button-ease ($button-step-speed*2), background ($button-step-speed*$button-total-steps) $button-ease;
+        }
+      }
+    }
+  }
+
+  &.whitetoblack{
+	  color: $white;
+
+	  &:after{
+		  background: $white;
+	  }
+
+	  span{
+		  &:before, &:after{
+			  background: $white;
+		  }
+	  }
+
+	  &:hover{
+		  color: $black;
+
+		  &:after{
+			  background: $black;
+		  }
+
+		  span{
+			  &:before, &:after{
+				  background: $black;
+			  }
+		  }
+	  }
+  }
+
+  &.blacktowhite{
+	  color: $black;
+
+	  &:after{
+		  background: $black;
+	  }
+
+	  span{
+		  &:before, &:after{
+			  background: $black;
+		  }
+	  }
+
+	  &:hover{
+		  color: $white;
+
+		  &:after{
+			  background: $white;
+		  }
+
+		  span{
+			  &:before, &:after{
+				  background: $white;
+			  }
+		  }
+	  }
+  }
+
+  &.whitetocolor{
+	  color: $white;
+
+	  &:after{
+		  background: $white;
+	  }
+
+	  span{
+		  &:before, &:after{
+			  background: $white;
+		  }
+	  }
+
+	  &:hover{
+		  color: $button-color-over;
+
+		  &:after{
+			  background: $button-color-over;
+		  }
+
+		  span{
+			  &:before, &:after{
+				  background: $button-color-over;
+			  }
+		  }
+	  }
+  }
+}
+
+html.touch{
+	a.button, button.button{
+		&:after{
+			width: 100%;
+		}
+
+		span{
+	      &:first-child{
+	        &:before, &:after{
+	          height: 100%;
+	        }
+	      }
+
+	      &:last-child{
+	        &:before, &:after{
+	          width: 60%;
+	        }
+	      }
+	    }
+	}
+}

@@ -1,0 +1,50 @@
+.cast .view {
+  position: absolute;
+  width: 101%;
+  height: 101%;
+  top: -1px;
+  z-index: 1; }
+  .cast .view > div {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    top: 0;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); }
+    .cast .view > div .overlay {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 2, 34, 0.65); }
+      .cast .view > div .overlay.animate-enter {
+        opacity: .01; }
+      .cast .view > div .overlay.animate-enter.animate-enter-active {
+        opacity: 1;
+        transition: opacity 0.2s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+      .cast .view > div .overlay.animate-leave {
+        opacity: 1; }
+      .cast .view > div .overlay.animate-leave.animate-leave-active {
+        opacity: .01;
+        transition: opacity 0.2s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+  .cast .view.animate-enter > div {
+    opacity: .01;
+    width: 90%;
+    height: 90%; }
+  .cast .view.animate-enter.animate-enter-active > div {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+    transition: all 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.4s; }
+  .cast .view.animate-leave > div {
+    opacity: 1;
+    width: 100%;
+    height: 100%; }
+  .cast .view.animate-leave.animate-leave-active > div {
+    opacity: .01;
+    width: 90%;
+    height: 90%;
+    transition: all 0.2s cubic-bezier(0.2, 0.3, 0.25, 0.9); }

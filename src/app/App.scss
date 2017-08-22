@@ -1,0 +1,41 @@
+@import 'app/styles/normalize.scss';
+@import 'app/styles/type.scss';
+@import 'app/styles/colors.scss';
+
+body{
+	margin: 0;
+	padding: 0;
+	background: $black;
+}
+
+.App{
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.svg{
+	display: flex;
+}
+
+ul{
+	margin: 0;
+	padding: 0;
+
+	li{
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+}
+
+main{
+	width: 100vw;
+	height: 100vh;
+	overflow: hidden;
+
+	&>span>section{
+		width: 100vw;
+		height: 100vh;
+	}
+}

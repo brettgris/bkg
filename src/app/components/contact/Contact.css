@@ -1,0 +1,28 @@
+.contact {
+  width: 100vw;
+  height: 120vh;
+  position: fixed;
+  top: 0vh;
+  z-index: 500;
+  transform-origin: bottom center; }
+  .contact::before {
+    content: '';
+    background: linear-gradient(145deg, #ff234a 0%, #df99b7 100%);
+    width: 100vw;
+    height: 100vh;
+    position: absolute; }
+  .contact > div {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh; }
+  .contact.animation-enter {
+    transform: translateY(100%) scale(0.8); }
+  .contact.animation-enter.animation-enter-active {
+    transform: translateY(0%) scale(1);
+    transition: all 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.6s; }
+  .contact.animation-leave {
+    transform: translateY(0%) scale(1); }
+  .contact.animation-leave.animation-leave-active {
+    transform: translateY(100%) scale(0.8);
+    transition: all 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }

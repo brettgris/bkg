@@ -1,0 +1,13 @@
+export const THREE_STREAM = "THREE_STREAM";
+
+export const THREE_IMAGE_IN = "THREE_IMAGE_IN";
+export const THREE_IMAGE_OUT = "THREE_IMAGE_OUT";
+
+export const THREE_SPREAD_IN = "THREE_SPREAD_IN";
+export const THREE_SPREAD_OUT = "THREE_SPREAD_OUT";
+
+export const THREE_SIDE_IN = "THREE_SIDE_IN";
+export const THREE_SIDE_OUT = "THREE_SIDE_OUT";
+
+export const THREE_BOTTOM_IN = "THREE_BOTTOM_IN";
+export const THREE_BOTTOM_OUT = "THREE_BOTTOM_OUT";

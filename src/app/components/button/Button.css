@@ -1,0 +1,114 @@
+a.button, button.button {
+  color: #000222;
+  text-decoration: none;
+  padding: 10px 20px;
+  background: transparent;
+  border: none;
+  position: relative;
+  display: inline-flex;
+  transition: color 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+  text-transform: uppercase;
+  cursor: pointer; }
+  a.button:after, button.button:after {
+    content: '';
+    width: 0%;
+    left: 50%;
+    height: 2px;
+    bottom: 0;
+    position: absolute;
+    display: block;
+    background: #000222;
+    transform: translatex(-50%);
+    transition: width 0.1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.2s, background 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+  a.button span, button.button span {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0; }
+    a.button span:before, a.button span:after, button.button span:before, button.button span:after {
+      content: '';
+      display: block;
+      position: absolute;
+      background: #000222; }
+    a.button span:first-child, button.button span:first-child {
+      height: 100%; }
+      a.button span:first-child:before, a.button span:first-child:after, button.button span:first-child:before, button.button span:first-child:after {
+        width: 2px;
+        height: 0%;
+        bottom: 0;
+        transition: height 0.1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.1s, background 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+      a.button span:first-child:before, button.button span:first-child:before {
+        left: 0; }
+      a.button span:first-child:after, button.button span:first-child:after {
+        right: 0; }
+    a.button span:last-child, button.button span:last-child {
+      width: 100%;
+      height: 2px;
+      position: absolute; }
+      a.button span:last-child:before, a.button span:last-child:after, button.button span:last-child:before, button.button span:last-child:after {
+        height: 2px;
+        width: 0%;
+        transition: width 0.1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s, background 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+      a.button span:last-child:before, button.button span:last-child:before {
+        left: 0; }
+      a.button span:last-child:after, button.button span:last-child:after {
+        right: 0; }
+  a.button:hover, button.button:hover {
+    color: #ff234a; }
+    a.button:hover:after, button.button:hover:after {
+      width: 100%;
+      background: #ff234a;
+      transition: width 0.1s cubic-bezier(0.2, 0.3, 0.25, 0.9), background 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+    a.button:hover span:first-child:before, a.button:hover span:first-child:after, button.button:hover span:first-child:before, button.button:hover span:first-child:after {
+      height: 100%;
+      background: #ff234a; }
+    a.button:hover span:last-child:before, a.button:hover span:last-child:after, button.button:hover span:last-child:before, button.button:hover span:last-child:after {
+      width: 60%;
+      background: #ff234a;
+      transition: width 0.1s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.2s, background 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+  a.button.whitetoblack, button.button.whitetoblack {
+    color: #ffffff; }
+    a.button.whitetoblack:after, button.button.whitetoblack:after {
+      background: #ffffff; }
+    a.button.whitetoblack span:before, a.button.whitetoblack span:after, button.button.whitetoblack span:before, button.button.whitetoblack span:after {
+      background: #ffffff; }
+    a.button.whitetoblack:hover, button.button.whitetoblack:hover {
+      color: #000222; }
+      a.button.whitetoblack:hover:after, button.button.whitetoblack:hover:after {
+        background: #000222; }
+      a.button.whitetoblack:hover span:before, a.button.whitetoblack:hover span:after, button.button.whitetoblack:hover span:before, button.button.whitetoblack:hover span:after {
+        background: #000222; }
+  a.button.blacktowhite, button.button.blacktowhite {
+    color: #000222; }
+    a.button.blacktowhite:after, button.button.blacktowhite:after {
+      background: #000222; }
+    a.button.blacktowhite span:before, a.button.blacktowhite span:after, button.button.blacktowhite span:before, button.button.blacktowhite span:after {
+      background: #000222; }
+    a.button.blacktowhite:hover, button.button.blacktowhite:hover {
+      color: #ffffff; }
+      a.button.blacktowhite:hover:after, button.button.blacktowhite:hover:after {
+        background: #ffffff; }
+      a.button.blacktowhite:hover span:before, a.button.blacktowhite:hover span:after, button.button.blacktowhite:hover span:before, button.button.blacktowhite:hover span:after {
+        background: #ffffff; }
+  a.button.whitetocolor, button.button.whitetocolor {
+    color: #ffffff; }
+    a.button.whitetocolor:after, button.button.whitetocolor:after {
+      background: #ffffff; }
+    a.button.whitetocolor span:before, a.button.whitetocolor span:after, button.button.whitetocolor span:before, button.button.whitetocolor span:after {
+      background: #ffffff; }
+    a.button.whitetocolor:hover, button.button.whitetocolor:hover {
+      color: #ff234a; }
+      a.button.whitetocolor:hover:after, button.button.whitetocolor:hover:after {
+        background: #ff234a; }
+      a.button.whitetocolor:hover span:before, a.button.whitetocolor:hover span:after, button.button.whitetocolor:hover span:before, button.button.whitetocolor:hover span:after {
+        background: #ff234a; }
+
+html.touch a.button:after, html.touch button.button:after {
+  width: 100%; }
+
+html.touch a.button span:first-child:before, html.touch a.button span:first-child:after, html.touch button.button span:first-child:before, html.touch button.button span:first-child:after {
+  height: 100%; }
+
+html.touch a.button span:last-child:before, html.touch a.button span:last-child:after, html.touch button.button span:last-child:before, html.touch button.button span:last-child:after {
+  width: 60%; }
