@@ -1,10 +1,23 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
+
 import './Contact.css';
 
 class Contact extends Component{
 	render(){
+		if (this.props.page!=="contact") return null;
+
+		const scale = .5*this.props.pageanimate + .5;
+		const y = 100-100*this.props.pageanimate;
+		const opacity = this.props.pageanimate;
+
+		const style={
+			transform: `scale(${scale}) translateY(${y}%)`,
+			opacity: opacity
+		}
+
 		return(
-			<section className="contact">
+			<section className="contact" style={style}>
 				<div className="d-flex justify-content-center align-items-center reverse-text">
 					<div className="col-xl-8 col-lg-10 col-12">
 						<h2>Let's talk about your project and goals</h2>
@@ -16,4 +29,11 @@ class Contact extends Component{
 	}
 }
 
-export default Contact;
+function mapStateToProps(state) {
+	return {
+		page: state.page,
+		pageanimate: state.pageanimate
+	}
+}
+
+export default connect(mapStateToProps)(Contact);

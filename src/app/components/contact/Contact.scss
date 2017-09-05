@@ -28,22 +28,4 @@ $contact-color-2: rgba(223, 153, 183, 1);
 		position: absolute;
 		top: 0vh;
 	}
-
-	&.animation-enter {
-		transform: translateY(100%) scale(.8);
-	}
-
-	&.animation-enter.animation-enter-active {
-		transform: translateY(0%)  scale(1);
-		transition: all $transition-speed $transition-ease .6s;
-	}
-
-	&.animation-leave {
-		transform: translateY(0%)  scale(1);
-	}
-
-	&.animation-leave.animation-leave-active {
-		transform: translateY(100%)  scale(.8);
-		transition: all $transition-speed $transition-ease;
-	}
 }

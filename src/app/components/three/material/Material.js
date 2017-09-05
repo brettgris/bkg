@@ -13,7 +13,7 @@ class Material extends Component{
 
 		const plane = new THREE.PlaneGeometry( size, size*(imageHeight/imageWidth), 1, 1 );
 
-		for ( var i = 0; i < 9; i ++ ) {
+		for ( var i = 0; i < 11; i ++ ) {
 			Utils.TessellateModifier(8,plane);
 		}
 		Utils.ExplodeModifier(plane);
@@ -24,7 +24,8 @@ class Material extends Component{
 		this.texture = new THREE.TextureLoader();
 
 		this.uniforms = {
-			perc: { type: 'f', value: 0.0 }, //in RAD
+			perc: { type: 'f', value: 0.0 },
+			home: { type: 'f', value: 0.0 },
 			pattern: { type: 'f', value: 1.0 },
 			map: { type: 't', value: this.texture }
 		}
@@ -43,6 +44,7 @@ class Material extends Component{
 		this.type = null;
 		this.image = null;
 
+		this.updateHomeAnimate = this.updateHomeAnimate.bind(this);
 		this.updateAnimate = this.updateAnimate.bind(this);
 		this.updateType = this.updateType.bind(this);
 		this.updateImage = this.updateImage.bind(this);
@@ -50,6 +52,7 @@ class Material extends Component{
 
 	componentWillReceiveProps(n){
 		if ( this.animate !== n.animate ) this.updateAnimate(n.animate);
+		if ( this.homeanimate !== n.homeanimate ) this.updateHomeAnimate(n.homeanimate);
 		if ( this.type !== n.type ) this.updateType(n.type);
 		if ( this.image !== n.image ) this.updateImage(n.image);
 	}
@@ -58,6 +61,12 @@ class Material extends Component{
 		this.uniforms.perc.value = n;
 
 		this.animate = n;
+	}
+
+	updateHomeAnimate(n){
+		this.uniforms.home.value = n;
+
+		this.homeanimate = n;
 	}
 
 	updateImage(n){

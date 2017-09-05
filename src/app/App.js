@@ -10,8 +10,9 @@ import BG from './images/stars.jpg';
 
 import Header from './components/header/Header';
 import ThreeView from './components/three/ThreeView';
-
-import Routes from './Routes';
+import Animate from './components/animate/Animate';
+import Home from './components/home/Home';
+import Contact from './components/contact/Contact';
 
 class App extends Component {
 	componentDidMount(){
@@ -19,20 +20,15 @@ class App extends Component {
 	}
 
 	render() {
-		if ( !this.props.projects ) return null;
 		return (
 			<div className="App" style={{backgroundImage:`url(${BG})`}}>
 				<Header />
-				<Routes />
 				<ThreeView />
+				<Home />
+				<Contact />
+				<Animate />
 			</div>
 		);
-	}
-}
-
-function mapStateToProps(state) {
-	return {
-		projects: state.projects
 	}
 }
 
@@ -42,4 +38,4 @@ function mapDispatchToProps(dispatch){
 	}, dispatch);
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);

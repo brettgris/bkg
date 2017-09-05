@@ -1,13 +1,10 @@
-export const THREE_STREAM = "THREE_STREAM";
+export const STREAM_ON_LOAD = 0.0;
 
-export const THREE_IMAGE_IN = "THREE_IMAGE_IN";
-export const THREE_IMAGE_OUT = "THREE_IMAGE_OUT";
+export const BOTTOM_ON_LOAD = 1.1;
+export const BOTTOM_FROM_STREAM = 1.0;
+export const BOTTOM_FROM_IMAGE = 1.2;
 
-export const THREE_SPREAD_IN = "THREE_SPREAD_IN";
-export const THREE_SPREAD_OUT = "THREE_SPREAD_OUT";
+export const IMAGE_ON_LOAD = 2.2;
+export const IMAGE_FROM_STREAM = 2.0;
 
-export const THREE_SIDE_IN = "THREE_SIDE_IN";
-export const THREE_SIDE_OUT = "THREE_SIDE_OUT";
-
-export const THREE_BOTTOM_IN = "THREE_BOTTOM_IN";
-export const THREE_BOTTOM_OUT = "THREE_BOTTOM_OUT";
+// export const SIDE_ON_LOAD = 3.3;

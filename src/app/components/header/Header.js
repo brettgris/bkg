@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {setThree} from '../../../actions/actions';
-import {THREE_BOTTOM_IN,THREE_BOTTOM_OUT} from '../../../actions/ThreeStates';
-
 import { Link } from 'react-router-dom';
+
 import ReactSVG from 'react-svg';
 
 import './Header.css';
@@ -12,17 +9,6 @@ import Button from '../button/Button';
 import Logo from 'app/images/bkg.svg';
 
 class Header extends Component {
-	constructor(props){
-		super(props);
-
-		this.handleButtonClick = this.handleButtonClick.bind(this);
-	}
-
-	handleButtonClick(){
-		if ( this.props.routing === "/contact" ) this.props.setThree(THREE_BOTTOM_IN);
-		else this.props.setThree(THREE_BOTTOM_OUT);
-	}
-
 	render(){
 		const { routing } = this.props;
 
@@ -35,7 +21,7 @@ class Header extends Component {
 		if (routing==="/contact"){
 			settings.copy = "View Projects";
 			settings.color = "whitetoblack";
-			settings.to = "/";
+			settings.to = "/work";
 		}
 
 		//if (!this.ignore) return null;
@@ -47,7 +33,7 @@ class Header extends Component {
 						<ReactSVG path={Logo} className={`logo svg ${settings.color}`} style={{display:'block'}}/>
 					</Link>
 				</div>
-				<Button copy={settings.copy} color={settings.color} to={settings.to} click={this.handleButtonClick} />
+				<Button copy={settings.copy} color={settings.color} to={settings.to} />
 			</div>
 		)
 	}
@@ -59,10 +45,4 @@ function mapStateToProps(state) {
 	}
 }
 
-function mapDispatchToProps(dispatch){
-	return bindActionCreators( {
-		setThree
-	}, dispatch);
-}
-
-export default connect(mapStateToProps,mapDispatchToProps)(Header);
+export default connect(mapStateToProps)(Header);

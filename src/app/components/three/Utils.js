@@ -9,11 +9,19 @@ class Utils {
 		const delay = new Float32Array( faces.length * 3 );
 		const rotation = new Float32Array( faces.length * 3 );
 
+		const distFromCenter = new Float32Array( faces.length * 3 * 3 );
+
 		const c1 = new Float32Array( faces.length * 3 * 3 );
 		const c2 = new Float32Array( faces.length * 3 * 3 );
 		const p1 = new Float32Array( faces.length * 3 * 3 );
 		const p2 = new Float32Array( faces.length * 3 * 3 );
-		const distFromCenter = new Float32Array( faces.length * 3 * 3 );
+
+		const hc1 = new Float32Array( faces.length * 3 * 3 );
+		const hc2 = new Float32Array( faces.length * 3 * 3 );
+		const hp1 = new Float32Array( faces.length * 3 * 3 );
+		const hp2 = new Float32Array( faces.length * 3 * 3 );
+
+		const rand = new Float32Array( faces.length * 3 * 3 );
 
 		for (let i=0;i<faces.length;i++){
 			const face = faces[i];
@@ -31,6 +39,33 @@ class Utils {
 
 			const t = THREE.Math.randFloat(0.3, 0.7),
 				d = THREE.Math.randFloat(0.1, 0.3);
+
+			const r = {
+				x: THREE.Math.randFloat(0.0, 1.0),
+				y: THREE.Math.randFloat(0.3, 0.7),
+				z: THREE.Math.randFloat(0.0, 1.0)
+			}
+
+			const hv = {
+				x: [
+					THREE.Math.randFloat(-1.0, 1.0),
+					THREE.Math.randFloat(-1.0, 1.0),
+					THREE.Math.randFloat(-1.0, 1.0),
+					THREE.Math.randFloat(-1.0, 1.0)
+				],
+				y: [
+					THREE.Math.randFloat(-1.0, 1.0),
+					THREE.Math.randFloat(-1.0, 1.0),
+					THREE.Math.randFloat(-1.0, 1.0),
+					THREE.Math.randFloat(-1.0, 1.0)
+				]
+			}
+
+			const xlength = 2000;
+			const ylength = 1100;
+
+			const xadjust = 200;
+			const yadjust = 350;
 
 			for (let j=0;j<3;j++){
 				angle[ i * 3 + j ] = dAngle*i;
@@ -57,9 +92,28 @@ class Utils {
 				distFromCenter[ i * 3 * 3 + j * 3 + 0] = center.x - v[j].x;
 				distFromCenter[ i * 3 * 3 + j * 3 + 1] = center.y - v[j].y;
 				distFromCenter[ i * 3 * 3 + j * 3 + 2] = center.z - v[j].z;
+
+				hp1[ i * 3 * 3 + j * 3 + 0] = xlength/-2 + xadjust/8*hv.x[0];
+				hp1[ i * 3 * 3 + j * 3 + 1] = ylength/-4 + yadjust/8*hv.y[0];
+				hp1[ i * 3 * 3 + j * 3 + 2] = 0;
+
+				hc1[ i * 3 * 3 + j * 3 + 0] = xlength/-4 + xadjust*hv.x[1];
+				hc1[ i * 3 * 3 + j * 3 + 1] = ylength/1.5 + yadjust*hv.y[1];
+				hc1[ i * 3 * 3 + j * 3 + 2] = 0;
+
+				hc2[ i * 3 * 3 + j * 3 + 0] = xlength/4 + xadjust*hv.x[2];
+				hc2[ i * 3 * 3 + j * 3 + 1] = ylength/-1.5 + yadjust*hv.y[2];
+				hc2[ i * 3 * 3 + j * 3 + 2] = 0;
+
+				hp2[ i * 3 * 3 + j * 3 + 0] = xlength/2 + xadjust/8*hv.x[0];
+				hp2[ i * 3 * 3 + j * 3 + 1] = ylength/4 + yadjust/8*hv.y[0];
+				hp2[ i * 3 * 3 + j * 3 + 2] = 0;
+
+				rand[ i * 3 * 3 + j * 3 + 0] = r.x;
+				rand[ i * 3 * 3 + j * 3 + 1] = r.y;
+				rand[ i * 3 * 3 + j * 3 + 2] = r.z;
 			}
 		};
-
 
 		geometry.addAttribute( 'angle', new THREE.BufferAttribute( angle, 1 ) );
 		geometry.addAttribute( 'time', new THREE.BufferAttribute( time, 1 ) );
@@ -67,10 +121,18 @@ class Utils {
 		geometry.addAttribute( 'rotation', new THREE.BufferAttribute( rotation, 1 ) );
 
 		geometry.addAttribute( 'dist', new THREE.BufferAttribute( distFromCenter, 3 ) );
+
 		geometry.addAttribute( 'c1', new THREE.BufferAttribute( c1, 3 ) );
 		geometry.addAttribute( 'c2', new THREE.BufferAttribute( c2, 3 ) );
 		geometry.addAttribute( 'p1', new THREE.BufferAttribute( p1, 3 ) );
 		geometry.addAttribute( 'p2', new THREE.BufferAttribute( p2, 3 ) );
+
+		geometry.addAttribute( 'hc1', new THREE.BufferAttribute( hc1, 3 ) );
+		geometry.addAttribute( 'hc2', new THREE.BufferAttribute( hc2, 3 ) );
+		geometry.addAttribute( 'hp1', new THREE.BufferAttribute( hp1, 3 ) );
+		geometry.addAttribute( 'hp2', new THREE.BufferAttribute( hp2, 3 ) );
+
+		geometry.addAttribute( 'rand', new THREE.BufferAttribute( rand, 3 ) );
 	}
 
 	calcCenter(face,a,b,c){

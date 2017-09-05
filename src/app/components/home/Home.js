@@ -1,109 +1,52 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {bindActionCreators} from 'redux';
-import {setCurrent,setThree} from '../../../actions/actions';
-import {
-		THREE_SPREAD_IN,THREE_SPREAD_OUT,
-		THREE_IMAGE_IN,THREE_IMAGE_OUT,
-	} from '../../../actions/ThreeStates';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactSVG from 'react-svg';
+import Button from '../button/Button';
 
-import Controls from './controls/Controls';
-import Panel from './panel/Panel';
+import HEADLINE from '../../images/name.svg';
 
 import './Home.css';
 
 class Home extends Component{
-	constructor(props){
-		super(props);
-
-		this.state = {
-			panel: false,
-			current: 0,
-			perc: 0,
-			imageOut: true
-		}
-
-		this.handleChange = this.handleChange.bind(this);
-		this.handlePanelChange = this.handlePanelChange.bind(this);
-	}
-
-	handleChange(n){
-		const l = this.props.projects.length-1;
-		let c = this.props.current + n;
-
-		if (c<0) c = l;
-		else if ( c>l ) c=0;
-
-		this.props.setCurrent( c );
-
-		const ThreeType = (this.state.imageOut) ? THREE_IMAGE_OUT : THREE_IMAGE_IN;
-		this.props.setThree( ThreeType );
-
-		this.setState({
-			imageOut: !this.state.imageOut
-		});
-	}
-
-	handlePanelChange(b){
-		if ( b ) this.props.setThree( THREE_SPREAD_OUT );
-		else this.props.setThree( THREE_SPREAD_IN );
-
-		this.setState({
-			panel:b,
-			perc: 0
-		});
-	}
-
 	render(){
+		if (this.props.page!=="home") return null;
+
+		console.log( this.props.pageanimate );
+
 		return(
 			<section className="home">
-				<Controls
-					panel={ this.state.panel }
-					updatePanel={ this.handlePanelChange }
-					onPercChange={ (n)=>this.setState({perc:n}) }
-					next={ ()=>this.handleChange(1) }
-					prev={ ()=>this.handleChange(-1) }
-				/>
-				<ReactCSSTransitionGroup
-					transitionName="animate"
-	         	transitionEnterTimeout={1000}
-	         	transitionLeaveTimeout={400}
-				>
-					{ this.renderPanel() }
-				</ReactCSSTransitionGroup>
+				<div className="headline d-flex align-items-center justify-content-center">
+					<div className="content col-11 col-lg-10 col-xl-8">
+						<h1>
+							<ReactSVG path={HEADLINE} />
+						</h1>
+					</div>
+				</div>
+				<div className="copy d-flex align-items-end justify-content-center">
+					<div className="content col-11 col-lg-10 col-xl-8">
+						<p>I'm a well-versed visual and interaction designer with over 10 years of professional experience in the digital space with a passion for delivering rewarding and engaging digital experiences by leveraging the latest web trends, technologies and frameworks.</p>
+						<div>
+							<Button copy="VIEW CASE STUDIES" color="whitetocolor" to="/work" />
+						</div>
+					</div>
+				</div>
 			</section>
 		);
 	}
 
-	renderPanel(){
-		if (!this.state.panel || !this.props.projects ) return null;
-
-		return (
-			<Panel
-				key="panel"
-				data={ this.props.projects }
-				perc={ this.state.perc }
-				update={ this.state.panel }
-				current={ this.props.current }
-				setCurrent={ this.props.setCurrent }
-			/>
-		);
+	renderSpilt(title){
+		return title.split("").map( (letter,key)=>{
+			const l = (letter===" ") ? "&nbsp;" : letter;
+			return <span key={"h3"+letter+key} dangerouslySetInnerHTML={{__html: l}}></span>;
+		});
 	}
 }
 
 function mapStateToProps(state) {
 	return {
-		projects: state.projects,
-		current: state.current
-	};
+		page: state.page,
+		pageanimate: state.pageanimate
+	}
 }
 
-function mapDispatchToProps(dispatch){
-	return bindActionCreators( {
-		setCurrent,setThree
-	}, dispatch);
-}
-
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(mapStateToProps)(Home);

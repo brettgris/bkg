@@ -1,8 +1,6 @@
 import {SET_THREE} from '../actions/actions';
-import {THREE_STREAM} from '../actions/ThreeStates';
 
-
-export default function(state=THREE_STREAM,action){
+export default function(state=0.0,action){
 	switch(action.type){
 		case SET_THREE:
 			return action.payload
