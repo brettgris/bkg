@@ -44,16 +44,20 @@ class Animate extends Component{
 
 							//CONTACT OUT
 							this.tl.call( ()=>{
-								this.setAV("OUT");
+								this.setAV(0);
+								this.setPV(0);
 							});
-							this.tl.to( this, 1, {av:1, onUpdate:this.handleThreeAnimation} );
+							this.tl.to( this, 1, {av:1, pv:1, onUpdate:()=>{
+								this.handleThreeAnimation();
+								this.handlePageAnimation();
+							}} );
 
 							//SPREAD IN
 							this.tl.call( ()=>{
 								this.props.setThree(BOTTOM_ON_LOAD);
 								this.props.setHomeAnimate(false);
 								this.props.setPage("contact");
-								this.setPV("IN");
+								this.setPV(0);
 							});
 							this.tl.to( this, .4, {pv:1, onUpdate:this.handlePageAnimation} );
 							break;
@@ -77,7 +81,7 @@ class Animate extends Component{
 								this.props.setThree(BOTTOM_ON_LOAD);
 								this.props.setHomeAnimate(false);
 								this.props.setPage("contact");
-								this.setPV("IN");
+								this.setPV("OUT");
 							});
 							this.tl.to( this, .4, {pv:1, onUpdate:this.handlePageAnimation} );
 
@@ -106,13 +110,13 @@ class Animate extends Component{
 
 							//CONTACT OUT
 							this.tl.call(()=>{
-								this.setPV("OUT");
+								this.setPV(1);
 							});
 							this.tl.to(this, .4, {pv:0, onUpdate:this.handlePageAnimation} );
 
 							//SPREAD IN
 							this.tl.call(()=>{
-								this.setAV("IN");
+								this.setAV(1);
 							});
 							this.tl.to( this, 1, {av:0, onUpdate:this.handleThreeAnimation} );
 
@@ -133,9 +137,13 @@ class Animate extends Component{
 
 							//SPREAD IN
 							this.tl.call(()=>{
-								this.setAV("OUT");
+								this.setAV(0);
+								this.setPV(0);
 							});
-							this.tl.to( this, 1, {av:1, onUpdate:this.handleThreeAnimation} );
+							this.tl.to( this, 1, {av:1, pv:1, onUpdate:()=>{
+								this.handleThreeAnimation();
+								this.handlePageAnimation();
+							}} );
 
 							//COMPLETE SETTINGS
 							this.tl.call( ()=>{
@@ -168,15 +176,20 @@ class Animate extends Component{
 
 							//CONTACT OUT
 							this.tl.call(()=>{
-								this.setPV("OUT");
+								this.setPV(1);
 							});
 							this.tl.to(this, .4, {pv:0, onUpdate:this.handlePageAnimation} );
 
 							//SPREAD IN
 							this.tl.call(()=>{
-								this.setAV("IN");
+								this.setAV(1);
+								this.setPV(1);
+								this.props.setPage("home");
 							});
-							this.tl.to( this, 1, {av:0, onUpdate:this.handleThreeAnimation} );
+							this.tl.to( this, 1, {av:0, pv:0, onUpdate:()=>{
+								this.handleThreeAnimation();
+								this.handlePageAnimation();
+							}} );
 
 							//COMPLETE SETTINGS
 							this.tl.call( ()=>{
@@ -197,15 +210,21 @@ class Animate extends Component{
 
 							//SPREAD IN
 							this.tl.call(()=>{
-								this.setAV("IN");
+								this.setAV(1);
+								this.setPV(1);
+								this.props.setPage("home");
 							});
-							this.tl.to( this, 1, {av:0, onUpdate:this.handleThreeAnimation} );
+
+							this.tl.to( this, 1, {av:0, pv: 0, onUpdate:()=>{
+								this.handleThreeAnimation()
+								this.handlePageAnimation()
+							}} );
 
 							//COMPLETE SETTINGS
 							this.tl.call( ()=>{
 								this.props.setThree(STREAM_ON_LOAD);
 								this.props.setHomeAnimate(true);
-								this.props.setPage("home");
+
 							});
 
 							break;
@@ -215,7 +234,7 @@ class Animate extends Component{
 							this.props.setThree(STREAM_ON_LOAD);
 							this.props.setHomeAnimate(true);
 							this.props.setPage("home");
-							this.props.setPageAnimate(1);
+							this.props.setPageAnimate(0);
 							this.props.setAnimate(0);
 							break;
 					}
@@ -232,7 +251,7 @@ class Animate extends Component{
 	}
 
 	setAV(direction){
-		if (direction==="OUT"){
+		if (direction===0){
 			this.av = (this.av<.95) ? this.av : 0;
 		} else{
 			this.av = (this.av>.05) ? this.av : 1;
@@ -243,7 +262,7 @@ class Animate extends Component{
 	}
 
 	setPV(direction){
-		if (direction==="IN"){
+		if (direction===0){
 			this.pv = (this.pv<.95) ? this.pv : 0;
 		} else{
 			this.pv = (this.pv>.05) ? this.pv : 1;
@@ -258,6 +277,7 @@ class Animate extends Component{
 	}
 
 	handlePageAnimation(){
+		console.log( this.pv)
 		this.props.setPageAnimate(this.pv);
 	}
 

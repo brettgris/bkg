@@ -41,7 +41,7 @@ export const vertexShader = [
 	'attribute vec3 rand;',
 
 	'varying vec2 vUv;',
-	'varying float t;',
+	'varying float i;',
 	'varying float h;',
 	'varying float alpha;',
 
@@ -53,7 +53,7 @@ export const vertexShader = [
 		'vUv = uv;',
 
 		'vec3 p = position;',
-		't = faceTime(perc,delay,time);',
+		'float t = faceTime(perc,delay,time);',
 		'h = mod(home+rand.x,1.0);',
 
 		'float pRadius = 850.0;',
@@ -68,7 +68,7 @@ export const vertexShader = [
 			//INITAL STREAM
 			particlestream,
 			'alpha = sin(h*PI);',
-			//'alpha = 1.0;',
+			'i = 0.0;',
 
 
 		/**********************
@@ -79,16 +79,19 @@ export const vertexShader = [
 		'} else if (pattern==1.1){',
 			bottom,
 			'alpha = 1.0;',
+			'i = 0.0;',
 
 		//FROM STREAM
 		'} else if (pattern==1.0){',
 			bottomstream,
 			'alpha = 1.0*t + sin(h*PI)*(1.0-t);',
+			'i = 0.0;',
 
 		//FROM STREAM
 		'} else if (pattern==1.2){',
 			bottomtransition,
 			'alpha = 1.0;',
+			'i = 0.0;',
 
 
 		/**********************
@@ -97,10 +100,12 @@ export const vertexShader = [
 		'} else if (pattern==2.2){',
 			image,
 			'alpha = 1.0;',
+			'i = 1.0;',
 
 		'} else if (pattern==2.0){',
 			imagestream,
 			'alpha = 1.0*t + sin(h*PI)*(1.0-t);',
+			'i = t;',
 
 		/**********************
 		SIDE
@@ -115,7 +120,7 @@ export const fragmentShader = [
 	'varying vec2 vUv;',
 	'varying float alpha;',
 	'varying float h;',
-	'varying float t;',
+	'varying float i;',
 	'uniform sampler2D map;',
 
 	'void main() {',
@@ -126,10 +131,8 @@ export const fragmentShader = [
 		'vec4 color = mix(pink, purple, smoothstep(0.1, 0.5, h));',
 		'color = mix(color, blue, smoothstep(0.5, 0.9, h));',
 
-		'gl_FragColor = color * alpha;',
+		'vec4 texture = texture2D(map, vUv);',
 
-
-		//'vec4 texture = texture2D(map, vUv);',
-		//'gl_FragColor = texture * alpha;',
+		'gl_FragColor = color * (alpha*(1.0-i))+ texture * (alpha*i);',
 	'}'
 ].join('\n');

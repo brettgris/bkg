@@ -18,6 +18,7 @@ export function fetchProjects(){
 	return dispatch => {
 		const url = `${URL}/posts`;
 		superagent.get(url).end(function(err,res){
+
 			if (res) {
 				dispatch({
 					type: FETCH_PROJECTS,

@@ -8,6 +8,8 @@ import Material from './material/Material';
 //import SpotLight from './light/SpotLight';
 //import AmbientLight from './light/AmbientLight';
 
+import IMG from '../../images/gradient.jpg';
+
 import './Three.css';
 
 class ThreeView extends Component{
@@ -89,8 +91,15 @@ class ThreeView extends Component{
 	}
 
 	render(){
-		//const c = this.props.projects[ this.state.current ];
-		//const currentImage = (c) ? c.acf['main_image'] : '';
+		let currentImage = IMG;
+		if (!this.props.projects) {
+			currentImage = IMG;
+		} else {
+			currentImage = this.props.projects[ this.state.current ].acf['main_image'];
+		}
+		// console.log ( this.props.projects );
+		// const c = this.props.projects[ this.state.current ];
+		// const currentImage = (c) ? c.acf['main_image'] : '';
 
 		return(
 			<div className="three" ref="renderer">
@@ -103,7 +112,7 @@ class ThreeView extends Component{
 						animate={ this.props.animate }
 						homeanimate={ this.state.homeanimate }
 						type={ this.props.three }
-						//image={ currentImage }
+						image={ currentImage }
 					/>
 					{/* <SpotLight ref="highlight"
 						x={ this.state.xPerc }
