@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import Draggable from 'react-draggable';
 import ReactSVG from 'react-svg';
 
@@ -12,7 +11,7 @@ class Slider extends Component{
 		super(props);
 
 		this.state = {
-			y: 250/2-50/2
+			y: 0
 		};
 
 		this.calcPosition = this.calcPosition.bind(this);
@@ -23,14 +22,21 @@ class Slider extends Component{
 	}
 
 	componentDidMount(){
-		this.updateHandlePosition();
+		if (this.props.length&&this.props.current) this.updateHandlePosition(this.props.current, this.props.length);
+	}
+
+	componentWillReceiveProps(n){
+		if( !n.panel && this.current!==n.current && n.length ){
+			this.updateHandlePosition(n.current, n.length);
+		}
 	}
 
 	render(){
 		const panel = (this.props.panel) ? 'panel-open' : 'panel-closed';
+		const loading = (this.props.loaded) ? 'loaded' : 'loading';
 
 		return (
-			<div className={`slider ${panel}`}>
+			<div className={`slider ${panel} ${loading}`} ref="slider">
 				<div className="rail"></div>
 				<Draggable
 					axis="y"
@@ -49,11 +55,11 @@ class Slider extends Component{
 	}
 
 	handleStart(e,d){
-		this.props.updatePanel(true);
+		this.props.setProjectsMenu(true);
 	}
 
 	handleStop(e,d){
-		this.props.updatePanel(false);
+		this.props.setProjectsMenu(false);
 	}
 
 	handleDrag(e,d){
@@ -61,38 +67,32 @@ class Slider extends Component{
 	}
 
 	calcPosition(d){
-		const { handle } = this.refs;
-		const { size, onPercChange } = this.props;
+		const { handle,slider } = this.refs;
 		const { y } = d;
 
-		const height = (size - handle.offsetHeight)/2;
+		const height = slider.offsetHeight - handle.offsetHeight;
 
-		let perc = (y-height)/height;
-		if (perc<-1) perc = -1;
-		if (perc>1) perc = 1;
-
-		if (perc<0) onPercChange( perc*perc );
-		else onPercChange( perc*perc*-1 );
-
-		//onPercChange( perc*perc*perc*-1 );
-	}
-
-	updateHandlePosition(){
-		const { handle } = this.refs;
-		const { size } = this.props;
+		const pos = Math.min( Math.max(0, y), height );
 
 		this.setState({
-			y: size/2 - handle.offsetHeight/2
+			y: pos
 		});
-	}
-}
 
-Slider.propTypes = {
-	min: PropTypes.number.isRequired,
-	max: PropTypes.number.isRequired,
-	value: PropTypes.number,
-	onChange: PropTypes.func,
-	panel: PropTypes.bool
+		this.props.handlePanelChange(pos/height);
+	}
+
+	updateHandlePosition(c,l){
+		this.current = c;
+
+		const { handle, slider } = this.refs;
+		const height = slider.offsetHeight - handle.offsetHeight;
+
+		this.setState({
+			y: height * c/l
+		});
+
+		this.props.handlePanelChange(c/l);
+	}
 }
 
 export default Slider;

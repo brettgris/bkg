@@ -8,8 +8,6 @@ import Material from './material/Material';
 //import SpotLight from './light/SpotLight';
 //import AmbientLight from './light/AmbientLight';
 
-import IMG from '../../images/gradient.jpg';
-
 import './Three.css';
 
 class ThreeView extends Component{
@@ -23,8 +21,6 @@ class ThreeView extends Component{
 			yPerc: 0,
 			z: 800,
 			homeanimate: 0,
-			rotateVariableX: .2,
-			rotateVariableY: -.4,
 			current: 0
 		}
 		this.add = [];
@@ -40,7 +36,7 @@ class ThreeView extends Component{
 
 		this.handleResize();
 		window.addEventListener('resize',this.handleResize);
-		//window.addEventListener('mousemove', this.handleMouseMove);
+		window.addEventListener('mousemove', this.handleMouseMove);
 
 		this.refs.renderer.appendChild( this.renderer.domElement );
 
@@ -54,7 +50,7 @@ class ThreeView extends Component{
 
 	componentWillUnMount(){
 		window.removeEventListener('resize', this.handleResize);
-		//window.removeEventListener('mousemove', this.handleMouseMove);
+		window.removeEventListener('mousemove', this.handleMouseMove);
 	}
 
 	animate(){
@@ -91,15 +87,22 @@ class ThreeView extends Component{
 	}
 
 	render(){
-		let currentImage = IMG;
-		if (!this.props.projects) {
-			currentImage = IMG;
-		} else {
-			currentImage = this.props.projects[ this.state.current ].acf['main_image'];
+		let currentImage;
+		if (this.props.projects) {
+			currentImage = this.props.projects[ this.props.current ].acf['main_image'];
 		}
-		// console.log ( this.props.projects );
-		// const c = this.props.projects[ this.state.current ];
-		// const currentImage = (c) ? c.acf['main_image'] : '';
+
+		let ca = this.props.cameraanimate*2;
+		ca = Math.min(Math.max(-1, ca), 1);
+
+		const nx = (this.state.xPerc<0) ? -1 : 1;
+		const ny = (this.state.yPerc<0) ? -1 : 1;
+
+		const xPerc = 200*ca + this.state.xPerc*this.state.xPerc*nx*20;
+		const rotateY = xPerc/-200 * .1;
+
+		const yPerc = this.state.yPerc;
+		const rotateX = this.state.yPerc*this.state.yPerc*ny* -.05;
 
 		return(
 			<div className="three" ref="renderer">
@@ -129,12 +132,12 @@ class ThreeView extends Component{
 					near={ .1 }
 					far={ 1000 }
 
-					x={ this.state.xPerc*.65 }
-					y={ this.state.yPerc*-.65 }
+					x={ xPerc }
+					y={ yPerc }
 					z={ this.state.z }
 
-					rotateVariableX={ this.state.rotateVariableX }
-					rotateVariableY={ this.state.rotateVariableY }
+					rotateX={ rotateX }
+					rotateY={ rotateY }
 				/>
 			</div>
 		);
@@ -147,6 +150,8 @@ function mapStateToProps(state) {
 		current: state.current,
 		homeanimate: state.homeanimate,
 		animate: state.animate,
+		cameraanimate: state.cameraanimate,
+		page: state.page,
 		three: state.three
 	}
 }

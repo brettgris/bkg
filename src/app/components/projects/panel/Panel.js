@@ -9,78 +9,44 @@ class Panel extends Component{
 
 		this.off = 200;
 		this.focus = 400;
-		this.moveVariable = 7;
 
 		this.state = {
-			y: this.focus/-2
-		};
+			y: 0
+		}
 
-		this.startLoop = this.startLoop.bind(this);
-		this.stopLoop = this.stopLoop.bind(this);
-		this.loop = this.loop.bind(this);
+		this.updatePosition = this.updatePosition.bind(this);
 	}
 
 	componentDidMount(){
 		this.count = this.props.data.length-1;
-		this.max = (this.focus + this.count*this.off)*-1+this.off/2;
-		this.min = this.focus/-2;
-		this.calc = this.min*-1;
+		this.panelHeight = this.count*this.off;
 
-		this.setState({
-			y: (this.props.current*this.off+this.calc)*-1
-		});
+		this.updatePosition(this.props.perc);
 	}
 
 	componentWillReceiveProps(n){
-		if (!this.update && n.update) this.startLoop();
+		this.updatePosition(n.perc);
 	}
 
-	componentWillUnmount(){
-		this.stopLoop();
-	}
-
-	startLoop(){
-
-
-		this.update = true;
-		this.frame = window.requestAnimationFrame( this.loop );
-	}
-
-	stopLoop(){
-		window.cancelAnimationFrame( this.frame );
-		this.update = false;
-	}
-
-	loop(){
-		let pos = this.state.y + (this.props.perc*this.moveVariable);
-		if (pos>this.min) pos = this.min;
-		else if (pos<this.max) pos = this.max;
-
-		let current = Math.round(((pos*-1)-this.calc)/this.off);
-		if ( current<0 ) current = 0;
-		else if ( current>this.count) current = this.count;
-
-		if (current!==this.props.current) this.props.setCurrent(current);
-
-		if (pos!==this.state.y) {
-			this.setState({
-				y: pos
-			});
-		}
-
-		this.frame = window.requestAnimationFrame( this.loop );
+	updatePosition(perc){
+		this.setState({
+			y: this.focus/2+this.panelHeight*perc
+		});
 	}
 
 	render(){
-		if (!this.props.data) return null;
+		if (this.props.page!=="projectsmenu") return null;
+
+		const pa = this.props.pageanimate;
 
 		const style = {
-			transform: `translateY(${this.state.y}px)`
+			transform: `translateY(${0-this.state.y}px)`,
+			opacity: pa
 		}
 
 		return(
 			<div className="panel">
-				<ul style={style} className="container">
+				<ul style={style} className="container" ref="list">
 					{ this.renderItems() }
 				</ul>
 			</div>

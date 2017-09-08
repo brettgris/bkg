@@ -1,4 +1,4 @@
-const particlespread = [
+const imagespread = [
 	//Circle
 	'p.x = ( pRadius * cos( angle ) ) * t + (p.x + dist.x) * (1.0-t);',
 	'p.y = ( pRadius * sin( angle ) ) * t + (p.y + dist.y) * (1.0-t);',
@@ -15,4 +15,4 @@ const particlespread = [
 	'gl_Position = projectionMatrix * modelViewMatrix * vec4(p, 1.0 );'
 ].join('\n');
 
-export default particlespread;
+export default imagespread;

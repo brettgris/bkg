@@ -7,9 +7,11 @@ class Contact extends Component{
 	render(){
 		if (this.props.page!=="contact") return null;
 
-		const scale = .5*this.props.pageanimate + .5;
-		const y = 100-100*this.props.pageanimate;
-		const opacity = this.props.pageanimate;
+		const pa = 1-this.props.pageanimate;
+
+		const scale = .5*pa + .5;
+		const y = 100-100*pa;
+		const opacity = pa;
 
 		const style={
 			transform: `scale(${scale}) translateY(${y}%)`,

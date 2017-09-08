@@ -3,19 +3,23 @@ import { routerReducer } from 'react-router-redux';
 
 import ProjectsReducer from './ProjectsReducer';
 import CurrentReducer from './CurrentReducer';
+import ProjectsMenuReducer from './ProjectsMenuReducer';
 import ThreeReducer from './ThreeReducer';
 import AnimateReducer from './AnimateReducer';
 import PageAnimateReducer from './PageAnimateReducer';
 import HomeAnimateReducer from './HomeAnimateReducer';
+import CameraAnimateReducer from './CameraAnimateReducer';
 import PageReducer from './PageReducer';
 
 export default combineReducers({
   routing: routerReducer,
   projects: ProjectsReducer,
   current: CurrentReducer,
+  projectmenu: ProjectsMenuReducer,
   three: ThreeReducer,
   animate: AnimateReducer,
   pageanimate: PageAnimateReducer,
   homeanimate: HomeAnimateReducer,
+  cameraanimate: CameraAnimateReducer,
   page: PageReducer
 });

@@ -1,29 +1,25 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setCurrent,setThree} from '../../../actions/actions';
-import {
-		THREE_SPREAD_IN,THREE_SPREAD_OUT,
-		THREE_IMAGE_IN,THREE_IMAGE_OUT,
-	} from '../../../actions/ThreeStates';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {setCurrent,setProjectsMenu} from '../../../actions/actions';
+// import {
+// 		THREE_SPREAD_IN,THREE_SPREAD_OUT,
+// 		THREE_IMAGE_IN,THREE_IMAGE_OUT,
+// 	} from '../../../actions/ThreeStates';
 
-import Intro from './intro/Intro';
 import Controls from './controls/Controls';
 import Panel from './panel/Panel';
+import View from './view/View';
 
-import './Home.css';
+import './Projects.css';
 
 class Home extends Component{
 	constructor(props){
 		super(props);
 
 		this.state = {
-			intro: true,
-			panel: false,
 			current: 0,
-			perc: 0,
-			imageOut: true
+			perc: 0
 		}
 
 		this.handleChange = this.handleChange.bind(this);
@@ -38,87 +34,51 @@ class Home extends Component{
 		else if ( c>l ) c=0;
 
 		this.props.setCurrent( c );
-
-		const ThreeType = (this.state.imageOut) ? THREE_IMAGE_OUT : THREE_IMAGE_IN;
-		this.props.setThree( ThreeType );
-
-		this.setState({
-			imageOut: !this.state.imageOut
-		});
 	}
 
-	handlePanelChange(b){
-		if ( b ) this.props.setThree( THREE_SPREAD_OUT );
-		else this.props.setThree( THREE_SPREAD_IN );
+	handlePanelChange(perc){
+		const l = this.props.projects.length-1;
+		const c = Math.round( perc/(1/l) );
+
+		if ( c!==this.props.current) this.props.setCurrent(c);
 
 		this.setState({
-			panel:b,
-			perc: 0
+			perc: perc
 		});
 	}
 
 	render(){
+		if (!this.props.projects) return null;
+
+		if (this.props.page!=="projects"&&this.props.page!=="projects1"&&this.props.page!=="projects2"&&this.props.page!=="projectsmenu") return null;
+
 		return(
-			<section className="home">
-				<ReactCSSTransitionGroup
-					transitionName="animate"
-	         	transitionEnterTimeout={400}
-	         	transitionLeaveTimeout={400}
-				>
-					{ this.renderIntro() }
-				</ReactCSSTransitionGroup>
-				<ReactCSSTransitionGroup
-					transitionName="animate"
-	         	transitionEnterTimeout={400}
-	         	transitionLeaveTimeout={400}
-				>
-					{ this.renderControls() }
-				</ReactCSSTransitionGroup>
-				<ReactCSSTransitionGroup
-					transitionName="animate"
-	         	transitionEnterTimeout={1000}
-	         	transitionLeaveTimeout={400}
-				>
-					{ this.renderPanel() }
-				</ReactCSSTransitionGroup>
+			<section className="projects">
+				<Controls
+					panel={ this.props.projectmenu }
+					current={ this.props.current }
+					setProjectsMenu={ this.props.setProjectsMenu }
+					next={ ()=>this.handleChange(1) }
+					prev={ ()=>this.handleChange(-1) }
+					pageanimate={this.props.pageanimate}
+					handlePanelChange={ this.handlePanelChange }
+					page={ this.props.page }
+				/>
+				<Panel
+					key="panel"
+					data={ this.props.projects }
+					current={ this.props.current }
+					perc={ this.state.perc }
+					pageanimate={this.props.pageanimate}
+					page={ this.props.page }
+				/>
+				<View
+					pageanimate={this.props.pageanimate}
+					page={ this.props.page }
+					current={ this.props.current }
+					data={ this.props.projects }
+				/>
 			</section>
-		);
-	}
-
-	renderIntro(){
-		if (!this.state.intro) return null;
-
-		return(
-			<Intro />
-		)
-	}
-
-	renderControls(){
-		if ( this.state.intro ) return null;
-
-		return(
-			<Controls
-				panel={ this.state.panel }
-				updatePanel={ this.handlePanelChange }
-				onPercChange={ (n)=>this.setState({perc:n}) }
-				next={ ()=>this.handleChange(1) }
-				prev={ ()=>this.handleChange(-1) }
-			/>
-		)
-	}
-
-	renderPanel(){
-		if ( this.state.intro || !this.state.panel || !this.props.projects ) return null;
-
-		return (
-			<Panel
-				key="panel"
-				data={ this.props.projects }
-				perc={ this.state.perc }
-				update={ this.state.panel }
-				current={ this.props.current }
-				setCurrent={ this.props.setCurrent }
-			/>
 		);
 	}
 }
@@ -126,13 +86,16 @@ class Home extends Component{
 function mapStateToProps(state) {
 	return {
 		projects: state.projects,
-		current: state.current
+		current: state.current,
+		page: state.page,
+		pageanimate: state.pageanimate,
+		projectmenu: state.projectmenu
 	};
 }
 
 function mapDispatchToProps(dispatch){
 	return bindActionCreators( {
-		setCurrent,setThree
+		setCurrent,setProjectsMenu
 	}, dispatch);
 }
 

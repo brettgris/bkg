@@ -21,7 +21,7 @@ class Header extends Component {
 		if (routing==="/contact"){
 			settings.copy = "View Projects";
 			settings.color = "whitetoblack";
-			settings.to = "/work";
+			settings.to = "/projects";
 		}
 
 		//if (!this.ignore) return null;

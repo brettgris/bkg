@@ -13,6 +13,7 @@ import ThreeView from './components/three/ThreeView';
 import Animate from './components/animate/Animate';
 import Home from './components/home/Home';
 import Contact from './components/contact/Contact';
+import Projects from './components/projects/Projects';
 
 class App extends Component {
 	componentDidMount(){
@@ -26,6 +27,7 @@ class App extends Component {
 				<ThreeView />
 				<Home />
 				<Contact />
+				<Projects />
 				<Animate />
 			</div>
 		);

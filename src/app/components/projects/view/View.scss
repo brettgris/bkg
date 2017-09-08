@@ -1,83 +1,38 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/transition.scss';
 
-.cast{
+.projects{
 	.view{
+		width: 50%;
+		height: 100vh;
+		left: 50%;
 		position: absolute;
-		width: 101%;
-		height: 101%;
-		top: -1px;
-		z-index: 1;
 
-		&>div{
-			position: absolute;
-			width: 100%;
-			height: 100%;
-			background-size: cover;
-			background-position: center center;
-			background-repeat: no-repeat;
-			top: 0;
-			left: 50%;
-			top: 50%;
-			transform: translate(-50%, -50%);
-
-			.overlay{
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				background: rgba($black,.65);
-
-				&.animate-enter {
-					opacity: .01;
-				}
-
-				&.animate-enter.animate-enter-active {
-					opacity: 1;
-					transition: opacity $transition-speed/2 $transition-ease;
-				}
-
-				&.animate-leave {
-					opacity: 1;
-				}
-
-				&.animate-leave.animate-leave-active {
-					opacity: .01;
-					transition: opacity $transition-speed/2 $transition-ease;
-				}
-			}
+		.line{
+			background: $white;
+			height: 2px;
+			margin-top: 30px;
 		}
 
-		&.animate-enter {
-			&>div{
-				opacity: .01;
-				width: 90%;
-				height: 90%;
-			}
-		}
+		.copy{
+			width: 500px;
+			margin-left: 25px;
 
-		&.animate-enter.animate-enter-active {
-			&>div{
-				opacity: 1;
-				width: 100%;
-				height: 100%;
-				transition: all $transition-speed $transition-ease $transition-speed;
+			h2{
+				color: $white;
 			}
-		}
 
-		&.animate-leave {
-			&>div{
-				opacity: 1;
-				width: 100%;
-				height: 100%;
+			h3{
+				color: $white;
 			}
-		}
 
-		&.animate-leave.animate-leave-active {
-			&>div{
-				opacity: .01;
-				width: 90%;
-				height: 90%;
-				transition: all $transition-speed/2 $transition-ease;
+			h6{
+				color: $white;
+			}
+
+			p{
+				color: $white;
+				text-align: justify;
 			}
 		}
 	}

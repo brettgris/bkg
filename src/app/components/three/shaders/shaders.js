@@ -8,7 +8,10 @@ import bottomtransition from './bottomtransition';
 import image from './image';
 import imagestream from './imagestream';
 
-// import imagetransition from './imagetransition';
+import imagespread from './imagespread';
+import imagetransition from './imagetransition';
+
+
 // import particlespread from './particlespread';
 // import sidetransition from './sidetransition';
 // import bottomtransition from './bottomtransition';
@@ -41,7 +44,11 @@ export const vertexShader = [
 	'attribute vec3 rand;',
 
 	'varying vec2 vUv;',
+	//I - FOR TEXTURE1 ALPHA
 	'varying float i;',
+	//I - FOR TEXTURE2 ALPHA
+	'varying float m;',
+	//H - X POSITION FOR GRADIENT
 	'varying float h;',
 	'varying float alpha;',
 
@@ -55,9 +62,9 @@ export const vertexShader = [
 		'vec3 p = position;',
 		'float t = faceTime(perc,delay,time);',
 		'h = mod(home+rand.x,1.0);',
+		'm = 0.0;',
 
 		'float pRadius = 850.0;',
-
 
 		/**********************
 		STREAM
@@ -87,11 +94,11 @@ export const vertexShader = [
 			'alpha = 1.0*t + sin(h*PI)*(1.0-t);',
 			'i = 0.0;',
 
-		//FROM STREAM
+		//FROM IMAGE
 		'} else if (pattern==1.2){',
 			bottomtransition,
 			'alpha = 1.0;',
-			'i = 0.0;',
+			'i = 1.0-t;',
 
 
 		/**********************
@@ -107,6 +114,18 @@ export const vertexShader = [
 			'alpha = 1.0*t + sin(h*PI)*(1.0-t);',
 			'i = t;',
 
+		'} else if (pattern==2.4){',
+			imagespread,
+			'alpha = 0.1 + 0.9*(1.0-t);',
+			'i = 1.0-t;',
+
+		'} else if (pattern==2.5){',
+			imagetransition,
+			//imagetransition,
+			'alpha = 1.0;',
+			'i = t;',
+			'm = 1.0-t;',
+
 		/**********************
 		SIDE
 		**********************/
@@ -120,8 +139,10 @@ export const fragmentShader = [
 	'varying vec2 vUv;',
 	'varying float alpha;',
 	'varying float h;',
+	'varying float m;',
 	'varying float i;',
 	'uniform sampler2D map;',
+	'uniform sampler2D map2;',
 
 	'void main() {',
 		'vec4 pink = vec4(1.0,0.13725490196,0.29019607843,1.0);',
@@ -132,7 +153,8 @@ export const fragmentShader = [
 		'color = mix(color, blue, smoothstep(0.5, 0.9, h));',
 
 		'vec4 texture = texture2D(map, vUv);',
+		'vec4 texture2 = texture2D(map2, vUv);',
 
-		'gl_FragColor = color * (alpha*(1.0-i))+ texture * (alpha*i);',
+		'gl_FragColor = color * (alpha*( (1.0-i)-m ) )+ texture * (alpha*i) + texture2 * (alpha*m);',
 	'}'
 ].join('\n');

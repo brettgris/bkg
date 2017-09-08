@@ -37,8 +37,8 @@ class Utils {
 			const cp1 = this.controlPoint(center,45,radius);
 			const cp2 = this.controlPoint(center,135,radius);
 
-			const t = THREE.Math.randFloat(0.3, 0.7),
-				d = THREE.Math.randFloat(0.1, 0.3);
+			const t = THREE.Math.randFloat(0.4, 0.6),
+				d = THREE.Math.randFloat(0.2, 0.4);
 
 			const r = {
 				x: THREE.Math.randFloat(0.0, 1.0),

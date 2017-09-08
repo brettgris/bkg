@@ -9,7 +9,7 @@ class Material extends Component{
 
 		const imageWidth = 2048,
 			imageHeight = 1365,
-			size = 600;
+			size = 700;
 
 		const plane = new THREE.PlaneGeometry( size, size*(imageHeight/imageWidth), 1, 1 );
 
@@ -22,12 +22,14 @@ class Material extends Component{
 
 		Utils.setShaderVars(this.geometry, plane);
 		this.texture = new THREE.TextureLoader();
+		this.texture2 = new THREE.TextureLoader();
 
 		this.uniforms = {
 			perc: { type: 'f', value: 0.0 },
 			home: { type: 'f', value: 0.0 },
 			pattern: { type: 'f', value: 1.0 },
-			map: { type: 't', value: this.texture }
+			map: { type: 't', value: this.texture },
+			map2: { type: 't', value: this.texture2 }
 		}
 
 		this.material = new THREE.ShaderMaterial({
@@ -60,6 +62,10 @@ class Material extends Component{
 	updateAnimate(n){
 		this.uniforms.perc.value = n;
 
+		if (n>.5) this.uniforms.map2.value = this.uniforms.map.value;
+
+		console.log( n );
+
 		this.animate = n;
 	}
 
@@ -70,10 +76,13 @@ class Material extends Component{
 	}
 
 	updateImage(n){
-		this.uniforms.map.value = new THREE.TextureLoader().setCrossOrigin("anonymous").load(n);;
+		this.uniforms.map2.value = this.uniforms.map.value;
+		this.uniforms.map.value = new THREE.TextureLoader().setCrossOrigin("anonymous").load(n);
 
 		this.image = n;
 	}
+
+
 
 	updateType(n){
 		this.uniforms.pattern.value = n;

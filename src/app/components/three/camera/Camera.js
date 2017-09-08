@@ -22,12 +22,14 @@ class Camera extends Component{
 		this.camera.near = n.near;
 		this.camera.far = n.far;
 
-		// this.camera.position.x = n.x;
-		// this.camera.position.y = n.y;
+		this.camera.position.x = n.x;
+		this.camera.position.y = n.y;
 		this.camera.position.z = n.z;
-		//
-		// this.camera.rotation.x = n.rotateVariableX * Math.sin(n.y);
-		// this.camera.rotation.y = n.rotateVariableY * Math.sin(n.x);
+
+		this.camera.rotation.x = n.rotateX;
+		this.camera.rotation.y = n.rotateY;
+		//this.camera.rotation.x = n.rotateVariableX * Math.sin(n.y);
+		//this.camera.rotation.y = n.rotateVariableY * Math.sin(n.x);
 
 		this.camera.updateProjectionMatrix();
 	}

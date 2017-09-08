@@ -78,4 +78,10 @@ $slider-handle-height: 50px;
 			}
 		}
 	}
+
+	&.loading{
+		.handle{
+			transition: none !important;
+		}
+	}
 }

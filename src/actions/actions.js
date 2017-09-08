@@ -100,6 +100,20 @@ export function setPageAnimate(n){
 }
 
 /***********************
+PAGE ANIMATE
+***********************/
+export const CAMERA_ANIMATE = "CAMERA_ANIMATE";
+
+export function setCameraAnimate(n){
+	return dispatch => {
+		dispatch({
+				type: CAMERA_ANIMATE,
+				payload: n
+		});
+	}
+}
+
+/***********************
 HOME ANIMATE
 ***********************/
 export const HOME_ANIMATE = "HOME_ANIMATE";
@@ -108,6 +122,20 @@ export function setHomeAnimate(b){
 	return dispatch => {
 		dispatch({
 				type: HOME_ANIMATE,
+				payload: b
+		});
+	}
+}
+
+/***********************
+PROJECTS MENU
+***********************/
+export const PROJECTS_MENU = "PROJECTS_MENU";
+
+export function setProjectsMenu(b){
+	return dispatch => {
+		dispatch({
+				type: PROJECTS_MENU,
 				payload: b
 		});
 	}
