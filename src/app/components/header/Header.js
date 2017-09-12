@@ -10,7 +10,7 @@ import Logo from 'app/images/bkg.svg';
 
 class Header extends Component {
 	render(){
-		const { routing } = this.props;
+		const { page } = this.props;
 
 		let settings = {
 			copy: "Get In Touch",
@@ -18,10 +18,14 @@ class Header extends Component {
 			to: "/contact"
 		}
 
-		if (routing==="/contact"){
+		if (page==="contact"){
 			settings.copy = "View Projects";
 			settings.color = "whitetoblack";
 			settings.to = "/projects";
+		} else if (page==="project"){
+			settings.copy = "Get In Touch";
+			settings.color = "blacktocolor";
+			settings.to = "/contact";
 		}
 
 		//if (!this.ignore) return null;
@@ -41,7 +45,7 @@ class Header extends Component {
 
 function mapStateToProps(state) {
 	return {
-		routing: state.routing.location.pathname
+		page: state.page
 	}
 }
 

@@ -1,38 +1,85 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/transition.scss';
+@import 'app/styles/type.scss';
 
 .projects{
 	.view{
-		width: 50%;
+		width: 50vw;
 		height: 100vh;
-		left: 50%;
 		position: absolute;
 
 		.line{
 			background: $white;
 			height: 2px;
-			margin-top: 30px;
+			margin: 0 20px;
 		}
 
 		.copy{
 			width: 500px;
-			margin-left: 25px;
 
 			h2{
 				color: $white;
+
+
+				svg{
+					fill: $white;
+					width: 90%;
+					float: right;
+				}
 			}
 
 			h3{
+				padding-top: 5px;
 				color: $white;
+				text-transform: uppercase;
+				font-weight: 700;
+				font-size: 36px;
+				line-height: 30px;
+				letter-spacing: 5px;
+				font-family: $font-family-body;
 			}
 
 			h6{
-				color: $white;
+				color: $secondary-color;
+				margin: 10px 0 10px 0;
+				font-size: 22px;
+				line-height: 26px;
 			}
 
 			p{
 				color: $white;
 				text-align: justify;
+
+				//direction:rtl;
+			}
+		}
+
+		&.even{
+			left: 50vw;
+			text-align: left;
+
+			.copy {
+				h2 svg{
+					float: left;
+				}
+
+				p{
+					text-align-last: left;
+				}
+			}
+		}
+
+		&.odd{
+			left: 0;
+			text-align: right;
+
+			.copy {
+				h2 svg{
+					float: right;
+				}
+				p{
+					text-align-last: right;
+				}
 			}
 		}
 	}

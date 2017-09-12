@@ -489,3 +489,6 @@ main {
   main > span > section {
     width: 100vw;
     height: 100vh; }
+
+.clear {
+  clear: both; }

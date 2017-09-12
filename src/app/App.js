@@ -14,6 +14,7 @@ import Animate from './components/animate/Animate';
 import Home from './components/home/Home';
 import Contact from './components/contact/Contact';
 import Projects from './components/projects/Projects';
+import Project from './components/project/Project';
 
 class App extends Component {
 	componentDidMount(){
@@ -28,6 +29,7 @@ class App extends Component {
 				<Home />
 				<Contact />
 				<Projects />
+				<Project />
 				<Animate />
 			</div>
 		);

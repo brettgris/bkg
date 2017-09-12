@@ -15,8 +15,12 @@ import {
 	IMAGE_FROM_STREAM,
 
 	IMAGE_PANEL,
-	IMAGE_CHANGE
+	IMAGE_CHANGE,
 
+	SIDE_ON_LOAD,
+	SIDE_FROM_STREAM,
+	SIDE_FROM_BOTTOM,
+	SIDE_FROM_IMAGE
 } from '../../../actions/ThreeStates';
 
 class Animate extends Component{
@@ -86,6 +90,8 @@ class Animate extends Component{
 							this.tl.call( ()=>{
 								this.setAV(0);
 								this.setCV(from);
+								this.props.setPage("contact");
+								this.setPV(1);
 							});
 							this.tl.to( this, 1, {av:1, cv:0, onUpdate:()=>{
 								this.handleThreeAnimation();
@@ -96,8 +102,6 @@ class Animate extends Component{
 							this.tl.call( ()=>{
 								this.props.setThree(BOTTOM_ON_LOAD);
 								this.props.setHomeAnimate(false);
-								this.props.setPage("contact");
-								this.setPV(1);
 							});
 							this.tl.to( this, .4, {pv:0, onUpdate:this.handlePageAnimation} );
 
@@ -116,7 +120,7 @@ class Animate extends Component{
 					//console.log( "contact", this.page);
 					break;
 
-				//TO PROJECTS1
+				//TO PROJECTS
 				case "projects1":
 				case "projects2":
 					switch(this.page){
@@ -145,6 +149,42 @@ class Animate extends Component{
 							}} );
 
 
+
+							//COMPLETE SETTINGS
+							this.tl.call( ()=>{
+								this.props.setThree(IMAGE_ON_LOAD);
+								this.props.setHomeAnimate(false);
+								this.props.setPage("projects");
+								this.setPV(1);
+							});
+
+							this.tl.to( this, .4, {pv:0, onUpdate:this.handlePageAnimation} );
+
+							break;
+
+						case "project":
+							this.props.setThree(SIDE_FROM_IMAGE);
+							this.props.setHomeAnimate(true);
+							this.clearAnimations();
+
+							to = (page==="projects1") ? 1 : -1;
+
+							//CONTACT OUT
+							this.tl.call(()=>{
+								this.setPV(0);
+								this.props.setPage("project");
+								this.setCV(0);
+							});
+							this.tl.to(this, .4, {pv:1, onUpdate:this.handlePageAnimation} );
+
+							//SPREAD IN
+							this.tl.call(()=>{
+								this.setAV(1);
+							});
+							this.tl.to( this, 1, {av:0, cv: to, onUpdate:()=>{
+								this.handleThreeAnimation();
+								this.handleCameraAnimation();
+							}} );
 
 							//COMPLETE SETTINGS
 							this.tl.call( ()=>{
@@ -201,13 +241,14 @@ class Animate extends Component{
 							this.props.setThree(IMAGE_PANEL);
 							this.clearAnimations();
 
+							from = (page==="projects1") ? -1 : 1;
 							to = (page==="projects1") ? 1 : -1;
 
 							this.tl.call(()=>{
 								this.setAV(1);
 								this.props.setPage("projectsmenu");
 								this.setPV(1);
-								this.setCV(0);
+								//this.setCV(from);
 							});
 
 							this.tl.to( this, 1, {av:0, pv: 0, cv: to, onUpdate:()=>{
@@ -230,7 +271,6 @@ class Animate extends Component{
 
 						case "projects1":
 						case "projects2":
-							this.props.setThree(IMAGE_CHANGE);
 							this.clearAnimations();
 
 							from = (page==="projects1") ? -1 : 1;
@@ -240,6 +280,7 @@ class Animate extends Component{
 
 							this.tl.call(()=>{
 								this.setAV(0);
+								this.props.setThree(IMAGE_CHANGE);
 								this.setPV(1);
 								this.setCV(from);
 								this.props.setPage(side);
@@ -250,9 +291,15 @@ class Animate extends Component{
 								this.handleCameraAnimation();
 							}} );
 
-							// this.tl.to( this, .4, {pv: 0, onUpdate:()=>{
-							// 	this.handlePageAnimation();
-							// }} );
+							this.tl.call( ()=>{
+								this.props.setThree(IMAGE_ON_LOAD);
+								this.setProjectPage();
+								this.setPV(1);
+							});
+
+							this.tl.to( this, .4, {pv: 0, onUpdate:()=>{
+								this.handlePageAnimation();
+							}} );
 
 							break;
 
@@ -273,21 +320,99 @@ class Animate extends Component{
 
 						//FROM PROJECTS
 						default:
-							this.props.setThree(IMAGE_PANEL);
+
 							this.clearAnimations();
 
 							this.tl.call(()=>{
 								this.setAV(0);
+								this.props.setThree(IMAGE_PANEL);
 								this.props.setPage("projectsmenu");
 								this.setPV(0);
 							});
 
-							this.tl.to( this, 1, {av:1, pv: 1, cv:0, onUpdate:()=>{
+							this.tl.to( this, 1, {av:1, pv: 1, onUpdate:()=>{
 								this.handleThreeAnimation();
 								this.handlePageAnimation();
-								this.handleCameraAnimation();
+								//this.handleCameraAnimation();
 							}} );
 
+							break;
+					}
+					break;
+
+				//TO PROJECT
+				case "project":
+					switch(this.page){
+						//FROM CONTACT
+						case "contact":
+							break;
+
+						//FROM PROJECTS
+						case "projects1":
+						case "projects2":
+							this.props.setHomeAnimate(false);
+							this.clearAnimations();
+
+							from = (this.page==="projects1") ? 1 : -1;
+
+							// PROJECT OUT
+							this.tl.call( ()=>{
+							 	this.setAV(0);
+								this.props.setThree(SIDE_FROM_IMAGE);
+								this.props.setPage("project");
+							 	this.setCV(from);
+								this.setPV(1);
+							});
+
+							this.tl.to( this, 1, {av:1, cv:0, onUpdate:()=>{
+							 	this.handleThreeAnimation();
+							 	this.handleCameraAnimation();
+							}} );
+
+							//DETAIL IN
+							this.tl.call( ()=>{
+								this.props.setThree(SIDE_ON_LOAD);
+								this.props.setHomeAnimate(false);
+							});
+							this.tl.to( this, .4, {pv:0, onUpdate:this.handlePageAnimation} );
+
+							break;
+
+						//FROM HOME
+						case "":
+							this.props.setThree(SIDE_FROM_STREAM);
+							this.props.setHomeAnimate(true);
+							this.clearAnimations();
+
+							//CONTACT OUT
+							this.tl.call( ()=>{
+								this.setAV(0);
+								this.setPV(0);
+								this.setCV(0);
+							});
+							this.tl.to( this, 1, {av:1, pv:1, onUpdate:()=>{
+								this.handleThreeAnimation();
+								this.handlePageAnimation();
+							}} );
+
+							//SPREAD IN
+							this.tl.call( ()=>{
+								this.props.setThree(SIDE_ON_LOAD);
+								this.props.setHomeAnimate(false);
+								this.props.setPage("project");
+								this.setPV(1);
+							});
+							this.tl.to( this, .4, {pv:0, onUpdate:this.handlePageAnimation} );
+							break;
+
+						//ON LOAD
+						default:
+							this.props.setThree(SIDE_ON_LOAD);
+							this.props.setHomeAnimate(false);
+							this.props.setPage("project");
+							this.props.setPageAnimate(0);
+							this.props.setCameraAnimate(0);
+							this.props.setAnimate(1);
 							break;
 					}
 					break;
@@ -326,6 +451,39 @@ class Animate extends Component{
 							});
 
 							break;
+
+						//FROM CONTACT
+						case "project":
+							this.props.setThree(SIDE_FROM_STREAM);
+							this.props.setHomeAnimate(true);
+							this.clearAnimations();
+
+							//CONTACT OUT
+							this.tl.call(()=>{
+								this.setPV(0);
+								this.props.setPage("project");
+							});
+							this.tl.to(this, .4, {pv:1, onUpdate:this.handlePageAnimation} );
+
+							//SPREAD IN
+							this.tl.call(()=>{
+								this.setAV(1);
+								this.setPV(1);
+								this.props.setPage("home");
+							});
+							this.tl.to( this, 1, {av:0, pv:0, onUpdate:()=>{
+								this.handleThreeAnimation();
+								this.handlePageAnimation();
+							}} );
+
+							//COMPLETE SETTINGS
+							this.tl.call( ()=>{
+								this.props.setThree(STREAM_ON_LOAD);
+								this.props.setHomeAnimate(true);
+								this.props.setPage("home");
+							});
+
+								break;
 
 						//FROM PROJECTS
 						case "projects1":

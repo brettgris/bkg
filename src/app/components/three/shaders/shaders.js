@@ -11,10 +11,9 @@ import imagestream from './imagestream';
 import imagespread from './imagespread';
 import imagetransition from './imagetransition';
 
-
-// import particlespread from './particlespread';
-// import sidetransition from './sidetransition';
-// import bottomtransition from './bottomtransition';
+import side from './side';
+import sidetransition from './sidetransition';
+import sidestream from './sidestream';
 
 export const vertexShader = [
 	'#define PI 3.14159',
@@ -98,27 +97,32 @@ export const vertexShader = [
 		'} else if (pattern==1.2){',
 			bottomtransition,
 			'alpha = 1.0;',
-			'i = 1.0-t;',
+			'i = 1.0;',
 
 
 		/**********************
 		IMAGE
 		**********************/
+
+		//LOAD
 		'} else if (pattern==2.2){',
 			image,
 			'alpha = 1.0;',
 			'i = 1.0;',
 
+		//FROM HOME
 		'} else if (pattern==2.0){',
 			imagestream,
 			'alpha = 1.0*t + sin(h*PI)*(1.0-t);',
 			'i = t;',
 
+		//PROJECT MENU
 		'} else if (pattern==2.4){',
 			imagespread,
 			'alpha = 0.1 + 0.9*(1.0-t);',
 			'i = 1.0-t;',
 
+		//CHANGE IMAGES
 		'} else if (pattern==2.5){',
 			imagetransition,
 			//imagetransition,
@@ -130,6 +134,23 @@ export const vertexShader = [
 		SIDE
 		**********************/
 
+		//ON LOAD
+		'} else if (pattern==3.3){',
+			side,
+			'alpha = 1.0;',
+			'i = 0.0;',
+
+		//FROM IMAGE
+		'} else if (pattern==3.2){',
+			sidetransition,
+			'alpha = 1.0;',
+			'i = 1.0;',
+
+		//FROM HOME
+		'} else if (pattern==3.0){',
+			sidestream,
+			'alpha = 1.0*t + sin(h*PI)*(1.0-t);',
+			'i = 0.0;',
 
 		'}',
 	'}'

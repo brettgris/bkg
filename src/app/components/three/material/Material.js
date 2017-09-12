@@ -64,8 +64,6 @@ class Material extends Component{
 
 		if (n>.5) this.uniforms.map2.value = this.uniforms.map.value;
 
-		console.log( n );
-
 		this.animate = n;
 	}
 

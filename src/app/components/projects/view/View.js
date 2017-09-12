@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactSVG from 'react-svg';
 
 import Button from '../../button/Button';
 
@@ -15,9 +16,13 @@ class View extends Component{
 			width: 100*(1-ha)
 		}
 
+		const side = (this.props.current%2===0) ? 'even' : 'odd';
+		const align = (this.props.current%2===0) ? 'start' : 'end';
+		const direction = (this.props.current%2===0) ? 'flex-row' : 'flex-row-reverse';
+
 		return(
-			<div className='view d-flex align-items-center justify-content-start'>
-				<div className="d-flex align-items-center">
+			<div className={`view d-flex align-items-center justify-content-${align} ${side}`}>
+				<div className={`d-flex align-items-center ${direction}`}>
 					<div className="line" style={lstyle}></div>
 					{ this.renderCopy() }
 				</div>
@@ -28,12 +33,19 @@ class View extends Component{
 	renderCopy(){
 		if (this.props.pageanimate!==0) return null;
 
+		const data = this.props.data[this.props.current];
+
+		if (!data) return null;
+
 		return(
 			<div className="copy">
-				<h2>Title Art</h2>
-				<h3>Project Name</h3>
-				<h6>DESC HERE</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+				<h2>
+					<ReactSVG path={data.acf['title_art']} className="svg talogo" />
+					<div className="clear"></div>
+				</h2>
+				<h3>{data.acf.display}</h3>
+				<h6>{data.acf['project_role']}</h6>
+				<p>{data.acf['project_description']}</p>
 				<Button copy="VIEW PROJECT" to="/project/project-name" color="whitetocolor" />
 			</div>
 		)

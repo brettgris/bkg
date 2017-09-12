@@ -43,7 +43,7 @@ class Home extends Component{
 					<div className="content col-11 col-lg-10 col-xl-8">
 						<p style={copystyle}>I'm a well-versed visual and interaction designer with over 10 years of professional experience in the digital space with a passion for delivering rewarding and engaging digital experiences by leveraging the latest web trends, technologies and frameworks.</p>
 						<div style={buttonstyle}>
-							<Button copy="VIEW CASE STUDIES" color="whitetocolor" to="/projects" />
+							<Button copy="VIEW PROJECTS" color="whitetocolor" to="/projects" />
 						</div>
 					</div>
 				</div>
