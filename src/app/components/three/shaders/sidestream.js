@@ -2,7 +2,7 @@ const sidestream = [
 	'vec3 pp = cubicBezier(hp1,hc1,hc2,hp2,h);',
 
 	// //FALL TO LINE
-	'p.x = ( 2.0 * pRadius ) * t + (pp.x) * (1.0-t);',
+	'p.x = ( 1.5 * pRadius ) * t + (pp.x) * (1.0-t);',
 	'p.y = ( pRadius/1.65* sin( angle ) )*t + (pp.y) * (1.0-t);',
 
 	//ROTATION

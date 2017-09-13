@@ -66,13 +66,18 @@ header a {
   height: 100vh;
   position: absolute; }
   .projects .view .line {
+    flex: 0 0 auto;
     background: #ffffff;
     height: 2px;
-    margin: 0 20px; }
+    margin: 0 20px;
+    display: inline-flex; }
   .projects .view .copy {
-    width: 500px; }
+    flex: 1 0 0;
+    visibility: hidden; }
     .projects .view .copy h2 {
-      color: #ffffff; }
+      color: #ffffff;
+      opacity: .01;
+      transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s; }
       .projects .view .copy h2 svg {
         fill: #ffffff;
         width: 90%;
@@ -85,26 +90,43 @@ header a {
       font-size: 36px;
       line-height: 30px;
       letter-spacing: 5px;
-      font-family: "museo-slab", serif; }
+      font-family: "museo-slab", serif;
+      opacity: .01;
+      transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s; }
     .projects .view .copy h6 {
       color: #4FB4E8;
       margin: 10px 0 10px 0;
       font-size: 22px;
-      line-height: 26px; }
+      line-height: 26px;
+      opacity: .01;
+      transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.2s; }
     .projects .view .copy p {
       color: #ffffff;
-      text-align: justify; }
+      text-align: justify;
+      opacity: .01;
+      transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.4s; }
+    .projects .view .copy .button {
+      opacity: .01;
+      transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.6s; }
+    .projects .view .copy.visible {
+      visibility: visible; }
+      .projects .view .copy.visible h2, .projects .view .copy.visible h3, .projects .view .copy.visible h6, .projects .view .copy.visible p, .projects .view .copy.visible .button {
+        opacity: 1; }
   .projects .view.even {
-    left: 50vw;
+    left: 48vw;
     text-align: left; }
-    .projects .view.even .copy h2 svg {
-      float: left; }
-    .projects .view.even .copy p {
-      text-align-last: left; }
+    .projects .view.even .copy {
+      padding-right: 100px; }
+      .projects .view.even .copy h2 svg {
+        float: left; }
+      .projects .view.even .copy p {
+        text-align-last: left; }
   .projects .view.odd {
     left: 0;
     text-align: right; }
-    .projects .view.odd .copy h2 svg {
-      float: right; }
-    .projects .view.odd .copy p {
-      text-align-last: right; }
+    .projects .view.odd .copy {
+      padding-left: 100px; }
+      .projects .view.odd .copy h2 svg {
+        float: right; }
+      .projects .view.odd .copy p {
+        text-align-last: right; }

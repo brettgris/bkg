@@ -9,17 +9,23 @@
 		position: absolute;
 
 		.line{
+			flex: 0 0 auto;
 			background: $white;
 			height: 2px;
 			margin: 0 20px;
+			display: inline-flex;
 		}
 
 		.copy{
-			width: 500px;
+			flex: 1 0 0;
+			visibility: hidden;
+
+
 
 			h2{
 				color: $white;
-
+				opacity: .01;
+				transition: opacity $transition-speed $transition-ease 0s;
 
 				svg{
 					fill: $white;
@@ -37,6 +43,9 @@
 				line-height: 30px;
 				letter-spacing: 5px;
 				font-family: $font-family-body;
+
+				opacity: .01;
+				transition: opacity $transition-speed $transition-ease 0s;
 			}
 
 			h6{
@@ -44,21 +53,41 @@
 				margin: 10px 0 10px 0;
 				font-size: 22px;
 				line-height: 26px;
+
+				opacity: .01;
+				transition: opacity $transition-speed $transition-ease .2s;
 			}
 
 			p{
 				color: $white;
 				text-align: justify;
 
+				opacity: .01;
+				transition: opacity $transition-speed $transition-ease .4s;
 				//direction:rtl;
+			}
+
+			.button{
+				opacity: .01;
+				transition: opacity $transition-speed $transition-ease .6s;
+			}
+
+			&.visible{
+				visibility: visible;
+
+				h2,h3,h6,p,.button{
+					opacity: 1;
+				}
 			}
 		}
 
 		&.even{
-			left: 50vw;
+			left: 48vw;
 			text-align: left;
 
 			.copy {
+				padding-right: 100px;
+
 				h2 svg{
 					float: left;
 				}
@@ -74,6 +103,8 @@
 			text-align: right;
 
 			.copy {
+				padding-left: 100px;
+
 				h2 svg{
 					float: right;
 				}

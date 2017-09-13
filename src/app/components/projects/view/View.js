@@ -13,7 +13,7 @@ class View extends Component{
 		const ha = Math.min(Math.max(0, pa*2), 1);
 
 		const lstyle = {
-			width: 100*(1-ha)
+			width: 75*(1-ha)
 		}
 
 		const side = (this.props.current%2===0) ? 'even' : 'odd';
@@ -31,14 +31,16 @@ class View extends Component{
 	}
 
 	renderCopy(){
-		if (this.props.pageanimate!==0) return null;
+		//if (this.props.pageanimate!==0) return null;
 
 		const data = this.props.data[this.props.current];
+
+		const visible = (this.props.pageanimate===0) ? "visible" : "";
 
 		if (!data) return null;
 
 		return(
-			<div className="copy">
+			<div className={`copy ${visible}`}>
 				<h2>
 					<ReactSVG path={data.acf['title_art']} className="svg talogo" />
 					<div className="clear"></div>

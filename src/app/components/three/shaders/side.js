@@ -1,6 +1,6 @@
 const side = [
 	//FALL TO LINE
-	'p.x = ( 2.0 * pRadius );',
+	'p.x = ( 1.5 * pRadius );',
 	'p.y = ( pRadius/1.35 * sin( angle ) );',
 
 	//ROTATION

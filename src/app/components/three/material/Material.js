@@ -9,7 +9,7 @@ class Material extends Component{
 
 		const imageWidth = 2048,
 			imageHeight = 1365,
-			size = 700;
+			size = 600;
 
 		const plane = new THREE.PlaneGeometry( size, size*(imageHeight/imageWidth), 1, 1 );
 
@@ -53,6 +53,8 @@ class Material extends Component{
 	}
 
 	componentWillReceiveProps(n){
+
+
 		if ( this.animate !== n.animate ) this.updateAnimate(n.animate);
 		if ( this.homeanimate !== n.homeanimate ) this.updateHomeAnimate(n.homeanimate);
 		if ( this.type !== n.type ) this.updateType(n.type);
@@ -61,8 +63,6 @@ class Material extends Component{
 
 	updateAnimate(n){
 		this.uniforms.perc.value = n;
-
-		if (n>.5) this.uniforms.map2.value = this.uniforms.map.value;
 
 		this.animate = n;
 	}

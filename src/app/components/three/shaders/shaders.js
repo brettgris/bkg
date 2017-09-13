@@ -14,6 +14,7 @@ import imagetransition from './imagetransition';
 import side from './side';
 import sidetransition from './sidetransition';
 import sidestream from './sidestream';
+import sidebottom from './sidebottom';
 
 export const vertexShader = [
 	'#define PI 3.14159',
@@ -125,10 +126,9 @@ export const vertexShader = [
 		//CHANGE IMAGES
 		'} else if (pattern==2.5){',
 			imagetransition,
-			//imagetransition,
 			'alpha = 1.0;',
-			'i = t;',
 			'm = 1.0-t;',
+			'i = t;',
 
 		/**********************
 		SIDE
@@ -151,6 +151,14 @@ export const vertexShader = [
 			sidestream,
 			'alpha = 1.0*t + sin(h*PI)*(1.0-t);',
 			'i = 0.0;',
+
+		//FROM BOTTOM
+		'} else if (pattern==3.1){',
+			sidebottom,
+			'alpha = 1.0;',
+			'i = 1.0;',
+
+
 
 		'}',
 	'}'
@@ -176,6 +184,11 @@ export const fragmentShader = [
 		'vec4 texture = texture2D(map, vUv);',
 		'vec4 texture2 = texture2D(map2, vUv);',
 
-		'gl_FragColor = color * (alpha*( (1.0-i)-m ) )+ texture * (alpha*i) + texture2 * (alpha*m);',
+		'float ca = alpha*(1.0-i-m);',
+		'if(ca<0.0) ca=0.0;',
+		'float t1a = alpha*i;',
+		'float t2a = alpha*m;',
+
+		'gl_FragColor = (color * ca) + (texture * t1a) + (texture2*t2a);',
 	'}'
 ].join('\n');

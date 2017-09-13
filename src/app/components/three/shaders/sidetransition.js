@@ -1,8 +1,7 @@
 const sidetransition = [
 
-	//
 	//FALL TO LINE
-	'p.x = ( 2.0 * pRadius ) * t + (p.x+dist.x) * (1.0-t);',
+	'p.x = ( 1.5 * pRadius ) * t + (p.x+dist.x) * (1.0-t);',
 	'p.y = ( pRadius/1.65* sin( angle ) )*t + (p.y+dist.y) * (1.0-t);',
 
 	//ROTATION

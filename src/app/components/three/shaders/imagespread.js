@@ -1,7 +1,7 @@
 const imagespread = [
 	//Circle
-	'p.x = ( pRadius * cos( angle ) * 1.5) * t + (p.x + dist.x) * (1.0-t);',
-	'p.y = ( pRadius * sin( angle ) * 1.5 ) * t + (p.y + dist.y) * (1.0-t);',
+	'p.x = ( pRadius * cos( angle ) * 2.0 ) * t + (p.x + dist.x) * (1.0-t);',
+	'p.y = ( pRadius * sin( angle ) * 2.0 ) * t + (p.y + dist.y) * (1.0-t);',
 
 	//'p.x = p.x + dist.x;',
 	//'p.y = p.y + dist.y;',
