@@ -3,25 +3,24 @@ import superagent from 'superagent';
 /***********************
 CONTS
 ***********************/
-export const FETCH_PROJECTS = "FETCH_PROJECTS";
+export const FETCH_DATA = "FETCH_DATA";
 
 
 /***********************
 API
 ***********************/
-const URL = "http://brettgrisinger.com/data/wp-json/wp/v2";
+const URL = "data/data.json";
 
 /***********************
 FETCH PROJECTS
 ***********************/
-export function fetchProjects(){
+export function fetchData(){
 	return dispatch => {
-		const url = `${URL}/posts`;
-		superagent.get(url).end(function(err,res){
+		superagent.get(URL).end(function(err,res){
 
 			if (res) {
 				dispatch({
-					type: FETCH_PROJECTS,
+					type: FETCH_DATA,
 					payload: res.body
 				});
 			}
@@ -136,20 +135,6 @@ export function setProjectsMenu(b){
 	return dispatch => {
 		dispatch({
 				type: PROJECTS_MENU,
-				payload: b
-		});
-	}
-}
-
-/***********************
-SET MOBILE
-***********************/
-export const MOBILE_LAYOUT = "MOBILE_LAYOUT";
-
-export function setMobileLayout(b){
-	return dispatch => {
-		dispatch({
-				type: MOBILE_LAYOUT,
 				payload: b
 		});
 	}

@@ -1,0 +1,45 @@
+{
+	"home": {
+		"headline": "WELCOME",
+		"svg": "here",
+		"description": "I'm a well-versed visual and interaction designer with over 10 years of professional experience in the digital space with a passion for delivering rewarding and engaging digital experiences by leveraging the latest web trends, technologies and frameworks.",
+		"icon": "fal fa-chevron-circle-down"
+	},
+	"projects":{
+		"content": [
+			{
+				"path": "whitequeenfamilytree",
+
+				"title": "Family Tree",
+
+				"titleart": "whitequeen.svg",
+				"background": "familytree_background.jpg",
+				"projectimage": "familytree_projectimage.png",
+
+				"description": "A website featuring a family tree that is a supplemental experience for the limited television series \"The White Queen\""
+			}
+		]
+	},
+	"contact": {
+		"headline": "Let's talk about your project and goals",
+		"description": "We'd love to hear from you! Simply fill out the form below with your contact information and a brief description of your project, and we will gladly get back to you."
+	},
+	"footer": {
+		"email": "brett.grisinger@gmail.com",
+		"phone": "303-884-4919",
+		"links":[
+			{
+				"href": "#",
+				"icon": "far fa-file-alt"
+			},{
+				"href": "#",
+				"icon": "fab fa-linkedin"
+			},{
+				"href": "#",
+				"icon": "fab fa-github-alt"
+			}
+		],
+		"copyright": "&copy; Brett Grisinger. All Rights Reserved."
+	}
+
+}

@@ -5,6 +5,8 @@ import Home from 'app/components/home/Home';
 import Contact from 'app/components/contact/Contact';
 import Projects from 'app/components/projects/Projects';
 import Project from 'app/components/project/Project';
+import ThreeView from './components/three/ThreeView';
+import Animate from './components/animate/Animate';
 
 class Desktop extends Component{
 	render(){

@@ -1,15 +1,16 @@
 import React, {Component} from 'react';
 import './Footer.css';
 
+import { connect } from 'react-redux';
 import ReactSVG from 'react-svg';
-import FA from '@fortawesome/react-fontawesome';
 
 import Logo from 'app/images/bkg.svg';
-import { faLinkedin,faGithubAlt } from '@fortawesome/fontawesome-free-brands';
-import { faFileAlt } from '@fortawesome/fontawesome-pro-regular';
 
 class Footer extends Component{
 	render(){
+		const { data } = this.props;
+		if ( !data ) return null;
+
 		return (
 			<footer className="mobile-footer">
 				<div className="content container">
@@ -20,26 +21,12 @@ class Footer extends Component{
 							</div>
 							<div className="info d-sm-flex align-items-center">
 								<div className="links">
-									<a href="mailto:brett.grisinger@gmail.com">brett.grisinger@gmail.com</a>
-									<a href="tel:303-884-4919">303-884-4919</a>
+									<a href={`mailto:${data.email}`}>{data.email}</a>
+									<a href={`tel:${data.phone}`}>{data.phone}</a>
 								</div>
 								<div className="icons mt-2 mt-sm-0">
 									<ul className="d-flex justify-content-start justify-content-sm-end align-items-center">
-										<li>
-											<a>
-												<FA icon={faFileAlt} />
-											</a>
-										</li>
-										<li>
-											<a>
-												<FA icon={faLinkedin} />
-											</a>
-										</li>
-										<li>
-											<a>
-												<FA icon={faGithubAlt} />
-											</a>
-										</li>
+										{ this.renderLinks() }
 									</ul>
 								</div>
 							</div>
@@ -47,8 +34,7 @@ class Footer extends Component{
 					</div>
 
 					<div className="copyright row">
-						<div className="col-12">
-							&copy; 2018 Brett Grisinger. All rights reserved.
+						<div className="col-12" dangerouslySetInnerHTML={{__html:data.copyright}}>
 						</div>
 					</div>
 				</div>
@@ -57,6 +43,24 @@ class Footer extends Component{
 			</footer>
 		);
 	}
+
+	renderLinks(){
+		return this.props.data.links.map( (data,i)=>{
+			return (
+				<li key={"footerLink"+i}>
+					<a href={data.link} target="_blank">
+						<i className={data.icon} />
+					</a>
+				</li>
+			)
+		});
+	}
 }
 
-export default Footer;
+function mapStateToProps(state) {
+	return {
+		data: state.data.footer
+	};
+}
+
+export default connect(mapStateToProps)(Footer);

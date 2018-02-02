@@ -5,7 +5,7 @@
   width: 200%;
   height: 200%;
   z-index: -2; }
-  .background #video, .background .image {
+  .background video, .background .image {
     position: absolute;
     top: 0;
     bottom: 0;

@@ -3,7 +3,7 @@
 @import 'app/styles/mixins.scss';
 
 .mobile-header{
-	height:100vh;
+	//height:100%;
 	@include radial-gradient(rgba($black,.75) 0%, rgba($black,0) 65%)
 
 	.logo {

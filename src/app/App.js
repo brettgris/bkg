@@ -1,17 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchProjects,setMobileLayout} from '../actions/actions';
+import {fetchData} from '../actions/actions';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 import Background from './components/background/Background';
 
-import ThreeView from './components/three/ThreeView';
-import Animate from './components/animate/Animate';
+
 import Mobile from './components/mobile/Mobile';
-import Desktop from './components/desktop/Desktop';
+// import Desktop from './components/desktop/Desktop';
+
+import "@fortawesome/fontawesome";
+import "@fortawesome/fontawesome-free-brands";
+import "@fortawesome/fontawesome-pro-light";
+import "@fortawesome/fontawesome-pro-regular";
+import "@fortawesome/fontawesome-pro-solid";
 
 class App extends Component {
 	constructor(props){
@@ -26,7 +31,7 @@ class App extends Component {
 		this.handleResize = this.handleResize.bind(this);
 	}
 	componentDidMount(){
-		this.props.fetchProjects();
+		this.props.fetchData();
 
 		this.handleResize();
 		window.addEventListener('resize',this.handleResize);
@@ -38,8 +43,9 @@ class App extends Component {
 	}
 
 	handleResize(){
+		//(window.innerWidth<800)
 		this.setState({
-			mobile: (window.innerWidth<800),
+			mobile: true,
 			width: window.innerWidth,
 			height: window.innerHeight
 		});
@@ -49,11 +55,6 @@ class App extends Component {
 		return (
 			<div className="App">
 				{ this.renderDesktop() }
-				<ThreeView
-					width={this.state.width}
-					height={this.state.height}
-				/>
-				<Animate />
 				<Background />
 			</div>
 		);
@@ -62,20 +63,21 @@ class App extends Component {
 	renderDesktop(){
 		if (this.state.mobile){
 			return(
-				<Mobile />
+				<Mobile
+					height={this.state.height}
+				/>
 			);
 		}
 
-		return(
-			<Desktop />
-		)
+		// return(
+		// 	<Desktop />
+		// )
 	}
 }
 
 function mapDispatchToProps(dispatch){
 	return bindActionCreators( {
-		fetchProjects,
-		setMobileLayout
+		fetchData
 	}, dispatch);
 }
 

@@ -1,16 +1,21 @@
 import React, {Component} from 'react';
 import './Contact.css';
 
+import { connect } from 'react-redux';
+
 import Form from 'app/components/form/Form';
 
 class Contact extends Component{
 	render(){
+		const { data } = this.props;
+		if ( !data ) return null;
+
 		return (
 			<div className="mobile-contact">
 				<div className="container">
 					<div className="info">
-						<h2>Let's talk about your project and goals</h2>
-						<p>We'd love to hear from you! Simply fill out the form below with your contact information and a brief description of your project, and we will gladly get back to you.</p>
+						<h2>{data.headline}</h2>
+						<p>{data.description}</p>
 					</div>
 					<div>
 						<Form />
@@ -21,4 +26,10 @@ class Contact extends Component{
 	}
 }
 
-export default Contact;
+function mapStateToProps(state) {
+	return {
+		data: state.data.contact
+	};
+}
+
+export default connect(mapStateToProps)(Contact);

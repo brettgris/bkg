@@ -10,7 +10,7 @@ class Mobile extends Component{
 	render(){
 		return (
 			<div className="mobile">
-				<Header />
+				<Header height={this.props.height}/>
 				<Projects />
 				<Contact />
 				<Footer />

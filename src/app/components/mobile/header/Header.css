@@ -62,7 +62,6 @@ header a {
   font-family: "museo-sans", sans-serif; }
 
 .mobile-header {
-  height: 100vh;
   background: -webkit-radial-gradient(center, circle cover, rgba(0, 2, 34, 0.75) 0%, rgba(0, 2, 34, 0) 65%);
   background: radial-gradient(center, circle cover, rgba(0, 2, 34, 0.75) 0%, rgba(0, 2, 34, 0) 65%); }
   .mobile-header .logo {

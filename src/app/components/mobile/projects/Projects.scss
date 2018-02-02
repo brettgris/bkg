@@ -1,3 +1,146 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+@import 'app/styles/mixins.scss';
+
+/*****************
+ WORK LIST
+*****************/
+
+/*------SIZE-----*/
+
+	/*****************
+	 WORK ITEM
+	*****************/
+
+	/*------SIZE-----*/
+	$work-list-item-height: 350px;
+	$work-list-item-height-hover: 400px;
+
+	/*------COLOR-----*/
+	$work-list-item-background: $black;
+
+	/*------BORDER-----*/
+	$work-list-item-border: 1px solid $black;
+
+		/*****************
+		 COPY
+		*****************/
+		$work-list-item-copy-margin-top:130px;
+		$work-list-item-copy-margin-top-hover:75px;
+
 .mobile-projects{
-	
+	.work-item{
+		//height: $work-list-item-height;
+		background-repeat: no-repeat;
+		background-size: cover;
+    	background-position: 50%;
+    	background-color: $work-list-item-background;
+    	overflow: hidden;
+    	position: relative;
+   		border-bottom: $work-list-item-border;
+    	margin-top: 0;
+    	z-index: 0;
+
+		//transition: all $transition-speed;
+
+		&:first-child{
+			border-top: $work-list-item-border;
+		}
+
+		.overlay{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			//height: $work-list-item-height-hover+50;
+			top: 0;
+			z-index: 0;
+			background: rgba($black, .45);
+
+			//@include opacity(.65);
+
+			//transition: opacity $transition-speed;
+		}
+
+		.container{
+			//position: relative;
+			//z-index: 4;
+
+			.copy{
+				margin: 50px 0;
+			}
+
+			.titleart{
+				height: 50px;
+				background-repeat: no-repeat;
+				background-position: center center;
+
+			}
+
+			h3{
+				text-align: center;
+				color: $white;
+				text-transform: uppercase;
+				font-weight: 900;
+				letter-spacing: 5px;
+				margin-top: 10px;
+			}
+
+			p{
+				text-align: center;
+				color: $light-grey;
+				margin-top: 30px;
+			}
+
+			.button{
+				text-align: center;
+			}
+
+			.image{
+				padding-top: 60%;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center bottom;
+				height: 100%;
+			}
+		}
+
+		// &:nth-child(odd){
+		// 	.container{
+		// 		.details{
+		// 			.copy, .image{
+		// 				float: right;
+		// 			}
+		// 		}
+		// 	}
+		// }
+
+		// &:hover{
+		// 	height: $work-list-item-height-hover;
+		// 	margin-top: ($work-list-item-height-hover - $work-list-item-height)/-2;
+        //
+		// 	.overlay{
+		// 		@include opacity(.5);
+		// 	}
+        //
+		// 	// .container{
+		// 	// 	.details{
+		// 	// 		.copy{
+		// 	// 			height: $work-list-item-height-hover;
+        //     //
+		// 	// 			&>div{
+		// 	// 				p{
+		// 	// 					@include opacity(1);
+		// 	// 					max-height:  $work-list-item-height-hover/2;
+		// 	// 				}
+        //     //
+		// 	// 				.button-container{
+		// 	// 					@include opacity(1);
+		// 	// 					max-height:  65px;
+		// 	// 				}
+		// 	// 			}
+		// 	// 		}
+		// 	// 	}
+		// 	// }
+		// }
+	}
 }
