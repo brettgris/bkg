@@ -1,0 +1,83 @@
+body {
+  font-family: "museo-slab", serif;
+  font-size: 18px;
+  font-weight: 300;
+  line-height: 28px;
+  color: #000222; }
+  @media (max-width: 500px) {
+    body {
+      font-size: 16px;
+      line-height: 24px; } }
+
+.reverse-text {
+  color: #ffffff; }
+
+h1, h2, h3 {
+  font-family: "museo-sans", sans-serif;
+  letter-spacing: 1.5px; }
+
+h4, h5, h6 {
+  font-family: "museo-slab", serif;
+  letter-spacing: 1px; }
+
+h1 {
+  font-size: 58px; }
+
+h2 {
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 0px;
+  line-height: 48px; }
+  @media (max-width: 1025px) {
+    h2 {
+      font-size: 38px;
+      line-height: 44px; } }
+  @media (max-width: 500px) {
+    h2 {
+      font-size: 28px;
+      line-height: 36px; } }
+
+@media (max-width: 500px) {
+  h3 {
+    font-size: 21px; } }
+
+h4 {
+  font-weight: 100;
+  font-size: 24px; }
+  @media (max-width: 500px) {
+    h4 {
+      font-size: 21px; } }
+
+a:hover {
+  text-decoration: none; }
+
+header a {
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1.2; }
+
+.button {
+  font-weight: 500;
+  letter-spacing: 1.2px;
+  font-family: "museo-sans", sans-serif; }
+
+.mobile-header {
+  height: 100vh;
+  background: -webkit-radial-gradient(center, circle cover, rgba(0, 2, 34, 0.75) 0%, rgba(0, 2, 34, 0) 65%);
+  background: radial-gradient(center, circle cover, rgba(0, 2, 34, 0.75) 0%, rgba(0, 2, 34, 0) 65%); }
+  .mobile-header .logo {
+    width: 70px;
+    margin-bottom: 20px; }
+  .mobile-header .description {
+    margin: auto;
+    text-align: center; }
+    .mobile-header .description h2 {
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 5px; }
+    .mobile-header .description p {
+      color: #CCCCCC; }
+  .mobile-header .icon {
+    font-size: 40px;
+    margin-top: 20px;
+    color: #ffffff; }

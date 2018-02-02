@@ -1,6 +1,8 @@
 @import 'app/styles/normalize.scss';
 @import 'app/styles/type.scss';
 @import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+@import 'app/styles/mixins.scss';
 
 body{
 	margin: 0;
@@ -9,7 +11,7 @@ body{
 }
 
 .App{
-	width: 100vw;
+	width: 100%;
 	height: 100vh;
 	background-size: cover;
 	background-position: center center;
@@ -18,6 +20,47 @@ body{
 
 .svg{
 	display: flex;
+}
+
+.svg-color{
+	fill: $black;
+	transition: fill $transition-speed $transition-ease;
+
+	&:hover{
+		fill: $primary-color;
+	}
+
+	&.whitetoblack{
+		fill: $white;
+
+		&:hover{
+			fill: $black;
+		}
+	}
+
+	&.whitetocolor{
+		fill: $white;
+
+		&:hover{
+			fill: $primary-color;
+		}
+	}
+
+	&.blacktowhite{
+		fill: $black;
+
+		&:hover{
+			fill: $white;
+		}
+	}
+
+	&.blacktocolor{
+		fill: $black;
+
+		&:hover{
+			fill: $primary-color;
+		}
+	}
 }
 
 ul{

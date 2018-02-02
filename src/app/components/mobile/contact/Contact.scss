@@ -1,0 +1,12 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/mixins.scss';
+
+.mobile-contact{
+	padding: 50px 0;
+	background: $primary-color;
+	@include linear-gradient(135deg, rgba($primary-color, 1) 0%, rgba($light-pink, 1) 100% );
+
+	.info{
+		color: $white;
+	}
+}

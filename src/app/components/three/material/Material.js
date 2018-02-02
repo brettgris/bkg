@@ -13,7 +13,7 @@ class Material extends Component{
 
 		const plane = new THREE.PlaneGeometry( size, size*(imageHeight/imageWidth), 1, 1 );
 
-		for ( var i = 0; i < 11; i ++ ) {
+		for ( var i = 0; i < 13; i ++ ) {
 			Utils.TessellateModifier(8,plane);
 		}
 		Utils.ExplodeModifier(plane);

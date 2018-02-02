@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
+import { reducer as FormReducer } from 'redux-form';
 
 import ProjectsReducer from './ProjectsReducer';
 import CurrentReducer from './CurrentReducer';
@@ -10,9 +11,11 @@ import PageAnimateReducer from './PageAnimateReducer';
 import HomeAnimateReducer from './HomeAnimateReducer';
 import CameraAnimateReducer from './CameraAnimateReducer';
 import PageReducer from './PageReducer';
+import MobileLayoutReducer from './MobileLayoutReducer';
 
 export default combineReducers({
   routing: routerReducer,
+  form: FormReducer,
   projects: ProjectsReducer,
   current: CurrentReducer,
   projectmenu: ProjectsMenuReducer,
@@ -21,5 +24,6 @@ export default combineReducers({
   pageanimate: PageAnimateReducer,
   homeanimate: HomeAnimateReducer,
   cameraanimate: CameraAnimateReducer,
-  page: PageReducer
+  page: PageReducer,
+  MobileLayoutReducer: MobileLayoutReducer
 });

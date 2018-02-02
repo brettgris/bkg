@@ -15,8 +15,6 @@ class ThreeView extends Component{
 		super(props);
 
 		this.state = {
-			width: window.innerWidth,
-			height: window.innerHeight,
 			xPerc: 0,
 			yPerc: 0,
 			z: 800,
@@ -26,17 +24,17 @@ class ThreeView extends Component{
 		this.add = [];
 
 		this.animate = this.animate.bind(this);
-		this.handleResize = this.handleResize.bind(this);
-		this.handleMouseMove = this.handleMouseMove.bind(this);
+		//this.handleResize = this.handleResize.bind(this);
+		//this.handleMouseMove = this.handleMouseMove.bind(this);
 		this.addToScene = this.addToScene.bind(this);
 	}
 
 	componentDidMount(){
 		this.renderer = new THREE.WebGLRenderer({alpha: true});
 
-		this.handleResize();
-		window.addEventListener('resize',this.handleResize);
-		window.addEventListener('mousemove', this.handleMouseMove);
+		//this.handleResize();
+		//window.addEventListener('resize',this.handleResize);
+		//window.addEventListener('mousemove', this.handleMouseMove);
 
 		this.refs.renderer.appendChild( this.renderer.domElement );
 
@@ -48,10 +46,18 @@ class ThreeView extends Component{
 		this.animate();
 	}
 
-	componentWillUnMount(){
-		window.removeEventListener('resize', this.handleResize);
-		window.removeEventListener('mousemove', this.handleMouseMove);
+	componentWillReceiveProps(n){
+		if (n.width!==this.width || n.height!==this.height){
+			this.renderer.setSize( n.width, n.height );
+			this.width = n.width;
+			this.height = n.height;
+		}
 	}
+
+	// componentWillUnMount(){
+	// 	window.removeEventListener('resize', this.handleResize);
+	// 	window.removeEventListener('mousemove', this.handleMouseMove);
+	// }
 
 	animate(){
 		window.requestAnimationFrame( this.animate );
@@ -67,24 +73,24 @@ class ThreeView extends Component{
 		this.add.push( this.refs[ref] );
 	}
 
-	handleResize(){
-		this.renderer.setSize( window.innerWidth, window.innerHeight );
+	// handleResize(){
+	// 	this.renderer.setSize( window.innerWidth, window.innerHeight );
+   //
+	// 	this.setState({
+	// 		width: window.innerWidth,
+	// 		height: window.innerHeight
+	// 	});
+	// }
 
-		this.setState({
-			width: window.innerWidth,
-			height: window.innerHeight
-		});
-	}
-
-	handleMouseMove(e){
-		const x = this.state.width/2,
-			y = this.state.height/2;
-
-		this.setState({
-			xPerc: (e.pageX-x)/x,
-			yPerc: (e.pageY-y)/y
-		});
-	}
+	// handleMouseMove(e){
+	// 	const x = this.state.width/2,
+	// 		y = this.state.height/2;
+   //
+	// 	this.setState({
+	// 		xPerc: (e.pageX-x)/x,
+	// 		yPerc: (e.pageY-y)/y
+	// 	});
+	// }
 
 	render(){
 		let currentImage;
@@ -128,7 +134,7 @@ class ThreeView extends Component{
 					ref='camera'
 
 					fov={ 75 }
-					aspect={ this.state.width/this.state.height }
+					aspect={ this.props.width/this.props.height }
 					near={ .1 }
 					far={ 1000 }
 

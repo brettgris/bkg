@@ -1,0 +1,118 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+@import 'app/styles/mixins.scss';
+
+/****************
+FOOTER
+****************/
+
+/****** SIZES ******/
+$footer-vertical-padding: 20px;
+$footer-horizontal-padding: 20px;
+
+/****** COLORS ******/
+$footer-background: $black;
+
+	/****************
+	LOGO
+	****************/
+
+	/****** SIZES ******/
+	$footer-logo-width: 50px;
+
+	/*****************
+	 CONTENT
+	*****************/
+
+	/*------SIZE-----*/
+	$footer-content-font-size: 13px;
+	$footer-content-font-weight: 100;
+	$footer-content-line-height: 20px;
+
+	/*------COLOR-----*/
+	$footer-content-color: $white;
+	$footer-content-hover: $primary-color;
+
+	/*****************
+	 COPYRIGHT
+	*****************/
+
+	/*------COLOR-----*/
+	$footer-copyright-color: $dark-grey;
+
+	/*------FONT-----*/
+	$footer-copyright-font-size: 14px;
+
+	/****************
+	GRADIENT
+	****************/
+
+	/****** SIZES ******/
+	$footer-gradient-height: 6px;
+
+	/****** COLORS ******/
+	//in .gradient
+
+.mobile-footer{
+	background: $footer-background;
+
+	.content{
+		padding-top: $footer-vertical-padding;
+
+		.logo{
+			width: $footer-logo-width;
+			display: inline-block;
+			margin-right: $footer-horizontal-padding;
+		}
+
+		.info{
+			flex-grow: 1;
+
+			.links{
+				a{
+					color: $footer-content-color;
+					font-weight: $footer-content-font-weight;
+					font-size: $footer-content-font-size;
+					line-height: $footer-content-line-height;
+					text-decoration: none;
+					transition: color $transition-speed $transition-ease;
+					display: block;
+
+					&:hover{
+						color: $footer-content-hover;
+					}
+				}
+			}
+
+			.icons{
+				flex-grow: 1;
+				
+				ul > li{
+					color: $white;
+					margin-right: 15px;
+					font-size: 24px;
+					cursor: pointer;
+
+					&:hover{
+						color: $primary-color;
+						transition: color $transition-speed $transition-ease;
+					}
+				}
+			}
+		}
+
+
+	}
+
+	.copyright{
+		color: $footer-copyright-color;
+		font-size: $footer-copyright-font-size;
+		margin-top: $footer-vertical-padding*3;
+		margin-bottom: $footer-vertical-padding;
+	}
+
+	.gradient{
+		height: $footer-gradient-height;
+		@include linear-gradient(to right, $primary-color 0%, $third-color 50%, $secondary-color 100%);
+	}
+}

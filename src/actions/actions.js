@@ -140,3 +140,17 @@ export function setProjectsMenu(b){
 		});
 	}
 }
+
+/***********************
+SET MOBILE
+***********************/
+export const MOBILE_LAYOUT = "MOBILE_LAYOUT";
+
+export function setMobileLayout(b){
+	return dispatch => {
+		dispatch({
+				type: MOBILE_LAYOUT,
+				payload: b
+		});
+	}
+}

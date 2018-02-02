@@ -1,0 +1,33 @@
+@import 'app/styles/type.scss';
+@import 'app/styles/colors.scss';
+@import 'app/styles/mixins.scss';
+
+.mobile-header{
+	height:100vh;
+	@include radial-gradient(rgba($black,.75) 0%, rgba($black,0) 65%)
+
+	.logo {
+		width: 70px;
+		margin-bottom: 20px;
+	}
+
+	.description{
+		margin: auto;
+		text-align: center;
+
+		h2{
+			color: $white;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+		}
+		p{
+			color: $light-grey;
+		}
+	}
+
+	.icon{
+		font-size: 40px;
+		margin-top: 20px;
+		color: $white;
+	}
+}

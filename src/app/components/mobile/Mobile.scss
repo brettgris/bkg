@@ -1,0 +1,6 @@
+@import 'app/styles/zindex.scss';
+
+.mobile{
+	overflow-x: hidden;
+	z-index: $z-header;
+}

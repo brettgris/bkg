@@ -2,24 +2,4 @@
   z-index: 1000; }
   .header .logo {
     cursor: pointer;
-    width: 70px;
-    fill: #000222;
-    transition: fill 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
-    .header .logo:hover {
-      fill: #ff234a; }
-    .header .logo.whitetoblack {
-      fill: #ffffff; }
-      .header .logo.whitetoblack:hover {
-        fill: #000222; }
-    .header .logo.whitetocolor {
-      fill: #ffffff; }
-      .header .logo.whitetocolor:hover {
-        fill: #ff234a; }
-    .header .logo.blacktowhite {
-      fill: #000222; }
-      .header .logo.blacktowhite:hover {
-        fill: #ffffff; }
-    .header .logo.blacktocolor {
-      fill: #000222; }
-      .header .logo.blacktocolor:hover {
-        fill: #ff234a; }
+    width: 70px; }
