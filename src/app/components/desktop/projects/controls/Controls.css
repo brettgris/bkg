@@ -1,0 +1,27 @@
+.header {
+  z-index: 1000;
+  position: relative; }
+  .header .logo {
+    cursor: pointer;
+    width: 70px; }
+
+.controls {
+  position: absolute;
+  z-index: 100;
+  height: 100vh;
+  width: 70px;
+  right: 22px; }
+  .controls > div .arrow {
+    display: block;
+    cursor: pointer;
+    line-height: 15px;
+    margin: 5px 0; }
+    .controls > div .arrow svg {
+      fill: rgba(255, 255, 255, 0.65);
+      width: 20px;
+      transition: fill 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+    .controls > div .arrow:hover svg {
+      fill: white; }
+  .controls > div .slider {
+    flex-grow: 1;
+    height: 250px; }

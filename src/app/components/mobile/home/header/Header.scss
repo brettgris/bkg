@@ -1,0 +1,54 @@
+@import 'app/styles/type.scss';
+@import 'app/styles/colors.scss';
+@import 'app/styles/mixins.scss';
+@import 'app/styles/transition.scss';
+
+
+.mobile-home-header{
+	//height:100%;
+	@include radial-gradient(rgba($black,.75) 0%, rgba($black,0) 65%)
+
+	.logo {
+		width: 70px;
+		margin-bottom: 20px;
+
+		&:hover{
+			fill: $white !important;
+		}
+	}
+
+	.description{
+		margin: auto;
+		text-align: center;
+
+		h2{
+			color: $white;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+		}
+		p{
+			color: $light-grey;
+		}
+	}
+
+	h6{
+		margin-top: 20px;
+		color: $white;
+	}
+
+	.icon{
+		a{
+			font-size: 40px;
+			margin-top: 5px;
+			color: $white;
+			display: inline-block;
+			cursor: pointer;
+
+			transition: color $transition-speed;
+
+			&:hover{
+				color: $primary-color;
+			}
+		}
+	}
+}

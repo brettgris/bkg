@@ -1,17 +1,42 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { Link as ScrollLink } from 'react-scroll';
 import PropTypes from 'prop-types';
+
+import isTouch from 'is-touch-device';
 
 import './Button.css';
 
 class Button extends Component{
-	render(){
-		const {color,copy,className,to,href,target} = this.props;
+	constructor(props){
+		super(props);
 
-		const Element = (to) ? Link : "a";
+		this.handleClick = this.handleClick.bind(this);
+	}
+
+	handleClick(){
+		window.scrollTo(0,0);
+	}
+
+	render(){
+		const {color,copy,className,to,href,target,scroll} = this.props;
+
+		let Element = "a";
+		if ( to ){
+			Element = (scroll) ? ScrollLink : Link;
+		}
+
+		const btnClass = ( isTouch() ) ? className+" touch" : className;
 
 		return(
-			<Element to={to} href={href} target={target} className={`button ${color} ${className}`} onClick={this.props.click}>
+			<Element
+				to={to}
+				href={href}
+				target={target}
+				className={`button ${color} ${btnClass}`}
+				onClick={this.handleClick}
+				smooth={true} duration={500}
+			>
 				{copy}
 				<span></span>
 				<span></span>
@@ -26,8 +51,7 @@ Button.propTypes = {
 	className: PropTypes.string,
 	to: PropTypes.string,
 	href: PropTypes.string,
-	target: PropTypes.string,
-	click: PropTypes.func
+	target: PropTypes.string
 };
 
 Button.defaultProps = {

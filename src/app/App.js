@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchData} from '../actions/actions';
+import {fetchData,setProject} from '../actions/actions';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-
-import Background from './components/background/Background';
 
 
 import Mobile from './components/mobile/Mobile';
@@ -35,15 +33,23 @@ class App extends Component {
 
 		this.handleResize();
 		window.addEventListener('resize',this.handleResize);
-
 	}
 
 	componentWillUnMount(){
 		window.removeEventListener('resize', this.handleResize);
 	}
 
+	componentWillUpdate(n){
+		if (n.route!==this.route){
+			this.route = n.route;
+			const route = n.route.split("/");
+
+			if (route[1]==='project' && route.length ===3 ) this.props.setProject(route[2]);
+			else this.props.setProject(null);
+		}
+	}
+
 	handleResize(){
-		//(window.innerWidth<800)
 		this.setState({
 			mobile: true,
 			width: window.innerWidth,
@@ -55,7 +61,6 @@ class App extends Component {
 		return (
 			<div className="App">
 				{ this.renderDesktop() }
-				<Background />
 			</div>
 		);
 	}
@@ -75,10 +80,17 @@ class App extends Component {
 	}
 }
 
+function mapStateToProps(state) {
+	return {
+		route: state.routing.location.pathname
+	}
+}
+
 function mapDispatchToProps(dispatch){
 	return bindActionCreators( {
-		fetchData
+		fetchData,
+		setProject
 	}, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

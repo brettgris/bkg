@@ -3,7 +3,9 @@
 		"headline": "WELCOME",
 		"svg": "here",
 		"description": "I'm a well-versed visual and interaction designer with over 10 years of professional experience in the digital space with a passion for delivering rewarding and engaging digital experiences by leveraging the latest web trends, technologies and frameworks.",
-		"icon": "fal fa-chevron-circle-down"
+		"icon": "fal fa-chevron-circle-down",
+		"video": "videos/starz.mp4",
+		"image": "images/starz.jpg"
 	},
 	"projects":{
 		"content": [
@@ -11,12 +13,57 @@
 				"path": "whitequeenfamilytree",
 
 				"title": "Family Tree",
+				"title-wrap": "Family Tree",
 
-				"titleart": "whitequeen.svg",
-				"background": "familytree_background.jpg",
-				"projectimage": "familytree_projectimage.png",
+				"titleart": "images/projects/whitequeen_titleart.png",
+				"background": "images/projects/familytree_background.jpg",
+				"projectimage": "images/projects/familytree_projectimage.png",
+
+				"video": "videos/whitequeen.mp4",
 
 				"description": "A website featuring a family tree that is a supplemental experience for the limited television series \"The White Queen\""
+			},
+			{
+				"path": "blacksailspresskit",
+
+				"title": "Press Kit",
+				"title-wrap": "Press Kit",
+
+				"titleart": "images/projects/blacksails_titleart.png",
+				"background": "images/projects/presskit_background.jpg",
+				"projectimage": "images/projects/presskit_projectimage.png",
+
+				"video": "videos/blacksails.mp4",
+
+				"description": "A promotional microsite for the final season of the television show \"Black Sails\", featuring custom motion graphics and an innovative interface to bring to life the printed press kit."
+			},
+			{
+				"path": "starzfyc",
+
+				"title": "For Your Consideration",
+				"title-wrap": "For Your<br/>Consideration",
+
+				"titleart": "images/projects/starz_titleart.png",
+				"background": "images/projects/fyc_background.jpg",
+				"projectimage": "images/projects/fyc_projectimage.png",
+
+				"video": "videos/power.mp4",
+
+				"description": "A microsite used to promote the different Starz original programming that are up for awards."
+			},
+			{
+				"path": "outlanderapothecary",
+
+				"title": "Apothecary Cabinet",
+				"title-wrap": "Apothecary<br/>Cabinet",
+
+				"titleart": "images/projects/outlander_titleart.png",
+				"background": "images/projects/apothecary_background.jpg",
+				"projectimage": "images/projects/apothecary_projectimage.png",
+
+				"video": "videos/outlander.mp4",
+
+				"description": "An informative experience for fans of the television series \"Outlander,\" highlighting the unique attributes of each herb that Claire studies and/or uses to treat illnesses."
 			}
 		]
 	},

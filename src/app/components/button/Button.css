@@ -103,12 +103,9 @@ a.button, button.button {
         background: #ff234a; }
       a.button.whitetocolor:hover span:before, a.button.whitetocolor:hover span:after, button.button.whitetocolor:hover span:before, button.button.whitetocolor:hover span:after {
         background: #ff234a; }
-
-html.touch a.button:after, html.touch button.button:after {
-  width: 100%; }
-
-html.touch a.button span:first-child:before, html.touch a.button span:first-child:after, html.touch button.button span:first-child:before, html.touch button.button span:first-child:after {
-  height: 100%; }
-
-html.touch a.button span:last-child:before, html.touch a.button span:last-child:after, html.touch button.button span:last-child:before, html.touch button.button span:last-child:after {
-  width: 60%; }
+  a.button.touch:after, button.button.touch:after {
+    width: 100%; }
+  a.button.touch span:first-child:before, a.button.touch span:first-child:after, button.button.touch span:first-child:before, button.button.touch span:first-child:after {
+    height: 100%; }
+  a.button.touch span:last-child:before, a.button.touch span:last-child:after, button.button.touch span:last-child:before, button.button.touch span:last-child:after {
+    width: 60%; }

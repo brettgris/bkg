@@ -1,0 +1,18 @@
+.contact {
+  width: 100vw;
+  height: 120vh;
+  position: fixed;
+  top: 0vh;
+  z-index: 500;
+  transform-origin: bottom center; }
+  .contact::before {
+    content: '';
+    background: linear-gradient(145deg, #ff234a 0%, #df99b7 100%);
+    width: 100vw;
+    height: 100vh;
+    position: absolute; }
+  .contact > div {
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0vh; }

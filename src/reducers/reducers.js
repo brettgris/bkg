@@ -11,11 +11,13 @@ import PageAnimateReducer from './PageAnimateReducer';
 import HomeAnimateReducer from './HomeAnimateReducer';
 import CameraAnimateReducer from './CameraAnimateReducer';
 import PageReducer from './PageReducer';
+import ProjectReducer from './ProjectReducer';
 
 export default combineReducers({
   routing: routerReducer,
   form: FormReducer,
   data: DataReducer,
+  project: ProjectReducer,
   current: CurrentReducer,
   projectmenu: ProjectsMenuReducer,
   three: ThreeReducer,

@@ -1,0 +1,87 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+
+$slider-handle-width: 50px;
+$slider-handle-height: 50px;
+
+.slider{
+	position: relative;
+	width: $slider-handle-width;
+
+	.rail{
+		width: 100%;
+		height: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		position: absolute;
+
+		&::after{
+			content:'';
+			display: block;
+			height: 100%;
+			width: 2px;
+			background-image: linear-gradient(rgba($white,.5) 10%, rgba(255,255,255,0) 0%);
+			background-position: right;
+			background-size: 1px 7px;
+			background-repeat: repeat-y;
+			opacity: .75;
+
+			transition: opacity $transition-speed $transition-ease;
+		}
+	}
+
+	&.panel-open{
+		.rail{
+			&::after{
+				opacity: 1;
+			}
+		}
+	}
+
+	.handle{
+		width: $slider-handle-width;
+		height: $slider-handle-height;
+		position: absolute;
+		top: 0;
+		border-radius: 50%;
+		cursor: hand;
+		background: $black;
+
+		transition: all $transition-speed*2 $transition-ease;
+
+		&.react-draggable-dragging {
+			transition: none;
+		}
+
+		&>div, &>div>div {
+			width: $slider-handle-width;
+			height: $slider-handle-height;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		svg{
+			fill: rgba($white,$link-transparency-off);
+			width: $slider-handle-width;
+			height: $slider-handle-height;
+			cursor: hand;
+
+			transition: fill $transition-speed $transition-ease;
+		}
+
+		&:hover{
+
+			svg{
+				fill: rgba($white,$link-transparency-hover);
+			}
+		}
+	}
+
+	&.loading{
+		.handle{
+			transition: none !important;
+		}
+	}
+}

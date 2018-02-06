@@ -1,0 +1,158 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+@import 'app/styles/type.scss';
+
+$panel-item-off-height: 200px;
+$panel-item-focused-height: 400px;
+
+
+.panel{
+	width:100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	z-index: 5;
+
+	ul{
+		height: 10000px;
+		//width: 1000px;
+		display: flex;
+		align-items: flex-start;
+		justify-content: flex-start;
+		flex-direction: column;
+		top: 50%;
+		margin: auto;
+		position: relative;
+		transition: all .1 $transition-ease;
+
+		li{
+			color: $white;
+			height: $panel-item-off-height;
+			width: 100%;
+			transform-origin: 50% center;
+			position: relative;
+
+			transform: scale(.75);
+
+			transition: all 1s $transition-ease;
+
+			.copy{
+				width: 100%;
+				height: 100%;
+				display: flex;
+				padding: 15px 0;
+				align-items: flex-start;
+				justify-content: center;
+				flex-direction: column;
+				color: mix($white,$black,15%);
+				position: absolute;
+				z-index: 5;
+				transform: translateY(0%);
+				transition: all 1s $transition-ease;
+
+				h2{
+					font-size: 72px;
+					text-transform: uppercase;
+					font-family: $font-family-body;
+					line-height: 60px;
+					text-shadow: none;
+					transition: text-shadow 1s $transition-ease;
+				}
+
+				p{
+					color: $secondary-color;
+					max-width: 0px;
+					overflow: hidden;
+					transition: max-width .5s $transition-ease 0s;
+
+					span{
+						width: 1000px;
+						display: block;
+					}
+				}
+			}
+
+			.ta{
+				position: absolute;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+
+				transform-origin: 30% center;
+				transform: translateY(0%);
+				transition: all .65s $transition-ease;
+
+				&>div{
+					width: 100%;
+					height: 100%;
+
+					&>div{
+						width: 100%;
+						height: 100%;
+						display: flex;
+						align-items: center;
+						justify-content: flex-end;
+
+
+						svg, svg .st0{
+							width: 75%;
+							//fill: mix($white,$black,10%);
+							fill: rgba( $white, .1);
+
+							transition: fill 1s $transition-ease;
+						}
+					}
+				}
+			}
+
+			&.focus{
+				height: $panel-item-focused-height;
+				transform: scale(1);
+
+				.copy{
+					color: $white;
+					transform: translateY(-7%);
+
+					h2{
+						text-shadow: 0 0 20px rgba($white,.5);
+					}
+
+					p{
+						max-width: 100%;
+						transition: max-width .5s $transition-ease .5s;
+					}
+				}
+
+				.ta{
+					transform: translateY(7%);
+
+					svg, svg .st0{
+						//fill: mix($white,$black,15%) !important;
+						fill: rgba( $white, .2) !important;
+					}
+				}
+			}
+		}
+	}
+
+	&.animate-enter {
+		opacity: .01;
+	}
+
+	&.animate-enter.animate-enter-active {
+		opacity: 1;
+		transition: opacity $transition-speed/2 $transition-ease .6s;
+	}
+
+	&.animate-leave {
+		opacity: 1;
+	}
+
+	&.animate-leave.animate-leave-active {
+		opacity: .01;
+		transition: opacity $transition-speed/2 $transition-ease;
+	}
+}

@@ -11,7 +11,7 @@ class Contact extends Component{
 		if ( !data ) return null;
 
 		return (
-			<div className="mobile-contact">
+			<div className="mobile-contact" id="contact">
 				<div className="container">
 					<div className="info">
 						<h2>{data.headline}</h2>

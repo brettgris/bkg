@@ -1,10 +1,7 @@
 import React, {Component} from 'react';
-// import isTouch from 'is-touch-device';
 import './Background.css';
 
 import { Player } from 'video-react';
-
-//import BG from 'app/images/stars.jpg';
 
 class Background extends Component{
 	render(){
@@ -16,14 +13,10 @@ class Background extends Component{
 	}
 
 	renderVideo(){
-		// if ( isTouch() ) return(
-		// 	<div className="image" style={{backgroundImage:`url(images/starz.jpg)`}}></div>
-		// )
-
 		return(
 			<Player
-		      poster="images/starz.jpg"
-		      src="videos/starz.mp4"
+		      poster={`${this.props.image}`}
+		      src={`${this.props.video}`}
 				muted={true}
 				playsInline={true}
 				autoPlay={true}

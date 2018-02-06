@@ -1,0 +1,6 @@
+.header {
+  z-index: 1000;
+  position: relative; }
+  .header .logo {
+    cursor: pointer;
+    width: 70px; }

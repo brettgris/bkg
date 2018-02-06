@@ -1,0 +1,42 @@
+.mobile-detail-header {
+  position: relative; }
+  .mobile-detail-header .mask {
+    background: url(/images/marquee.svg);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: cover;
+    width: 100%;
+    position: absolute;
+    z-index: -1; }
+  .mobile-detail-header .site-header {
+    position: absolute;
+    top: 0;
+    width: 100%; }
+    .mobile-detail-header .site-header .container {
+      height: 100px; }
+      .mobile-detail-header .site-header .container .logo {
+        width: 70px; }
+  .mobile-detail-header .description {
+    margin: auto;
+    text-align: center; }
+    .mobile-detail-header .description h2 {
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 5px; }
+    .mobile-detail-header .description p {
+      color: #CCCCCC; }
+  .mobile-detail-header h6 {
+    margin-top: 20px;
+    color: #ffffff;
+    text-align: center; }
+  .mobile-detail-header .icon {
+    text-align: center; }
+    .mobile-detail-header .icon a {
+      font-size: 40px;
+      margin-top: 5px;
+      color: #ffffff;
+      display: inline-block;
+      cursor: pointer;
+      transition: color 0.4s; }
+      .mobile-detail-header .icon a:hover {
+        color: #ff234a; }

@@ -29,6 +29,20 @@ export function fetchData(){
 }
 
 /***********************
+SET PROJECT
+***********************/
+export const SET_PROJECT = "SET_PROJECT";
+
+export function setProject(n){
+	return dispatch => {
+		dispatch({
+				type: SET_PROJECT,
+				payload: n
+		});
+	}
+}
+
+/***********************
 SET CURRENT
 ***********************/
 export const SET_CURRENT = "SET_CURRENT";

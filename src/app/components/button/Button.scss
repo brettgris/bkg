@@ -199,26 +199,24 @@ a.button, button.button{
 		  }
 	  }
   }
-}
 
-html.touch{
-	a.button, button.button{
-		&:after{
-			width: 100%;
+  &.touch{
+	  &:after{
+		  width: 100%;
+	  }
+
+	  span{
+		&:first-child{
+		  &:before, &:after{
+			height: 100%;
+		  }
 		}
 
-		span{
-	      &:first-child{
-	        &:before, &:after{
-	          height: 100%;
-	        }
-	      }
-
-	      &:last-child{
-	        &:before, &:after{
-	          width: 60%;
-	        }
-	      }
-	    }
-	}
+		&:last-child{
+		  &:before, &:after{
+			width: 60%;
+		  }
+		}
+	  }
+  }
 }

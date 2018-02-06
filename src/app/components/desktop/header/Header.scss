@@ -1,0 +1,15 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+@import 'app/styles/zindex.scss';
+
+$header-logo-width: 70px;
+
+.header{
+	z-index: $z-header;
+	position: relative;
+
+	.logo {
+		cursor: pointer;
+		width: $header-logo-width;
+	}
+}

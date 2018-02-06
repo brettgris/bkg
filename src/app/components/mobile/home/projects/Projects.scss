@@ -1,0 +1,202 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+@import 'app/styles/mixins.scss';
+@import 'app/styles/breakpoints.scss';
+
+/*****************
+ WORK LIST
+*****************/
+
+/*------SIZE-----*/
+
+	/*****************
+	 WORK ITEM
+	*****************/
+
+	/*------SIZE-----*/
+	$work-list-item-height: 350px;
+	$work-list-item-height-hover: 400px;
+
+	/*------COLOR-----*/
+	$work-list-item-background: $black;
+
+	/*------BORDER-----*/
+	$work-list-item-border: 1px solid $black;
+
+		/*****************
+		 COPY
+		*****************/
+		$work-list-item-copy-margin-top:130px;
+		$work-list-item-copy-margin-top-hover:75px;
+
+.mobile-home-projects{
+	.work-item{
+		height: $work-list-item-height;
+		background-repeat: no-repeat;
+		background-size: cover;
+    	background-position: 50%;
+    	background-color: $work-list-item-background;
+    	overflow: hidden;
+    	position: relative;
+   		border-bottom: $work-list-item-border;
+    	margin-top: 0;
+    	z-index: 0;
+
+		transition: all $transition-speed;
+
+		@include md(){
+			height: auto;
+		}
+
+		&:first-child{
+			border-top: $work-list-item-border;
+		}
+
+		.wp{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			z-index: -1;
+			top:0;
+			left:0;
+		}
+
+		.overlay{
+			position: absolute;
+			width: 100%;
+
+			height: $work-list-item-height-hover+50;
+			top: 0;
+			z-index: 0;
+			background: rgba($black, .55);
+
+			@include opacity(1);
+			transition: opacity $transition-speed;
+
+			@include md(){
+				height: 100%;
+			}
+		}
+
+		.content{
+			height: $work-list-item-height;
+
+			transition: height $transition-speed;
+
+			@include md(){
+				height: auto;
+			}
+
+			.titleart{
+				height: 50px;
+				background-repeat: no-repeat;
+				background-position: center center;
+				background-size: contain;
+
+				@include md(){
+					margin-top: 50px;
+				}
+			}
+
+			h3{
+				text-align: center;
+				color: $white;
+				text-transform: uppercase;
+				font-weight: 600;
+				letter-spacing: 5px;
+				margin-top: 5px;
+			}
+
+			.hover{
+				max-height: 0px;
+				overflow: hidden;
+				@include opacity(.01);
+
+				transition: all $transition-speed*2;
+
+				@include md(){
+					max-height: 300px;
+					@include opacity(1);
+				}
+			}
+
+			p{
+				text-align: center;
+				color: $light-grey;
+				margin-top: 10px;
+			}
+
+			.button{
+				text-align: center;
+			}
+
+			.iw{
+				position: relative;
+
+				@include md(){
+					margin-top: 20px;
+					padding-top: 67%;
+				}
+			}
+
+			.image{
+				position: absolute;
+				bottom:-50px;
+				left:0;
+				width: 100%;
+				height: $work-list-item-height;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center bottom;
+
+				transition: bottom $transition-speed;
+
+				@include md(){
+					height: 100%;
+					bottom: 0;
+				}
+			}
+		}
+
+		&:nth-child(odd){
+			.content{
+				flex-direction: row-reverse;
+			}
+		}
+
+		&.notv{
+			.image{
+				bottom: -100%;
+			}
+		}
+
+		&:hover{
+			height: $work-list-item-height-hover;
+
+			@include md(){
+				height: auto;
+			}
+
+			.overlay{
+				@include opacity(.75);
+			}
+
+			.content{
+				height: $work-list-item-height-hover;
+
+				@include md(){
+					height: auto;
+				}
+			}
+
+			.hover{
+				max-height: 300px;
+				@include opacity(1);
+			}
+
+			.image{
+				bottom:0;
+			}
+		}
+	}
+}
