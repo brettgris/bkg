@@ -1,7 +1,7 @@
 import {Component} from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setHomeAnimate,setAnimate,setThree,setPage,setPageAnimate,setCameraAnimate} from '../../../actions/actions';
+import {setHomeAnimate,setAnimate,setThree,setPage,setPageAnimate,setCameraAnimate} from 'actions/actions';
 import {TimelineLite} from 'gsap';
 
 import {
@@ -21,7 +21,7 @@ import {
 	SIDE_FROM_STREAM,
 	SIDE_FROM_BOTTOM,
 	SIDE_FROM_IMAGE
-} from '../../../actions/ThreeStates';
+} from 'actions/ThreeStates';
 
 class Animate extends Component{
 	constructor(props){

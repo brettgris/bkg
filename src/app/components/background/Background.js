@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './Background.css';
 
-import { Player } from 'video-react';
+// import { Player } from 'video-react';
 
 class Background extends Component{
 	render(){
@@ -14,14 +14,17 @@ class Background extends Component{
 
 	renderVideo(){
 		return(
-			<Player
-		      poster={`${this.props.image}`}
-		      src={`${this.props.video}`}
+			<video
+				id="bgVideo"
+				poster={this.props.image}
 				muted={true}
 				playsInline={true}
 				autoPlay={true}
 				loop={true}
-		    />
+				controls={false}
+				src={this.props.video}
+			>
+			</video>
 		);
 	}
 }

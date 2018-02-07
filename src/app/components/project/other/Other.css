@@ -31,10 +31,11 @@
     .other .item .copy {
       position: relative;
       height: 350px;
-      width: 100%; }
+      width: 90%;
+      margin: auto; }
       .other .item .copy .titleart {
-        width: 100%;
-        height: 50px;
+        width: 300px;
+        height: 40px;
         background-repeat: no-repeat;
         background-position: center center;
         background-size: contain; }
@@ -44,7 +45,7 @@
         text-transform: uppercase;
         font-weight: 600;
         letter-spacing: 5px;
-        margin-top: 5px;
+        margin-top: 10px;
         font-size: 22px; }
       .other .item .copy .hover {
         margin-top: 20px;

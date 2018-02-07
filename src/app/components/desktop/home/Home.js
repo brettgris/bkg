@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 // import ReactSVG from 'react-svg';
-import Button from '../button/Button';
+import Button from 'app/components/button/Button';
 
 import SVG from './svgpaths';
 
@@ -18,7 +18,8 @@ class Home extends Component{
 	}
 
 	render(){
-		if (this.props.page!=="home") return null;
+		const {data,page} = this.props;
+		if (page!=="home" || !data ) return null;
 
 		const pa = this.props.pageanimate;
 
@@ -41,7 +42,7 @@ class Home extends Component{
 				</div>
 				<div className="copy d-flex align-items-end justify-content-center">
 					<div className="content col-11 col-lg-10 col-xl-8">
-						<p style={copystyle}>I'm a well-versed visual and interaction designer with over 10 years of professional experience in the digital space with a passion for delivering rewarding and engaging digital experiences by leveraging the latest web trends, technologies and frameworks.</p>
+						<p style={copystyle}>{data.description}</p>
 						<div style={buttonstyle}>
 							<Button copy="VIEW PROJECTS" color="whitetocolor" to="/projects" />
 						</div>
@@ -135,7 +136,8 @@ class Home extends Component{
 function mapStateToProps(state) {
 	return {
 		page: state.page,
-		pageanimate: state.pageanimate
+		pageanimate: state.pageanimate,
+		data: state.data.home
 	}
 }
 

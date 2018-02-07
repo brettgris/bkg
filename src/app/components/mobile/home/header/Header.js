@@ -24,13 +24,13 @@ class Header extends Component{
 					<div className="description col-9">
 						<h2>{data.headline}</h2>
 						<p>{data.description}</p>
+						<h6>View Case Studies</h6>
+						<div className="icon">
+							<Link to="projects" smooth={true} duration={500}>
+								<i className={data.icon}></i>
+							</Link>
+						</div>
 					</div>
-				</div>
-				<h6>View Case Studies</h6>
-				<div className="icon">
-					<Link to="projects" smooth={true} duration={500}>
-						<i className={data.icon}></i>
-					</Link>
 				</div>
 			</header>
 		);

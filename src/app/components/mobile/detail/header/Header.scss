@@ -1,71 +1,13 @@
-@import 'app/styles/colors.scss';
-@import 'app/styles/transition.scss';
+.site-header{
+	position: absolute;
+	top: 0;
+	width: 100%;
 
-.mobile-detail-header{
-	position: relative;
+	.container{
+		height: 100px;
 
-	.mask{
-		background: url(/images/marquee.svg);
-		background-repeat: no-repeat;
-		background-position: center bottom;
-		background-size: cover;
-		width:100%;
-		position: absolute;
-		z-index: -1;
-	}
-
-	.site-header{
-		position: absolute;
-		top: 0;
-		width: 100%;
-
-
-
-		.container{
-			height: 100px;
-
-			.logo{
-				width: 70px;
-			}
-		}
-
-
-	}
-
-	.description{
-		margin: auto;
-		text-align: center;
-
-		h2{
-			color: $white;
-			text-transform: uppercase;
-			letter-spacing: 5px;
-		}
-		p{
-			color: $light-grey;
-		}
-	}
-
-	h6{
-		margin-top: 20px;
-		color: $white;
-		text-align: center;
-	}
-
-	.icon{
-		text-align: center;
-		a{
-			font-size: 40px;
-			margin-top: 5px;
-			color: $white;
-			display: inline-block;
-			cursor: pointer;
-
-			transition: color $transition-speed;
-
-			&:hover{
-				color: $primary-color;
-			}
+		.logo{
+			width: 70px;
 		}
 	}
 }

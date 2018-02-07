@@ -24,17 +24,11 @@ class ThreeView extends Component{
 		this.add = [];
 
 		this.animate = this.animate.bind(this);
-		//this.handleResize = this.handleResize.bind(this);
-		//this.handleMouseMove = this.handleMouseMove.bind(this);
 		this.addToScene = this.addToScene.bind(this);
 	}
 
 	componentDidMount(){
 		this.renderer = new THREE.WebGLRenderer({alpha: true});
-
-		//this.handleResize();
-		//window.addEventListener('resize',this.handleResize);
-		//window.addEventListener('mousemove', this.handleMouseMove);
 
 		this.refs.renderer.appendChild( this.renderer.domElement );
 
@@ -48,54 +42,37 @@ class ThreeView extends Component{
 
 	componentWillReceiveProps(n){
 		if (n.width!==this.width || n.height!==this.height){
-			this.renderer.setSize( n.width, n.height );
+			if (this.renderer) this.renderer.setSize( n.width, n.height );
 			this.width = n.width;
 			this.height = n.height;
 		}
 	}
 
-	// componentWillUnMount(){
-	// 	window.removeEventListener('resize', this.handleResize);
-	// 	window.removeEventListener('mousemove', this.handleMouseMove);
-	// }
+	componentWillUnmount(){
+		window.cancelAnimationFrame( this.request );
+	}
 
 	animate(){
-		window.requestAnimationFrame( this.animate );
+		this.request = window.requestAnimationFrame( this.animate );
+
 		if ( this.props.homeanimate ){
 			this.setState({
 				homeanimate: this.state.homeanimate + 1/500
 			});
 		}
-  		this.renderer.render( this.refs.scene.scene, this.refs.camera.camera );
+
+  		if (this.renderer && this.refs.scene && this.refs.camera) this.renderer.render( this.refs.scene.scene, this.refs.camera.camera );
 	}
 
 	addToScene(ref){
 		this.add.push( this.refs[ref] );
 	}
 
-	// handleResize(){
-	// 	this.renderer.setSize( window.innerWidth, window.innerHeight );
-   //
-	// 	this.setState({
-	// 		width: window.innerWidth,
-	// 		height: window.innerHeight
-	// 	});
-	// }
-
-	// handleMouseMove(e){
-	// 	const x = this.state.width/2,
-	// 		y = this.state.height/2;
-   //
-	// 	this.setState({
-	// 		xPerc: (e.pageX-x)/x,
-	// 		yPerc: (e.pageY-y)/y
-	// 	});
-	// }
-
 	render(){
 		let currentImage;
 		if (this.props.projects) {
-			currentImage = this.props.projects[ this.props.current ].acf['main_image'];
+			currentImage = this.props.projects.content[this.props.current].projectimage;
+			//console.log( this.props.current, this.props.projects.content )
 		}
 
 		let ca = this.props.cameraanimate*2;
@@ -123,12 +100,6 @@ class ThreeView extends Component{
 						type={ this.props.three }
 						image={ currentImage }
 					/>
-					{/* <SpotLight ref="highlight"
-						x={ this.state.xPerc }
-						y={ this.state.yPerc }
-						z={ this.state.z }
-					/>
-					<AmbientLight ref="light" /> */}
 				</Scene>
 				<Camera
 					ref='camera'
@@ -152,7 +123,7 @@ class ThreeView extends Component{
 
 function mapStateToProps(state) {
 	return {
-		projects: state.projects,
+		projects: state.data.projects,
 		current: state.current,
 		homeanimate: state.homeanimate,
 		animate: state.animate,

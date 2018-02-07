@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
+// import ReactSVG from 'react-svg';
 
 import Slider from './slider/Slider';
 
-import AngleUp from '../../../images/chevron-up.svg';
-import AngleDown from '../../../images/chevron-down.svg';
+// import AngleUp from 'app/images/chevron-up.svg';
+// import AngleDown from 'app/images/chevron-down.svg';
 
 import './Controls.css';
 
@@ -23,7 +23,7 @@ class Controls extends Component{
 			<div className="controls d-flex align-items-center justify-content-center" style={style}>
 				<div className="d-flex flex-column align-items-center justify-content-center">
 					<a className="arrow arrow-up" onClick={ this.props.prev }>
-						<ReactSVG path={AngleUp} className="angle-up"/>
+						<i className="fal fa-chevron-up"></i>
 					</a>
 					<Slider
 						current={ this.props.current }
@@ -34,7 +34,7 @@ class Controls extends Component{
 						loaded={ pa===0 }
 					/>
 					<a className="arrow arrow-up" onClick={ this.props.next }>
-						<ReactSVG path={AngleDown} className="angle-down"/>
+						<i className="fal fa-chevron-down"></i>
 					</a>
 				</div>
 			</div>

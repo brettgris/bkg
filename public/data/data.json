@@ -15,7 +15,7 @@
 				"title": "Family Tree",
 				"title-wrap": "Family Tree",
 
-				"titleart": "images/projects/whitequeen_titleart.png",
+				"titleart": "images/projects/whitequeen_titleart.svg",
 				"background": "images/projects/familytree_background.jpg",
 				"projectimage": "images/projects/familytree_projectimage.png",
 
@@ -29,7 +29,7 @@
 				"title": "Press Kit",
 				"title-wrap": "Press Kit",
 
-				"titleart": "images/projects/blacksails_titleart.png",
+				"titleart": "images/projects/blacksails_titleart.svg",
 				"background": "images/projects/presskit_background.jpg",
 				"projectimage": "images/projects/presskit_projectimage.png",
 
@@ -43,7 +43,7 @@
 				"title": "For Your Consideration",
 				"title-wrap": "For Your<br/>Consideration",
 
-				"titleart": "images/projects/starz_titleart.png",
+				"titleart": "images/projects/starz_titleart.svg",
 				"background": "images/projects/fyc_background.jpg",
 				"projectimage": "images/projects/fyc_projectimage.png",
 
@@ -57,7 +57,7 @@
 				"title": "Apothecary Cabinet",
 				"title-wrap": "Apothecary<br/>Cabinet",
 
-				"titleart": "images/projects/outlander_titleart.png",
+				"titleart": "images/projects/outlander_titleart.svg",
 				"background": "images/projects/apothecary_background.jpg",
 				"projectimage": "images/projects/apothecary_projectimage.png",
 

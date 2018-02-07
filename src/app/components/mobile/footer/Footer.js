@@ -3,6 +3,7 @@ import './Footer.css';
 
 import { connect } from 'react-redux';
 import ReactSVG from 'react-svg';
+import { Link } from 'react-router-dom';
 
 import Logo from 'app/images/bkg.svg';
 
@@ -17,7 +18,9 @@ class Footer extends Component{
 					<div className="row">
 						<div className="col-sm-12 d-flex align-items-center">
 							<div className="logo">
-								<ReactSVG path={Logo} className={`svg svg-color whitetocolor`}/>
+								<Link to="/" onClick={()=>window.scrollTo(0,0)}>
+									<ReactSVG path={Logo} className={`svg svg-color whitetocolor`}/>
+								</Link>
 							</div>
 							<div className="info d-sm-flex align-items-center">
 								<div className="links">

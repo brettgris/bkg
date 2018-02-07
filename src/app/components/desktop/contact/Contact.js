@@ -3,9 +3,12 @@ import { connect } from 'react-redux';
 
 import './Contact.css';
 
+import Form from 'app/components/form/Form';
+
 class Contact extends Component{
 	render(){
-		if (this.props.page!=="contact") return null;
+		const { data,page } = this.props;
+		if ( page!=="contact" || !data ) return null;
 
 		const pa = 1-this.props.pageanimate;
 
@@ -22,9 +25,13 @@ class Contact extends Component{
 			<section className="contact" style={style}>
 				<div className="d-flex justify-content-center align-items-center reverse-text">
 					<div className="col-xl-8 col-lg-10 col-12">
-						<h2>Let's talk about your project and goals</h2>
-						<p>We'd love to hear from you! Simply fill out the form below with your contact information and a brief description of your project, and we will gladly get back to you.</p>
+						<h2>{data.headline}</h2>
+						<p>{data.description}</p>
+						<div>
+							<Form />
+						</div>
 					</div>
+
 				</div>
 			</section>
 		);
@@ -34,7 +41,8 @@ class Contact extends Component{
 function mapStateToProps(state) {
 	return {
 		page: state.page,
-		pageanimate: state.pageanimate
+		pageanimate: state.pageanimate,
+		data: state.data.contact
 	}
 }
 

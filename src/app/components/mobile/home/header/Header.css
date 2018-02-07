@@ -78,15 +78,15 @@ header a {
       letter-spacing: 5px; }
     .mobile-home-header .description p {
       color: #CCCCCC; }
-  .mobile-home-header h6 {
-    margin-top: 20px;
-    color: #ffffff; }
-  .mobile-home-header .icon a {
-    font-size: 40px;
-    margin-top: 5px;
-    color: #ffffff;
-    display: inline-block;
-    cursor: pointer;
-    transition: color 0.4s; }
-    .mobile-home-header .icon a:hover {
-      color: #ff234a; }
+    .mobile-home-header .description h6 {
+      margin-top: 30px;
+      color: #ffffff; }
+    .mobile-home-header .description .icon a {
+      font-size: 40px;
+      margin-top: 5px;
+      color: #ffffff;
+      display: inline-block;
+      cursor: pointer;
+      transition: color 0.4s; }
+      .mobile-home-header .description .icon a:hover {
+        color: #ff234a; }

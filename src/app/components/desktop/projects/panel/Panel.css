@@ -93,7 +93,7 @@ header a {
         align-items: flex-start;
         justify-content: center;
         flex-direction: column;
-        color: #262843;
+        color: rgba(255, 255, 255, 0.1);
         position: absolute;
         z-index: 5;
         transform: translateY(0%);
@@ -116,27 +116,20 @@ header a {
       .panel ul li .ta {
         position: absolute;
         top: 0;
-        width: 100%;
+        right: 0;
+        width: 75%;
         height: 100%;
         display: flex;
         align-items: center;
         justify-content: center;
         transform-origin: 30% center;
         transform: translateY(0%);
-        transition: all 0.65s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
-        .panel ul li .ta > div {
-          width: 100%;
-          height: 100%; }
-          .panel ul li .ta > div > div {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end; }
-            .panel ul li .ta > div > div svg, .panel ul li .ta > div > div svg .st0 {
-              width: 75%;
-              fill: rgba(255, 255, 255, 0.1);
-              transition: fill 1s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+        transition: all 0.65s cubic-bezier(0.2, 0.3, 0.25, 0.9);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center right;
+        opacity: 0.05;
+        filter: alpha(opacity=5); }
       .panel ul li.focus {
         height: 400px;
         transform: scale(1); }
@@ -149,9 +142,9 @@ header a {
             max-width: 100%;
             transition: max-width 0.5s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.5s; }
         .panel ul li.focus .ta {
-          transform: translateY(7%); }
-          .panel ul li.focus .ta svg, .panel ul li.focus .ta svg .st0 {
-            fill: rgba(255, 255, 255, 0.2) !important; }
+          transform: translateY(7%);
+          opacity: 0.2;
+          filter: alpha(opacity=20); }
   .panel.animate-enter {
     opacity: .01; }
   .panel.animate-enter.animate-enter-active {

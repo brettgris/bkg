@@ -1,6 +1,8 @@
-.header {
+.deskop-header {
   z-index: 1000;
-  position: relative; }
-  .header .logo {
+  position: absolute;
+  height: 100px;
+  top: 0; }
+  .deskop-header .logo {
     cursor: pointer;
     width: 70px; }

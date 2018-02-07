@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 
-import './Project.css';
+import Project from 'app/components/project/Project';
 
-class Project extends Component{
+import './Detail.css';
+
+class Detail extends Component{
 	render(){
 		if (this.props.page!=="project") return null;
 
@@ -19,10 +21,10 @@ class Project extends Component{
 		}
 
 		return(
-			<section className="project" style={style}>
-				<div className="container">
-					<h1>DETAILS HERE</h1>
-				</div>
+			<section className="detail" style={style}>
+				<Project
+					height={this.props.height}
+				/>
 			</section>
 		);
 	}
@@ -35,4 +37,4 @@ function mapStateToProps(state) {
 	}
 }
 
-export default connect(mapStateToProps)(Project);
+export default connect(mapStateToProps)(Detail);

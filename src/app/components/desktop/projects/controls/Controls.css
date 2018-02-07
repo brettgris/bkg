@@ -1,7 +1,9 @@
-.header {
+.deskop-header {
   z-index: 1000;
-  position: relative; }
-  .header .logo {
+  position: absolute;
+  height: 100px;
+  top: 0; }
+  .deskop-header .logo {
     cursor: pointer;
     width: 70px; }
 
@@ -15,13 +17,11 @@
     display: block;
     cursor: pointer;
     line-height: 15px;
-    margin: 5px 0; }
-    .controls > div .arrow svg {
-      fill: rgba(255, 255, 255, 0.65);
-      width: 20px;
-      transition: fill 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
-    .controls > div .arrow:hover svg {
-      fill: white; }
+    margin: 5px 0;
+    color: rgba(255, 255, 255, 0.65);
+    font-size: 30px; }
+    .controls > div .arrow:hover {
+      color: white; }
   .controls > div .slider {
     flex-grow: 1;
     height: 250px; }

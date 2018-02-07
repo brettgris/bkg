@@ -21,27 +21,50 @@ class Button extends Component{
 	render(){
 		const {color,copy,className,to,href,target,scroll} = this.props;
 
-		let Element = "a";
-		if ( to ){
-			Element = (scroll) ? ScrollLink : Link;
-		}
-
 		const btnClass = ( isTouch() ) ? className+" touch" : className;
 
-		return(
-			<Element
-				to={to}
-				href={href}
-				target={target}
-				className={`button ${color} ${btnClass}`}
-				onClick={this.handleClick}
-				smooth={true} duration={500}
-			>
-				{copy}
-				<span></span>
-				<span></span>
-			</Element>
-		)
+		if ( to ){
+			if ( scroll ){
+				return(
+					<ScrollLink
+						to={to}
+						className={`button ${color} ${btnClass}`}
+						onClick={this.handleClick}
+						smooth={true} duration={500}
+					>
+						{copy}
+						<span></span>
+						<span></span>
+					</ScrollLink>
+				)
+			}
+			else {
+				return (
+					<Link
+						to={to}
+						className={`button ${color} ${btnClass}`}
+						onClick={this.handleClick}
+					>
+						{copy}
+						<span></span>
+						<span></span>
+					</Link>
+				)
+			}
+		} else{
+			return (
+				<a
+					href={href}
+					target={target}
+					className={`button ${color} ${btnClass}`}
+					onClick={this.handleClick}
+				>
+					{copy}
+					<span></span>
+					<span></span>
+				</a>
+			)
+		}
 	}
 }
 

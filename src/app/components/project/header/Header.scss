@@ -1,0 +1,80 @@
+@import 'app/styles/colors.scss';
+@import 'app/styles/transition.scss';
+@import 'app/styles/mixins.scss';
+@import 'app/styles/breakpoints.scss';
+
+.mobile-detail-header{
+	position: relative;
+
+	.mask{
+		background: url(/images/marquee.svg);
+		background-repeat: no-repeat;
+		background-position: center bottom;
+		background-size: cover;
+		width:100%;
+		position: absolute;
+		z-index: -1;
+		top: 2px;
+	}
+
+	.description{
+		margin: auto;
+		text-align: center;
+		margin-bottom: 7%;
+
+		@include md(){
+			margin-bottom: 10%;
+		}
+
+		.titleart{
+			height: 70px;
+			background-repeat: no-repeat;
+			background-position: center center;
+		}
+
+		h3{
+			color: $white;
+			text-transform: uppercase;
+			letter-spacing: 5px;
+			margin-top: 10px;
+		}
+
+		p{
+			color: $light-grey;
+			margin-top: 20px;
+		}
+	}
+
+	h6{
+		margin-top: 20px;
+		color: $white;
+		text-align: center;
+	}
+
+	.icon{
+		text-align: center;
+		a{
+			font-size: 40px;
+			margin-top: 5px;
+			color: $white;
+			display: inline-block;
+			cursor: pointer;
+
+			transition: color $transition-speed;
+
+			&:hover{
+				color: $primary-color;
+			}
+		}
+	}
+
+	.gradient{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background: yellow;
+		z-index: -2;
+
+		@include linear-gradient(to bottom, rgba($black,0) 25%, rgba($black,.9) 100% );
+	}
+}

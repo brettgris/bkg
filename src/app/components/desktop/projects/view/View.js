@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
 
-import Button from '../../button/Button';
+import Button from 'app/components/button/Button';
 
 import './View.css';
 
@@ -13,7 +12,7 @@ class View extends Component{
 		const ha = Math.min(Math.max(0, pa*2), 1);
 
 		const lstyle = {
-			width: 75*(1-ha)
+			width: 150*(1-ha)
 		}
 
 		const side = (this.props.current%2===0) ? 'even' : 'odd';
@@ -31,7 +30,7 @@ class View extends Component{
 	}
 
 	renderCopy(){
-		//if (this.props.pageanimate!==0) return null;
+		if (this.props.pageanimate!==0) return null;
 
 		const data = this.props.data[this.props.current];
 
@@ -39,16 +38,18 @@ class View extends Component{
 
 		if (!data) return null;
 
+		const taStyle = {backgroundImage:`url(${data.titleart})`}
+
 		return(
 			<div className={`copy ${visible}`}>
 				<h2>
-					<ReactSVG path={data.acf['title_art']} className="svg talogo" />
+					<div className="titleart" style={taStyle}></div>
+					{/* <ReactSVG path={data.acf['title_art']} className="svg talogo" /> */}
 					<div className="clear"></div>
 				</h2>
-				<h3>{data.acf.display}</h3>
-				<h6>{data.acf['project_role']}</h6>
-				<p>{data.acf['project_description']}</p>
-				<Button copy="VIEW PROJECT" to="/project/project-name" color="whitetocolor" />
+				<h3>{data.title}</h3>
+				<p>{data.description}</p>
+				<Button copy="VIEW PROJECT" to={"/project/"+data.path} color="whitetocolor" />
 			</div>
 		)
 	}

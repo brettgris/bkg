@@ -9,11 +9,13 @@ class Scene extends Component{
 	}
 
 	componentDidMount(){
-		if ( this.props.children['ref'] ) this.props.handleAdd( this.props.children['ref'] );
-		else{
-			this.props.children.forEach( (data,k)=>{
-				this.props.handleAdd(data.ref);
-			});
+		if (this.props.children){
+			if ( this.props.children['ref'] ) this.props.handleAdd( this.props.children['ref'] );
+			else{
+				this.props.children.forEach( (data,k)=>{
+					this.props.handleAdd(data.ref);
+				});
+			}
 		}
 	}
 

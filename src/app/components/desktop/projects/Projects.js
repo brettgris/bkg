@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {setCurrent,setProjectsMenu} from '../../../actions/actions';
+import {setCurrent,setProjectsMenu} from 'actions/actions';
 // import {
 // 		THREE_SPREAD_IN,THREE_SPREAD_OUT,
 // 		THREE_IMAGE_IN,THREE_IMAGE_OUT,
@@ -27,7 +27,7 @@ class Home extends Component{
 	}
 
 	handleChange(n){
-		const l = this.props.projects.length-1;
+		const l = this.props.projects.content.length-1;
 		let c = this.props.current + n;
 
 		if (c<0) c = l;
@@ -37,7 +37,8 @@ class Home extends Component{
 	}
 
 	handlePanelChange(perc){
-		const l = this.props.projects.length-1;
+
+		const l = this.props.projects.content.length-1;
 		const c = Math.round( perc/(1/l) );
 
 		if ( c!==this.props.current) this.props.setCurrent(c);
@@ -63,10 +64,11 @@ class Home extends Component{
 					pageanimate={this.props.pageanimate}
 					handlePanelChange={ this.handlePanelChange }
 					page={ this.props.page }
+					data={ this.props.projects.content }
 				/>
 				<Panel
 					key="panel"
-					data={ this.props.projects }
+					data={ this.props.projects.content }
 					current={ this.props.current }
 					perc={ this.state.perc }
 					pageanimate={this.props.pageanimate}
@@ -76,7 +78,7 @@ class Home extends Component{
 					pageanimate={this.props.pageanimate}
 					page={ this.props.page }
 					current={ this.props.current }
-					data={ this.props.projects }
+					data={ this.props.projects.content }
 				/>
 			</section>
 		);
@@ -85,7 +87,7 @@ class Home extends Component{
 
 function mapStateToProps(state) {
 	return {
-		projects: state.projects,
+		projects: state.data.projects,
 		current: state.current,
 		page: state.page,
 		pageanimate: state.pageanimate,

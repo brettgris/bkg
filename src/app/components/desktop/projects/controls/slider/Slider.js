@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Draggable from 'react-draggable';
 import ReactSVG from 'react-svg';
 
-import HANDLE from '../../../../images/handle.svg';
+import HANDLE from 'app/images/handle.svg';
 
 import './Slider.css';
 
@@ -88,10 +88,10 @@ class Slider extends Component{
 		const height = slider.offsetHeight - handle.offsetHeight;
 
 		this.setState({
-			y: height * c/l
+			y: height * (c/(l-1))
 		});
 
-		this.props.handlePanelChange(c/l);
+		this.props.handlePanelChange(c/(l-1));
 	}
 }
 

@@ -8,7 +8,7 @@ import './App.css';
 
 
 import Mobile from './components/mobile/Mobile';
-// import Desktop from './components/desktop/Desktop';
+import Desktop from './components/desktop/Desktop';
 
 import "@fortawesome/fontawesome";
 import "@fortawesome/fontawesome-free-brands";
@@ -51,7 +51,7 @@ class App extends Component {
 
 	handleResize(){
 		this.setState({
-			mobile: true,
+			mobile: (window.innerWidth<800),
 			width: window.innerWidth,
 			height: window.innerHeight
 		});
@@ -74,9 +74,12 @@ class App extends Component {
 			);
 		}
 
-		// return(
-		// 	<Desktop />
-		// )
+		return(
+			<Desktop
+				width={this.state.width}
+				height={this.state.height}
+			/>
+		)
 	}
 }
 

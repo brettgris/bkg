@@ -4,9 +4,11 @@
 
 $header-logo-width: 70px;
 
-.header{
+.deskop-header{
 	z-index: $z-header;
-	position: relative;
+	position: absolute;
+	height: 100px;
+	top: 0;
 
 	.logo {
 		cursor: pointer;

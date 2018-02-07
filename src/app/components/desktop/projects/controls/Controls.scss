@@ -16,17 +16,25 @@
 			line-height: 15px;
 			margin: 5px 0;
 
-			svg{
-				fill: rgba($white,$link-transparency-off);
-				width: 20px;
-				transition: fill $transition-speed $transition-ease;
-			}
+			color: rgba($white,$link-transparency-off);
+
+			font-size: 30px;
 
 			&:hover{
-				svg{
-					fill: rgba($white,$link-transparency-hover);
-				}
+				color: rgba($white,$link-transparency-hover);
 			}
+
+			// svg{
+			// 	fill: rgba($white,$link-transparency-off);
+			// 	width: 20px;
+			// 	transition: fill $transition-speed $transition-ease;
+			// }
+            //
+			// &:hover{
+			// 	svg{
+			// 		fill: rgba($white,$link-transparency-hover);
+			// 	}
+			// }
 		}
 
 		.slider{

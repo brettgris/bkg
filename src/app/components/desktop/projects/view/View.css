@@ -73,22 +73,26 @@ header a {
     display: inline-flex; }
   .projects .view .copy {
     flex: 1 0 0;
-    visibility: hidden; }
+    visibility: hidden;
+    text-align: center; }
     .projects .view .copy h2 {
       color: #ffffff;
       opacity: .01;
       transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0s; }
-      .projects .view .copy h2 svg {
-        fill: #ffffff;
-        width: 90%;
-        float: right; }
+      .projects .view .copy h2 .titleart {
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center center;
+        width: 100%;
+        height: 50px;
+        display: inline-block; }
     .projects .view .copy h3 {
       padding-top: 5px;
       color: #ffffff;
       text-transform: uppercase;
       font-weight: 700;
       font-size: 36px;
-      line-height: 30px;
+      line-height: 40px;
       letter-spacing: 5px;
       font-family: "museo-slab", serif;
       opacity: .01;
@@ -101,8 +105,8 @@ header a {
       opacity: .01;
       transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.2s; }
     .projects .view .copy p {
-      color: #ffffff;
-      text-align: justify;
+      color: #CCCCCC;
+      text-align: center;
       opacity: .01;
       transition: opacity 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9) 0.4s; }
     .projects .view .copy .button {
@@ -119,8 +123,6 @@ header a {
       padding-right: 100px; }
       .projects .view.even .copy h2 svg {
         float: left; }
-      .projects .view.even .copy p {
-        text-align-last: left; }
   .projects .view.odd {
     left: 0;
     text-align: right; }
@@ -128,5 +130,3 @@ header a {
       padding-left: 100px; }
       .projects .view.odd .copy h2 svg {
         float: right; }
-      .projects .view.odd .copy p {
-        text-align-last: right; }

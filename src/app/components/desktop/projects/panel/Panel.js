@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactSVG from 'react-svg';
 
 import './Panel.css';
 
@@ -57,15 +56,15 @@ class Panel extends Component{
 		return this.props.data.map( (data,key)=>{
 			const state = (key===this.props.current) ? 'focus' : '';
 
+			const taStyle = {backgroundImage:`url(${data.titleart})`}
+
 			return(
 				<li key={'project-panel-'+key} className={state} >
 					<div className="copy">
-						<h2>{data.acf.display}</h2>
-						<p><span>{data.acf['project_role']}</span></p>
+						<h2>{data.title}</h2>
+						<p><span>{data.description}</span></p>
 					</div>
-					<div className="ta">
-						<ReactSVG path={data.acf['title_art']} className="svg talogo" />
-					</div>
+					<div className="ta" style={taStyle}></div>
 				</li>
 			)
 		})
