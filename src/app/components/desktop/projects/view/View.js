@@ -6,35 +6,39 @@ import './View.css';
 
 class View extends Component{
 	render(){
+		//const pa = this.props.pageanimate;
 
-		const pa = this.props.pageanimate;
+		//const ha = Math.min(Math.max(0, pa*2), 1);
 
-		const ha = Math.min(Math.max(0, pa*2), 1);
-
-		const lstyle = {
-			width: 150*(1-ha)
-		}
+		// const lstyle = {
+		// 	width: 150*(1-ha)
+		// }
 
 		const side = (this.props.current%2===0) ? 'even' : 'odd';
-		const align = (this.props.current%2===0) ? 'start' : 'end';
-		const direction = (this.props.current%2===0) ? 'flex-row' : 'flex-row-reverse';
+		//const align = (this.props.current%2===0) ? 'end' : 'start';
+		// const direction = (this.props.current%2===0) ? 'flex-row' : 'flex-row-reverse';
+
+
 
 		return(
-			<div className={`view d-flex align-items-center justify-content-${align} ${side}`}>
-				<div className={`d-flex align-items-center ${direction}`}>
-					<div className="line" style={lstyle}></div>
-					{ this.renderCopy() }
+			<div className="cf">
+				<div className={`wrapper ${side}`}>
+					<div className="view">
+						<div>
+							{ this.renderCopy() }
+						</div>
+					</div>
 				</div>
 			</div>
 		);
 	}
 
 	renderCopy(){
-		if (this.props.pageanimate!==0) return null;
+		//if (this.props.pageanimate>.) return null;
 
 		const data = this.props.data[this.props.current];
 
-		const visible = (this.props.pageanimate===0) ? "visible" : "";
+		const visible = (this.props.pageanimate<.9) ? "visible" : "";
 
 		if (!data) return null;
 

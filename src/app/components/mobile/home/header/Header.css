@@ -24,10 +24,10 @@ h1 {
   font-size: 58px; }
 
 h2 {
-  font-size: 42px;
+  font-size: 36px;
   font-weight: 900;
   letter-spacing: 0px;
-  line-height: 48px; }
+  line-height: 40px; }
   @media (max-width: 1025px) {
     h2 {
       font-size: 38px;
@@ -37,9 +37,11 @@ h2 {
       font-size: 28px;
       line-height: 36px; } }
 
-@media (max-width: 500px) {
-  h3 {
-    font-size: 21px; } }
+h3 {
+  font-size: 24px; }
+  @media (max-width: 500px) {
+    h3 {
+      font-size: 21px; } }
 
 h4 {
   font-weight: 100;
@@ -62,25 +64,56 @@ header a {
   font-family: "museo-sans", sans-serif; }
 
 .mobile-home-header {
-  background: -webkit-radial-gradient(center, circle cover, rgba(0, 2, 34, 0.75) 0%, rgba(0, 2, 34, 0) 65%);
-  background: radial-gradient(center, circle cover, rgba(0, 2, 34, 0.75) 0%, rgba(0, 2, 34, 0) 65%); }
-  .mobile-home-header .logo {
-    width: 70px;
-    margin-bottom: 20px; }
-    .mobile-home-header .logo:hover {
-      fill: #ffffff !important; }
+  position: relative;
+  overflow: hidden;
+  transition: height 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+  .mobile-home-header .wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: height 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
   .mobile-home-header .description {
-    margin: auto;
-    text-align: center; }
+    text-align: center;
+    width: 50%; }
+    @media (max-width: 2000px) {
+      .mobile-home-header .description {
+        width: 60%; } }
+    @media (max-width: 1025px) {
+      .mobile-home-header .description {
+        width: 70%; } }
+    @media (max-width: 500px) {
+      .mobile-home-header .description {
+        width: 80%; } }
+    .mobile-home-header .description .lwrapper {
+      margin-bottom: 20px; }
+      @media (max-width: 769px) {
+        .mobile-home-header .description .lwrapper {
+          margin-bottom: 0; } }
+    .mobile-home-header .description .logo {
+      width: 70px;
+      height: 80px;
+      margin: auto; }
+      .mobile-home-header .description .logo:hover {
+        fill: #ffffff !important; }
+      @media (max-width: 769px) {
+        .mobile-home-header .description .logo {
+          height: 65px; } }
     .mobile-home-header .description h2 {
       color: #ffffff;
       text-transform: uppercase;
       letter-spacing: 5px; }
     .mobile-home-header .description p {
-      color: #CCCCCC; }
+      color: #CCCCCC;
+      width: 100%; }
     .mobile-home-header .description h6 {
       margin-top: 30px;
       color: #ffffff; }
+      @media (max-width: 769px) {
+        .mobile-home-header .description h6 {
+          display: none; } }
     .mobile-home-header .description .icon a {
       font-size: 40px;
       margin-top: 5px;

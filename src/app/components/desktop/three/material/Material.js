@@ -9,7 +9,7 @@ class Material extends Component{
 
 		const imageWidth = 700,
 			imageHeight = 479,
-			size = 800;
+			size = 750;
 
 		const plane = new THREE.PlaneGeometry( size, size*(imageHeight/imageWidth), 1, 1 );
 
@@ -23,6 +23,12 @@ class Material extends Component{
 		Utils.setShaderVars(this.geometry, plane);
 		this.texture = new THREE.TextureLoader();
 		this.texture2 = new THREE.TextureLoader();
+
+		//var video = document.getElementById( 'bgVideo' );
+		//this.texture = new THREE.VideoTexture( video );
+		// this.texture.minFilter = THREE.LinearFilter;
+		// this.texture.magFilter = THREE.LinearFilter;
+		// this.texture.format = THREE.RGBFormat;
 
 		this.uniforms = {
 			perc: { type: 'f', value: 0.0 },

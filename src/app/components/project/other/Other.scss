@@ -6,9 +6,20 @@
 $other-item-height: 350px;
 $other-item-border: 1px solid $black;
 
+$other-titleart-width: 300px;
+$other-titleart-height: 40px;
+
 .other{
 	border-top: $other-item-border;
 	border-bottom: $other-item-border;
+
+	.direction{
+		flex-direction: row;
+
+		@media (max-width: $other-titleart-width*3){
+			flex-direction: column;
+		}
+	}
 
 	.item{
 		background: $black;
@@ -20,13 +31,17 @@ $other-item-border: 1px solid $black;
 		position: relative;
 		width: 33.3%;
 
-		@include md(){
+		transition: all $transition-speed $transition-ease;
+
+		@media (max-width: $other-titleart-width*3){
 			width: 100%;
 			border-right: 0;
 			border-bottom: $other-item-border;
+
+			transition: none;
 		}
 
-		transition: all $transition-speed $transition-ease;
+
 
 
 		&:last-child{
@@ -56,8 +71,8 @@ $other-item-border: 1px solid $black;
 			margin: auto;
 
 			.titleart{
-				width: 300px;
-				height: 40px;
+				width: $other-titleart-width;
+				height: $other-titleart-height;
 				background-repeat: no-repeat;
 				background-position: center center;
 				background-size: contain;

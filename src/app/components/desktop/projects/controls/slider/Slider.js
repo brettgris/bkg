@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import Draggable from 'react-draggable';
-import ReactSVG from 'react-svg';
-
-import HANDLE from 'app/images/handle.svg';
 
 import './Slider.css';
 
@@ -47,7 +44,13 @@ class Slider extends Component{
 					position={ {x: 0, y: this.state.y} }
 				>
 					<div className="handle" ref="handle">
-						<ReactSVG path={HANDLE} className="svg" />
+						<span className="ic fa-layers fa-fw">
+							<i className="ib fas fa-circle"></i>
+							<i className="if far fa-chevron-up" data-fa-transform="shrink-11 up-2.5"></i>
+							<i className="if far fa-chevron-down" data-fa-transform="shrink-11 down-2.5"></i>
+						</span>
+						{/* <ReactSVG path={HANDLE} className="svg" /> */}
+						{/* <i className="icon far fa-arrows-v" data-fa-transform="shrink-9" data-fa-mask="fas fa-circle"></i> */}
 					</div>
 				</Draggable>
 			</div>

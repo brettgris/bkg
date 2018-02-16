@@ -149,7 +149,7 @@
 				background-size: contain;
 				background-position: center bottom;
 
-				transition: bottom $transition-speed;
+				transition: bottom $transition-speed*2;
 
 				@include md(){
 					height: 100%;

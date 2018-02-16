@@ -1,8 +1,20 @@
 .deskop-header {
+  width: 100%;
   z-index: 1000;
-  position: absolute;
+  position: fixed;
+  top: 0;
   height: 100px;
-  top: 0; }
-  .deskop-header .logo {
-    cursor: pointer;
-    width: 70px; }
+  overflow: hidden; }
+  .deskop-header .content {
+    background: transparent;
+    height: 100px;
+    overflow: hidden;
+    padding: 0 30px; }
+    .deskop-header .content .logo {
+      cursor: pointer;
+      width: 70px;
+      margin-left: 15px; }
+
+.headroom.headroom--pinned .content {
+  background: rgba(0, 2, 34, 0.9);
+  transition: all 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }

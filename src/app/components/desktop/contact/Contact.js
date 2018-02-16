@@ -5,6 +5,8 @@ import './Contact.css';
 
 import Form from 'app/components/form/Form';
 
+import Footer from 'app/components/footer/Footer';
+
 class Contact extends Component{
 	render(){
 		const { data,page } = this.props;
@@ -21,17 +23,18 @@ class Contact extends Component{
 			opacity: opacity
 		}
 
-		return(
-			<section className="contact" style={style}>
-				<div className="d-flex justify-content-center align-items-center reverse-text">
-					<div className="col-xl-8 col-lg-10 col-12">
-						<h2>{data.headline}</h2>
-						<p>{data.description}</p>
-						<div>
-							<Form />
-						</div>
-					</div>
+		const st = {
+			overflow: (pa===1) ? 'auto' : 'hidden',
+			height: (pa===1) ? 'auto' : '100vh'
+		}
 
+		return(
+			<section className="contact" style={st}>
+				<div className="d-flex flex-column reverse-text" style={style}>
+					<div className="c-form d-flex align-items-center justify-conent-center">
+						<Form data={data} />
+					</div>
+					<Footer />
 				</div>
 			</section>
 		);

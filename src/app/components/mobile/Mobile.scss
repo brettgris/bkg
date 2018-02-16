@@ -1,6 +1,11 @@
 @import 'app/styles/zindex.scss';
+@import 'app/styles/colors.scss';
 
 .mobile{
 	overflow-x: hidden;
 	z-index: $z-header;
+
+	.page-content{
+		background: url(/images/bg_bind.png) $white;
+	}
 }

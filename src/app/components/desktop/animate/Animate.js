@@ -71,8 +71,8 @@ class Animate extends Component{
 							this.tl.call( ()=>{
 								this.props.setThree(BOTTOM_ON_LOAD);
 								this.props.setHomeAnimate(false);
-								this.props.setPage("contact");
 								this.setPV(1);
+								this.props.setPage("contact");
 							});
 							this.tl.to( this, .4, {pv:0, onUpdate:this.handlePageAnimation} );
 							break;
@@ -90,8 +90,8 @@ class Animate extends Component{
 							this.tl.call( ()=>{
 								this.setAV(0);
 								this.setCV(from);
-								this.props.setPage("contact");
 								this.setPV(1);
+								this.props.setPage("contact");
 							});
 							this.tl.to( this, 1, {av:1, cv:0, onUpdate:()=>{
 								this.handleThreeAnimation();
@@ -406,11 +406,12 @@ class Animate extends Component{
 
 							// PROJECT OUT
 							this.tl.call( ()=>{
-							 	this.setAV(0);
+								this.setAV(0);
+								this.setPV(1);
 								this.props.setThree(SIDE_FROM_IMAGE);
 								this.props.setPage("project");
 							 	this.setCV(from);
-								this.setPV(1);
+
 							});
 
 							this.tl.to( this, 1, {av:1, cv:0, onUpdate:()=>{

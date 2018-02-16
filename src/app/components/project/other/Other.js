@@ -1,21 +1,34 @@
 import React, {Component} from 'react';
 import './Other.css';
 
+import _ from 'lodash';
+
 import Button from 'app/components/button/Button';
 
 class Other extends Component{
 	render(){
 		const {data,project} = this.props;
 
-		const others = data.content.filter( (v,k)=>{
-			return v.path !== project;
+		let notviewed = _.filter(data.content, function(o){
+			return (!o.viewed);
 		});
 
 
+
+		let viewed = _.filter(data.content, function(o){
+			return (o.viewed&&o.path!==project)
+		});
+
+		notviewed = _.shuffle(notviewed);
+		viewed = _.shuffle(viewed);
+
+		let projects = _.union(notviewed,viewed);
+		projects = _.take(projects,3);
+
 		return (
 			<div className="other">
-				<div className="d-flex flex-column flex-md-row">
-					{ this.renderOthers(others) }
+				<div className="d-flex direction">
+					{ this.renderOthers(projects) }
 				</div>
 			</div>
 		);

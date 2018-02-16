@@ -1,7 +1,8 @@
 .site-header {
   position: absolute;
   top: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 10; }
   .site-header .container {
     height: 100px; }
     .site-header .container .logo {

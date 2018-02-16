@@ -86,16 +86,18 @@ $footer-background: $black;
 
 			.icons{
 				flex-grow: 1;
-				
-				ul > li{
-					color: $white;
-					margin-right: 15px;
-					font-size: 24px;
-					cursor: pointer;
 
-					&:hover{
-						color: $primary-color;
-						transition: color $transition-speed $transition-ease;
+				ul > li{
+					a{
+						color: $white;
+						margin-right: 15px;
+						font-size: 24px;
+						cursor: pointer;
+
+						&:hover{
+							color: $primary-color;
+							transition: color $transition-speed $transition-ease;
+						}
 					}
 				}
 			}

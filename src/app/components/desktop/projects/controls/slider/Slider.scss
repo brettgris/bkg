@@ -1,6 +1,8 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/transition.scss';
 
+@import '../Controls.scss';
+
 $slider-handle-width: 50px;
 $slider-handle-height: 50px;
 
@@ -44,9 +46,9 @@ $slider-handle-height: 50px;
 		height: $slider-handle-height;
 		position: absolute;
 		top: 0;
-		border-radius: 50%;
-		cursor: hand;
-		background: $black;
+		font-size: $slider-handle-width;
+		color: $control-off-color;
+		cursor: move;
 
 		transition: all $transition-speed*2 $transition-ease;
 
@@ -54,29 +56,66 @@ $slider-handle-height: 50px;
 			transition: none;
 		}
 
-		&>div, &>div>div {
+		.ic{
 			width: $slider-handle-width;
 			height: $slider-handle-height;
-			position: absolute;
-			top: 0;
-			left: 0;
 		}
 
-		svg{
-			fill: rgba($white,$link-transparency-off);
-			width: $slider-handle-width;
-			height: $slider-handle-height;
-			cursor: hand;
+		.ib{
+			color: $control-off-color;
+		}
 
-			transition: fill $transition-speed $transition-ease;
+		.if{
+			color: #2d345c;
 		}
 
 		&:hover{
-
-			svg{
-				fill: rgba($white,$link-transparency-hover);
+			.ib{
+				color: $control-hover-color;
 			}
 		}
+
+		// &:before{
+		// 	content: "";
+		// 	position: absolute;
+		// 	background: #2d345c;
+		// 	width: $slider-handle-width/2;
+		// 	height: $slider-handle-height/2;
+		// 	left: $slider-handle-width/2;
+		// 	top: $slider-handle-height/2;
+		// 	border-radius: 50%;
+		// 	transform: translateX(-50%) translateY(-50%);
+		// }
+
+		// .icon{
+		// 	position: absolute;
+		// 	z-index: 10;
+		// 	display: block;
+		// }
+
+		// &>div, &>div>div {
+		// 	width: $slider-handle-width;
+		// 	height: $slider-handle-height;
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// }
+
+		// svg{
+		// 	fill: rgba($white,$link-transparency-off);
+		// 	width: $slider-handle-width;
+		// 	height: $slider-handle-height;
+		// 	cursor: hand;
+        //
+		// 	transition: fill $transition-speed $transition-ease;
+		// }
+        //
+		// &:hover{
+        //
+		// 	svg{
+		// 		fill: rgba($white,$link-transparency-hover);
+		// 	}
+		// }
 	}
 
 	&.loading{

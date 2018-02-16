@@ -101,7 +101,7 @@
       background-repeat: no-repeat;
       background-size: contain;
       background-position: center bottom;
-      transition: bottom 0.4s; }
+      transition: bottom 0.8s; }
       @media (max-width: 1025px) {
         .mobile-home-projects .work-item .content .image {
           height: 100%;

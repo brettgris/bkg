@@ -64,7 +64,7 @@ export const vertexShader = [
 		'h = mod(home+rand.x,1.0);',
 		'm = 0.0;',
 
-		'float pRadius = 850.0;',
+		'float pRadius = 1200.0;',
 
 		/**********************
 		STREAM

@@ -45,9 +45,11 @@ class Panel extends Component{
 
 		return(
 			<div className="panel">
-				<ul style={style} className="container" ref="list">
-					{ this.renderItems() }
-				</ul>
+				<div className="container">
+					<ul style={style} className="col-11 col-lg-11" ref="list">
+						{ this.renderItems() }
+					</ul>
+				</div>
 			</div>
 		);
 	}
@@ -62,7 +64,7 @@ class Panel extends Component{
 				<li key={'project-panel-'+key} className={state} >
 					<div className="copy">
 						<h2>{data.title}</h2>
-						<p><span>{data.description}</span></p>
+						<p>{data.description}</p>
 					</div>
 					<div className="ta" style={taStyle}></div>
 				</li>

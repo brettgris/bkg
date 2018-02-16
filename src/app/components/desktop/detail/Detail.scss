@@ -4,20 +4,23 @@
 
 
 .detail{
-	width: 100vw;
-	height: 100vh;
-	overflow-y:scroll;
+	width: 100%;
 	overflow-x: hidden;
-	position: fixed;
-	top: 0vh;
+	position: absolute;
 	z-index: $z-contact;
-	transform-origin: center center;
-	background: $white;
+	// top: 0;
+	// left: 0;
+	// min-height: 100%;
+
 
 	&>div{
-		width: 100vw;
-		height: 100vh;
-		position: absolute;
-		top: 0vh;
+		background: $white;
+		width:100%;
+		//min-height: 100vh;
+		//position: absolute;
+		//height:0;
+		//overflow-x: hidden;
+
+		transform-origin: top center;
 	}
 }

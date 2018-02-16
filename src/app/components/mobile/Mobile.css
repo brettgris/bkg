@@ -1,3 +1,5 @@
 .mobile {
   overflow-x: hidden;
   z-index: 1000; }
+  .mobile .page-content {
+    background: url(/images/bg_bind.png) #ffffff; }

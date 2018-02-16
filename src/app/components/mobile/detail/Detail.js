@@ -1,21 +1,17 @@
 import React, {Component} from 'react';
 
 import Header from './header/Header';
-import Contact from '../contact/Contact';
-import Footer from '../footer/Footer';
-
 import Project from 'app/components/project/Project';
 
 class Detail extends Component{
 	render(){
 		return(
-			<div className="mobile">
+			<div className="mobile mobile-page">
 				<Header />
 				<Project
 					height={this.props.height}
+					width={this.props.width}
 				/>
-				<Contact />
-				<Footer />
 			</div>
 		);
 	}

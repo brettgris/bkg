@@ -57,6 +57,21 @@ export function setCurrent(n){
 }
 
 /***********************
+SET CURRENT PROJECT
+***********************/
+
+// export function setCurrentProject(n,d){
+// 	console.log( n, d );
+//
+// 	return dispatch => {
+// 		dispatch({
+// 				type: SET_CURRENT,
+// 				payload: 0
+// 		});
+// 	}
+// }
+
+/***********************
 SET PAGE
 ***********************/
 export const SET_PAGE = "SET_PAGE";
@@ -153,3 +168,22 @@ export function setProjectsMenu(b){
 		});
 	}
 }
+
+/***********************
+POST FOR
+***********************/
+// export const FORM_CHANGE = "FORM_CHANGE";
+//
+// export function postForm(o){
+// 	s
+// 		.then( (res,err)=>{
+// 			const s = (res.text==="1") ? "success" : "error";
+//
+// 			return dispatch => {
+// 				dispatch({
+// 					type: FORM_CHANGE,
+// 					payload: "s"
+// 				});
+// 			}
+// 		})
+// }

@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import ReactSVG from 'react-svg';
+import Headroom from 'react-headroom';
 
 import './Header.css';
 import Button from 'app/components/button/Button';
@@ -23,20 +24,22 @@ class Header extends Component {
 			settings.color = "whitetoblack";
 			settings.to = "/projects";
 		} else if (page==="project"){
-			settings.copy = "Get In Touch";
-			settings.color = "whitetoblack";
-			settings.to = "/contact";
+			settings.copy = "Close Project";
+			settings.color = "whitetocolor";
+			settings.to = "/projects";
 		}
 
 		return(
-			<div className="deskop-header fixed-top container-fluid d-flex justify-content-between align-items-center">
-				<div className="ml-2">
-					<Link to="/">
-						<ReactSVG path={Logo} className={`logo svg svg-color ${settings.color}`} style={{display:'block'}}/>
-					</Link>
+			<Headroom className="deskop-header">
+				<div className="container-fluid d-flex justify-content-between align-items-center content">
+					{/* <div className="ml-2"> */}
+						<Link to="/">
+							<ReactSVG path={Logo} className={`logo svg svg-color ${settings.color}`} style={{display:'block'}}/>
+						</Link>
+					{/* </div> */}
+					<Button copy={settings.copy} color={settings.color} to={settings.to} />
 				</div>
-				<Button copy={settings.copy} color={settings.color} to={settings.to} />
-			</div>
+			</Headroom>
 		)
 	}
 }

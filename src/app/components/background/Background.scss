@@ -1,3 +1,5 @@
+@import 'app/styles/transition.scss';
+
 .background{
 	position: absolute;
     top: 0;
@@ -5,7 +7,9 @@
     bottom: 0;
     left: 0;
     overflow: hidden;
-    z-index: -100;
+    z-index: 0;
+
+	transition: height $transition-speed $transition-ease;
 
 	#bgVideo, .image{
 		position: absolute;
@@ -15,7 +19,7 @@
 	    min-height: 100%;
 	    width: auto;
 	    height: auto;
-	    z-index: -100;
+	    z-index: 1;
 	    transform: translateX(-50%) translateY(-50%);
 	    background-size: cover;
 		background-position: center center;

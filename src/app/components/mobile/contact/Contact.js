@@ -12,15 +12,7 @@ class Contact extends Component{
 
 		return (
 			<div className="mobile-contact" id="contact">
-				<div className="container">
-					<div className="info">
-						<h2>{data.headline}</h2>
-						<p>{data.description}</p>
-					</div>
-					<div>
-						<Form />
-					</div>
-				</div>
+				<Form data={data} />
 			</div>
 		);
 	}

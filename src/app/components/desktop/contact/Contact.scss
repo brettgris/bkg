@@ -1,31 +1,43 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/zindex.scss';
 @import 'app/styles/transition.scss';
+@import 'app/styles/mixins.scss';
 
 $contact-color-1: rgba(255, 35, 74, 1);
 $contact-color-2: rgba(223, 153, 183, 1);
 
 .contact{
-	width: 100vw;
-	height: 120vh;
-	//
-	position: fixed;
-	top: 0vh;
+	width: 100%;
+	overflow-x: hidden;
 	z-index: $z-contact;
-	transform-origin: bottom center;
-
-	&::before{
-		content: '';
-		background: linear-gradient( 145deg, $contact-color-1 0%, $contact-color-2 100%);
-		width: 100vw;
-		height: 100vh;
-		position: absolute;
-	}
+	min-height: 100%;
+	position: absolute;
+	overflow-y: hidden;
 
 	&>div{
-		width: 100vw;
-		height: 100vh;
-		position: absolute;
-		top: 0vh;
+		width:100%;
+		min-height: 100vh;
+		transform-origin: bottom center;
+		position: relative;
+		height:0;
+		overflow-x: hidden;
+
+		.c-form{
+			width: 100vw;
+			overflow: hidden;
+			flex: 1;
+			-ms-flex: 1 0 auto;
+			// align-self: stretch;
+			position: relative;
+			min-height: 700px;
+
+			background: linear-gradient( 145deg, $contact-color-1 0%, $contact-color-2 100%);
+
+			.contact-form{
+				width: 100%;
+				padding-top: 120px;
+				padding-bottom: 75px;
+			}
+		}
 	}
 }

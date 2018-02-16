@@ -68,18 +68,22 @@ class Home extends Component{
 	}
 
 	renderGroups(){
+		if (!SVG.g) return null;
 		return SVG.g.map( (g,k)=>{
+
 			return(
 				<g key={"g"+k}>
-					{ this.renderPaths(g,k) }
+		 			{ this.renderPaths(g,k) }
 				</g>
 			);
 		});
 	}
 
 	renderPaths(g,gk){
-		return g.map( (p,pk)=>{
 
+		if (!g) return null;
+
+		return g.map( (p,pk)=>{
 			const pa = this.props.pageanimate;
 			const v = this.animationVars[gk][pk];
 
@@ -96,9 +100,17 @@ class Home extends Component{
 				opacity: 1-t
 			}
 
-			return (
-				<path d={p} key={'path'+gk+pk} style={style}/>
-			)
+			//if (p.type==="path"){
+				return(
+					<path d={p} key={"path"+gk+pk} style={style} />
+				);
+			//} else if (p.type==="polygon"){
+			// 	return(
+			// 		<polygon points={p.content} key={"poly"+gk+pk} style={style} />
+			// 	);
+			// } else {
+			// 	return null;
+			// }
 		});
 	}
 

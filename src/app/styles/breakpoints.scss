@@ -26,3 +26,9 @@ $breakpoint-xl: 2000px !default;
     @content;
   }
 }
+
+@mixin td() {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}

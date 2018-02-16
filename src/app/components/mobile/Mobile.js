@@ -15,12 +15,18 @@ class Mobile extends Component{
 
 		if (page==="project") {
 			return (
-				<Detail height={this.props.height} />
+				<Detail
+					width={this.props.width}
+					height={this.props.height}
+				 />
 			)
 		}
 
 		return (
-			<Home height={this.props.height} />
+			<Home
+				width={this.props.width}
+				height={this.props.height}
+			/>
 		);
 	}
 }

@@ -5,6 +5,7 @@ import Project from 'app/components/project/Project';
 
 import './Detail.css';
 
+
 class Detail extends Component{
 	render(){
 		if (this.props.page!=="project") return null;
@@ -20,11 +21,18 @@ class Detail extends Component{
 			opacity: opacity
 		}
 
+		const st = {
+			overflow: (pa===1) ? 'auto' : 'hidden',
+			height: (pa===1) ? 'auto' : '100vh'
+		}
+
 		return(
-			<section className="detail" style={style}>
-				<Project
-					height={this.props.height}
-				/>
+			<section className="detail" style={st}>
+				<div style={style}>
+					<Project
+						height={this.props.height}
+					/>
+				</div>
 			</section>
 		);
 	}

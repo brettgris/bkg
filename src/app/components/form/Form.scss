@@ -1,11 +1,19 @@
 @import 'app/styles/colors.scss';
 
-.form{
-	h3{
-		color: $white;
-	}
+.contact-form{
 
-	.submit-container{
-		text-align: right;
+	.form, .success, .info{
+		color: $white;
+		text-align: center;
+		margin: auto;
+
+		h3{
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+
+		.submit-container{
+			margin-top: 20px;
+		}
 	}
 }

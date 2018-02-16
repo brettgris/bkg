@@ -44,12 +44,12 @@ FOOTER
           color: #ff234a; }
       .mobile-footer .content .info .icons {
         flex-grow: 1; }
-        .mobile-footer .content .info .icons ul > li {
+        .mobile-footer .content .info .icons ul > li a {
           color: #ffffff;
           margin-right: 15px;
           font-size: 24px;
           cursor: pointer; }
-          .mobile-footer .content .info .icons ul > li:hover {
+          .mobile-footer .content .info .icons ul > li a:hover {
             color: #ff234a;
             transition: color 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
   .mobile-footer .copyright {

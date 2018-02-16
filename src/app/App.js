@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchData,setProject} from '../actions/actions';
+import {fetchData,setProject} from 'actions/actions';
 
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-
 
 import Mobile from './components/mobile/Mobile';
 import Desktop from './components/desktop/Desktop';
@@ -44,14 +43,15 @@ class App extends Component {
 			this.route = n.route;
 			const route = n.route.split("/");
 
-			if (route[1]==='project' && route.length ===3 ) this.props.setProject(route[2]);
-			else this.props.setProject(null);
+			if (route[1]==='project' && route.length ===3 ) {
+				this.props.setProject(route[2]);
+			}
 		}
 	}
 
 	handleResize(){
 		this.setState({
-			mobile: (window.innerWidth<800),
+			mobile: (window.innerWidth<768 || window.innerHeight<600),
 			width: window.innerWidth,
 			height: window.innerHeight
 		});
@@ -69,6 +69,7 @@ class App extends Component {
 		if (this.state.mobile){
 			return(
 				<Mobile
+					width={this.state.width}
 					height={this.state.height}
 				/>
 			);
@@ -79,7 +80,7 @@ class App extends Component {
 				width={this.state.width}
 				height={this.state.height}
 			/>
-		)
+		);
 	}
 }
 

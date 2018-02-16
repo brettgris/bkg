@@ -8,7 +8,9 @@ a.button, button.button {
   display: inline-flex;
   transition: color 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9);
   text-transform: uppercase;
-  cursor: pointer; }
+  cursor: pointer;
+  border: hidden;
+  outline: none; }
   a.button:after, button.button:after {
     content: '';
     width: 0%;

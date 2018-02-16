@@ -1,121 +1,124 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/transition.scss';
 @import 'app/styles/type.scss';
+@import 'app/styles/breakpoints.scss';
+@import 'app/styles/mixins.scss';
+
+$project-layout-size: 1200px;
 
 .projects{
-	.view{
-		width: 50vw;
-		height: 100vh;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+
+	.cf{
+		padding-left: 125px;
+		padding-right: 125px;
+		overflow: hidden;
+		width: 100%;
+		height: 100%;
 		position: absolute;
-
-		.line{
-			flex: 0 0 auto;
-			background: $white;
-			height: 2px;
-			margin: 0 20px;
-			display: inline-flex;
-		}
-
-		.copy{
-			flex: 1 0 0;
-			visibility: hidden;
-			text-align: center;
+	}
+	.wrapper{
+		margin:auto;
+		height: 100%;
+		position: relative;
+		display: flex;
+		align-items: center;
 
 
-
-			h2{
-				color: $white;
-				opacity: .01;
-				transition: opacity $transition-speed $transition-ease 0s;
-
-				.titleart{
-					background-repeat: no-repeat;
-					background-size: contain;
-					background-position: center center;
-					width: 100%;
-					height: 50px;
-					display: inline-block;
-				}
-			}
-
-			h3{
-				padding-top: 5px;
-				color: $white;
-				text-transform: uppercase;
-				font-weight: 700;
-				font-size: 36px;
-				line-height: 40px;
-				letter-spacing: 5px;
-				font-family: $font-family-body;
-
-				opacity: .01;
-				transition: opacity $transition-speed $transition-ease 0s;
-			}
-
-			h6{
-				color: $secondary-color;
-				margin: 10px 0 10px 0;
-				font-size: 22px;
-				line-height: 26px;
-
-				opacity: .01;
-				transition: opacity $transition-speed $transition-ease .2s;
-			}
-
-			p{
-				color: $light-grey;
-				text-align: center;
-
-				opacity: .01;
-				transition: opacity $transition-speed $transition-ease .4s;
-				//direction:rtl;
-			}
-
-			.button{
-				opacity: .01;
-				transition: opacity $transition-speed $transition-ease .6s;
-			}
-
-			&.visible{
-				visibility: visible;
-
-				h2,h3,h6,p,.button{
-					opacity: 1;
-				}
-			}
+		&.odd{
+			justify-content: flex-start;
 		}
 
 		&.even{
-			left: 48vw;
-			text-align: left;
-
-			.copy {
-				padding-right: 100px;
-
-				h2 svg{
-					float: left;
-				}
-
-				// p{
-				// 	text-align-last: left;
-				// }
-			}
+			justify-content: flex-end;
 		}
 
-		&.odd{
-			left: 0;
-			text-align: right;
+		@include td(){
+			align-items: flex-end;
+			justify-content: center !important;
+		}
 
-			.copy {
-				padding-left: 100px;
+		.view{
+			width: 40%;
 
-				h2 svg{
-					float: right;
-				}
-				// p{
-				// 	text-align-last: right;
-				// }
+			@include td(){
+				width: 90%;
+				padding-bottom: 30px;
 			}
+
+			.copy{
+				text-align: center;
+				visibility: hidden;
+
+				h2{
+					color: $white;
+					@include opacity(.01);
+
+
+					.titleart{
+						background-repeat: no-repeat;
+						background-size: contain;
+						background-position: center center;
+						width: 100%;
+						height: 50px;
+						display: inline-block;
+					}
+				}
+
+				h3{
+					padding-top: 5px;
+					color: $white;
+					text-transform: uppercase;
+					font-weight: 700;
+					font-size: 36px;
+					line-height: 40px;
+					letter-spacing: 5px;
+					font-family: $font-family-body;
+
+					@include opacity(.01);
+
+				}
+
+				p{
+					color: $light-grey;
+					text-align: center;
+
+					@include opacity(.01);
+
+				}
+
+				.button{
+					@include opacity(.01);
+
+				}
+
+				&.visible{
+					visibility: visible;
+
+					h2{
+						@include opacity(1);
+						transition: opacity $transition-speed $transition-ease 0s;
+					}
+
+					h3{
+						@include opacity(1);
+						transition: opacity $transition-speed $transition-ease .15s;
+					}
+
+					p{
+						@include opacity(1);
+						transition: opacity $transition-speed $transition-ease .4s;
+					}
+
+					.button{
+						@include opacity(1);
+						transition: opacity $transition-speed $transition-ease .6s;
+					}
+				}
+			}
+
 		}
 	}
 }

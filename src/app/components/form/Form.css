@@ -1,5 +1,9 @@
-.form h3 {
-  color: #ffffff; }
-
-.form .submit-container {
-  text-align: right; }
+.contact-form .form, .contact-form .success, .contact-form .info {
+  color: #ffffff;
+  text-align: center;
+  margin: auto; }
+  .contact-form .form h3, .contact-form .success h3, .contact-form .info h3 {
+    margin-top: 20px;
+    margin-bottom: 20px; }
+  .contact-form .form .submit-container, .contact-form .success .submit-container, .contact-form .info .submit-container {
+    margin-top: 20px; }

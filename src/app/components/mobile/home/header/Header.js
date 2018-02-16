@@ -14,21 +14,36 @@ class Header extends Component{
 		const { data } = this.props;
 		if ( !data ) return null;
 
+		const sizeStyle = {
+			height:this.props.height,
+			width:this.props.width
+		}
+
 		return (
-			<header className="mobile-home-header d-flex align-items-center justify-content-center flex-column" style={{height:this.props.height}}>
-				<Background video={data.video} image={data.image} />
-				<div>
-					<ReactSVG path={Logo} className={`logo svg svg-color whitetocolor`}/>
-				</div>
-				<div className="row">
-					<div className="description col-9">
-						<h2>{data.headline}</h2>
-						<p>{data.description}</p>
-						<h6>View Case Studies</h6>
-						<div className="icon">
-							<Link to="projects" smooth={true} duration={500}>
-								<i className={data.icon}></i>
-							</Link>
+			<header className="mobile-home-header" style={sizeStyle} >
+				<Background
+					video={data.video}
+					image={data.image}
+					poster={data.poster}  
+					width={this.props.width}
+					height={this.props.height}
+				/>
+
+				<div className="wrapper d-flex align-items-center justify-content-center" style={sizeStyle} >
+
+					<div className="description">
+						<div>
+							<div className="lwrapper">
+								<ReactSVG path={Logo} className={`logo svg svg-color whitetocolor`}/>
+							</div>
+							{/* <h2>{data.headline}</h2> */}
+							<p>{data.description}</p>
+							<h6>View Case Studies</h6>
+							<div className="icon">
+								<Link to="projects" smooth={true} duration={500}>
+									<i className={data.icon}></i>
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>

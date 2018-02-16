@@ -72,7 +72,6 @@ class ThreeView extends Component{
 		let currentImage;
 		if (this.props.projects) {
 			currentImage = this.props.projects.content[this.props.current].projectimage;
-			//console.log( this.props.current, this.props.projects.content )
 		}
 
 		let ca = this.props.cameraanimate*2;
@@ -81,10 +80,20 @@ class ThreeView extends Component{
 		const nx = (this.state.xPerc<0) ? -1 : 1;
 		const ny = (this.state.yPerc<0) ? -1 : 1;
 
-		const xPerc = 200*ca + this.state.xPerc*this.state.xPerc*nx*20;
+		const positionVars = {
+			x: 200,
+			y: 0
+		}
+
+		if ( this.props.width<1200 ){
+			positionVars.x = 0;
+			positionVars.y = -250;
+		}
+
+		const xPerc = positionVars.x*ca + this.state.xPerc*this.state.xPerc*nx*20;
 		const rotateY = xPerc/-200 * .1;
 
-		const yPerc = this.state.yPerc;
+		const yPerc = positionVars.y*ca*ca + this.state.yPerc;
 		const rotateX = this.state.yPerc*this.state.yPerc*ny* -.05;
 
 		return(

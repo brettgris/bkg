@@ -30,15 +30,33 @@ class Desktop extends Component{
 					height={this.props.height}
 				/>
 				<Animate />
-				<Background video={this.props.data.video} image={this.props.data.image} />
+
+				{this.renderBackground()}
 			</div>
+		);
+	}
+
+	renderBackground(){
+		if (this.props.page==="project" && this.props.pageanimate===0) return null;
+		if (this.props.page==="contact" && this.props.pageanimate===0) return null;
+
+		return (
+			<Background
+				video={this.props.data.video}
+				image={this.props.data.image}
+				poster={this.props.data.poster}
+				width={this.props.width}
+				height={this.props.height}
+			/>
 		);
 	}
 }
 
 function mapStateToProps(state) {
 	return {
-		data: state.data.home
+		data: state.data.home,
+		page: state.page,
+		pageanimate: state.pageanimate
 	}
 }
 

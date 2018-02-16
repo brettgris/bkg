@@ -1,18 +1,26 @@
 .contact {
-  width: 100vw;
-  height: 120vh;
-  position: fixed;
-  top: 0vh;
+  width: 100%;
+  overflow-x: hidden;
   z-index: 500;
-  transform-origin: bottom center; }
-  .contact::before {
-    content: '';
-    background: linear-gradient(145deg, #ff234a 0%, #df99b7 100%);
-    width: 100vw;
-    height: 100vh;
-    position: absolute; }
+  min-height: 100%;
+  position: absolute;
+  overflow-y: hidden; }
   .contact > div {
-    width: 100vw;
-    height: 100vh;
-    position: absolute;
-    top: 0vh; }
+    width: 100%;
+    min-height: 100vh;
+    transform-origin: bottom center;
+    position: relative;
+    height: 0;
+    overflow-x: hidden; }
+    .contact > div .c-form {
+      width: 100vw;
+      overflow: hidden;
+      flex: 1;
+      -ms-flex: 1 0 auto;
+      position: relative;
+      min-height: 700px;
+      background: linear-gradient(145deg, #ff234a 0%, #df99b7 100%); }
+      .contact > div .c-form .contact-form {
+        width: 100%;
+        padding-top: 120px;
+        padding-bottom: 75px; }

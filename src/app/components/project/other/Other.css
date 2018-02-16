@@ -1,6 +1,11 @@
 .other {
   border-top: 1px solid #000222;
   border-bottom: 1px solid #000222; }
+  .other .direction {
+    flex-direction: row; }
+    @media (max-width: 900px) {
+      .other .direction {
+        flex-direction: column; } }
   .other .item {
     background: #000222;
     height: 350px;
@@ -11,11 +16,12 @@
     position: relative;
     width: 33.3%;
     transition: all 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
-    @media (max-width: 1025px) {
+    @media (max-width: 900px) {
       .other .item {
         width: 100%;
         border-right: 0;
-        border-bottom: 1px solid #000222; } }
+        border-bottom: 1px solid #000222;
+        transition: none; } }
     .other .item:last-child {
       border-right: 0px solid; }
     .other .item .overlay {

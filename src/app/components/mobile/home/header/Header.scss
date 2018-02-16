@@ -5,21 +5,60 @@
 
 
 .mobile-home-header{
-	//height:100%;
-	@include radial-gradient(rgba($black,.75) 0%, rgba($black,0) 65%)
+	// @include radial-gradient(rgba($black,.75) 0%, rgba($black,0) 65%)
+	position: relative;
+	overflow: hidden;
 
-	.logo {
-		width: 70px;
-		margin-bottom: 20px;
+	transition: height $transition-speed $transition-ease;
 
-		&:hover{
-			fill: $white !important;
-		}
+	.wrapper{
+		position: absolute;
+		top:0;
+		left:0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		transition: height $transition-speed $transition-ease;
 	}
 
 	.description{
-		margin: auto;
 		text-align: center;
+		width: 50%;
+
+		@include lg(){
+			width: 60%;
+		}
+
+		@include md(){
+			width: 70%;
+		}
+
+		@include xs(){
+			width: 80%;
+		}
+
+		.lwrapper{
+			margin-bottom: 20px;
+
+			@include sm(){
+				margin-bottom: 0;
+			}
+		}
+
+		.logo {
+			width: 70px;
+			height: 80px;
+			margin: auto;
+
+			&:hover{
+				fill: $white !important;
+			}
+
+			@include sm(){
+				height: 65px;
+			}
+		}
 
 		h2{
 			color: $white;
@@ -28,11 +67,16 @@
 		}
 		p{
 			color: $light-grey;
+			width: 100%;
 		}
 
 		h6{
 			margin-top: 30px;
 			color: $white;
+
+				@include sm(){
+					display: none;
+				}
 		}
 
 		.icon{

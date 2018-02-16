@@ -1,0 +1,29 @@
+{
+	"path": "starzfyc",
+
+	"title": "For Your Consideration",
+	"title-wrap": "For Your<br/>Consideration",
+
+	"titleart": "images/projects/starz/starz_titleart.svg",
+	"background": "images/projects/starz/fyc_background.jpg",
+	"projectimage": "images/projects/starz/fyc_projectimage.png",
+
+	"video": "videos/power.mp4",
+	"poster": "videos/pwoer.jpg",
+
+	"description": "A microsite used to promote the different Starz original programming that are up for awards.",
+
+	"link": "http://fyc.brettgrisinger.com/",
+
+	"copy":[
+		{
+			"title": "PROVIDING A QUICK AND INFORMATIVE LOOK AT ALL THE SERIES",
+			"copy": "The Starz For Your Consideration site is a microsite used to promote and allow members of different award guilds to become informed and watch episodes of the all the different Starz original series. The most important features are quick access to the different shows and then each of their episodes.",
+			"image": "images/projects/starz/fyc_1.png"
+		},{
+			"title": "A FLEXIBLE INTERFACE TO CHANGE FOR EACH AWARD GUILD",
+			"copy": "Their are many award guilds and they all run at different times of the year so the Starz For Your Consideration site needs to be flexible and easy to update. The site is built upon ReactJS and Reflux to load data JSON files that tells which series are up for each guild as well as the corresponding categories. React allows the site to be quick and flexible using Javascript components to load the data, render them and also handle the video playing.",
+			"image": "images/projects/starz/fyc_2.png"
+		}
+	]
+},

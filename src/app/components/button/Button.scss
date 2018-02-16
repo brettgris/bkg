@@ -19,6 +19,8 @@ a.button, button.button{
   transition: color ($button-step-speed*$button-total-steps) $button-ease;
   text-transform: uppercase;
   cursor: pointer;
+  border: hidden;
+  outline: none;
 
   &:after{
     content: '';

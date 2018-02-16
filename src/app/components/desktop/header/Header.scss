@@ -2,16 +2,36 @@
 @import 'app/styles/transition.scss';
 @import 'app/styles/zindex.scss';
 
+$header-height: 100px;
 $header-logo-width: 70px;
 
 .deskop-header{
+	width: 100%;
 	z-index: $z-header;
-	position: absolute;
-	height: 100px;
+	position: fixed;
 	top: 0;
+	height: $header-height;
+	overflow: hidden;
 
-	.logo {
-		cursor: pointer;
-		width: $header-logo-width;
+	.content{
+		background: transparent;
+		height: $header-height;
+		overflow: hidden;
+		padding: 0 30px;
+
+		.logo{
+			cursor: pointer;
+			width: $header-logo-width;
+			margin-left: 15px;
+		}
+	}
+}
+
+.headroom{
+	&.headroom--pinned{
+		.content{
+			background: rgba( $black, .9 );
+			transition: all $transition-speed $transition-ease;
+		}
 	}
 }
