@@ -37,8 +37,7 @@ class Footer extends Component{
 					</div>
 
 					<div className="copyright row">
-						<div className="col-12" dangerouslySetInnerHTML={{__html:data.copyright}}>
-						</div>
+						<div className="col-12" dangerouslySetInnerHTML={{__html:data.copyright}}></div>
 					</div>
 				</div>
 

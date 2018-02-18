@@ -49,8 +49,6 @@ class Slider extends Component{
 							<i className="if far fa-chevron-up" data-fa-transform="shrink-11 up-2.5"></i>
 							<i className="if far fa-chevron-down" data-fa-transform="shrink-11 down-2.5"></i>
 						</span>
-						{/* <ReactSVG path={HANDLE} className="svg" /> */}
-						{/* <i className="icon far fa-arrows-v" data-fa-transform="shrink-9" data-fa-mask="fas fa-circle"></i> */}
 					</div>
 				</Draggable>
 			</div>

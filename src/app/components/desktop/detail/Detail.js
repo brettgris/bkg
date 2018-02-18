@@ -23,7 +23,7 @@ class Detail extends Component{
 
 		const st = {
 			overflow: (pa===1) ? 'auto' : 'hidden',
-			height: (pa===1) ? 'auto' : '100vh'
+			height: (pa===1) ? 'auto' : '100%'
 		}
 
 		return(

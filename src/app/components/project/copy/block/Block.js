@@ -4,7 +4,7 @@ class Block extends Component{
 	render(){
 		return(
 			<div className="block row section justify-content-center">
-				<div className="col-11 col-sm-10 col-lg-9 col-xl-8">
+				<div className={this.props.class}>
 					<h3>{this.props.data.title}</h3>
 					<p>{this.props.data.copy}</p>
 					<div className="desc-image">

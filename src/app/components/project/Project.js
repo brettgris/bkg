@@ -32,7 +32,7 @@ class Project extends Component{
 	}
 
 	updateCurrentProject(props){
-		const {data,project} = this.props;
+		const {data,project} = props;
 
 		if( !data || !project) return null;
 
@@ -63,6 +63,7 @@ class Project extends Component{
 					width={this.props.width}
 					current={this.state.current}
 				/>
+
 				<Copy
 					current={this.state.current}
 				/>
@@ -71,8 +72,11 @@ class Project extends Component{
 					data={this.props.data}
 					project={this.props.project}
 				/>
+
 				<Close />
+
 				<Contact />
+
 				<Footer />
 			</div>
 		);

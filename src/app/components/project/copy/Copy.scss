@@ -25,6 +25,11 @@
 				line-height: 28px;
 			}
 		}
+
+		&:nth-child(even){
+			background: #e6e6e6;
+			border:1px solid $light-grey;
+		}
 	}
 
 

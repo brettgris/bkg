@@ -73,6 +73,7 @@ class Home extends Component{
 					perc={ this.state.perc }
 					pageanimate={this.props.pageanimate}
 					page={ this.props.page }
+					projectmenu={this.props.projectmenu}
 				/>
 				<View
 					pageanimate={this.props.pageanimate}

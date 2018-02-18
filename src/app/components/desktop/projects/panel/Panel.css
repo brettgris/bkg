@@ -81,14 +81,16 @@ header a {
     flex-direction: column;
     top: 50%;
     margin: auto;
-    position: relative;
-    transition: all 0.1 cubic-bezier(0.2, 0.3, 0.25, 0.9); }
+    position: relative; }
+    .panel ul.notactive {
+      transition: all 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
     .panel ul li {
       color: #ffffff;
       height: 200px;
       width: 100%;
       transform-origin: 50% center;
       position: relative;
+      overflow: hidden;
       transform: scale(0.75);
       transition: all 1s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
       .panel ul li .copy {
@@ -102,7 +104,7 @@ header a {
         color: rgba(255, 255, 255, 0.1);
         position: absolute;
         z-index: 5;
-        transform: translateY(0%);
+        transform: translateY(0px);
         transition: all 1s cubic-bezier(0.2, 0.3, 0.25, 0.9);
         overflow: hidden; }
         .panel ul li .copy h2 {
@@ -134,7 +136,7 @@ header a {
         align-items: center;
         justify-content: center;
         transform-origin: 30% center;
-        transform: translateY(0%);
+        transform: translateY(0px);
         transition: all 0.65s cubic-bezier(0.2, 0.3, 0.25, 0.9);
         background-repeat: no-repeat;
         background-size: contain;
@@ -146,15 +148,13 @@ header a {
         transform: scale(1); }
         .panel ul li.focus .copy {
           color: #ffffff;
-          transform: translateY(-7%); }
-          .panel ul li.focus .copy h2 {
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5); }
+          transform: translateY(-35px); }
           .panel ul li.focus .copy p {
             transform: translateX(0);
             opacity: 1;
             filter: alpha(opacity=100); }
         .panel ul li.focus .ta {
-          transform: translateY(20%);
+          transform: translateY(75px);
           opacity: 0.15;
           filter: alpha(opacity=15); }
   .panel.animate-enter {

@@ -464,7 +464,9 @@ header a {
 body {
   margin: 0;
   padding: 0;
-  background: #000222; }
+  background: #000222;
+  width: 100%;
+  overflow-x: hidden; }
 
 .App {
   width: 100%;
@@ -472,7 +474,6 @@ body {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
-  position: relative;
   position: absolute; }
 
 .desktop {

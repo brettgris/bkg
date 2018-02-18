@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-// import ReactSVG from 'react-svg';
 
 import Slider from './slider/Slider';
-
-// import AngleUp from 'app/images/chevron-up.svg';
-// import AngleDown from 'app/images/chevron-down.svg';
 
 import './Controls.css';
 

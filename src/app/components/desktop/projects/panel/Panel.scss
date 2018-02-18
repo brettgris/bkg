@@ -30,7 +30,10 @@ $panel-item-focused-height: 400px;
 		top: 50%;
 		margin: auto;
 		position: relative;
-		transition: all .1 $transition-ease;
+
+		&.notactive{
+			transition: all $transition-speed $transition-ease;
+		}
 
 		li{
 			color: $white;
@@ -38,6 +41,7 @@ $panel-item-focused-height: 400px;
 			width: 100%;
 			transform-origin: 50% center;
 			position: relative;
+			overflow: hidden;
 
 			transform: scale(.75);
 
@@ -54,7 +58,7 @@ $panel-item-focused-height: 400px;
 				color: rgba($white,.1);
 				position: absolute;
 				z-index: 5;
-				transform: translateY(0%);
+				transform: translateY(0px);
 				transition: all 1s $transition-ease;
 				overflow: hidden;
 
@@ -96,7 +100,7 @@ $panel-item-focused-height: 400px;
 				justify-content: center;
 
 				transform-origin: 30% center;
-				transform: translateY(0%);
+				transform: translateY(0px);
 				transition: all .65s $transition-ease;
 
 				background-repeat: no-repeat;
@@ -112,10 +116,10 @@ $panel-item-focused-height: 400px;
 
 				.copy{
 					color: $white;
-					transform: translateY(-7%);
+					transform: translateY(-35px);
 
 					h2{
-						text-shadow: 0 0 20px rgba($white,.5);
+						//text-shadow: 0 0 20px rgba($white,.5);
 					}
 
 					p{
@@ -130,7 +134,7 @@ $panel-item-focused-height: 400px;
 				}
 
 				.ta{
-					transform: translateY(20%);
+					transform: translateY(75px);
 
 					@include opacity(.15);
 				}

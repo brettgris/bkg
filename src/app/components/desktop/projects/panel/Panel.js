@@ -43,10 +43,12 @@ class Panel extends Component{
 			opacity: pa
 		}
 
+		const active = ( this.props.projectmenu ) ? 'active' : 'notactive';
+
 		return(
 			<div className="panel">
 				<div className="container">
-					<ul style={style} className="col-11 col-lg-11" ref="list">
+					<ul style={style} className={`col-11 ${active}`} ref="list">
 						{ this.renderItems() }
 					</ul>
 				</div>
