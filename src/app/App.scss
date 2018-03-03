@@ -4,6 +4,8 @@
 @import 'app/styles/transition.scss';
 @import 'app/styles/mixins.scss';
 
+@import 'app/styles/video-react.scss';
+
 body{
 	margin: 0;
 	padding: 0;
@@ -94,4 +96,9 @@ main{
 
 .clear{
 	clear: both;
+}
+
+.hide{
+	display: none !important;
+	visibility: hidden !important;
 }

@@ -21,6 +21,7 @@
     "react-dom": "^15.6.2",
     "react-draggable": "^2.2.6",
     "react-headroom": "^2.2.2",
+    "react-player": "^1.2.1",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
@@ -33,7 +34,6 @@
     "redux-thunk": "^2.2.0",
     "superagent": "^3.8.2",
     "three": "^0.86.0",
-    "video-react": "^0.9.4",
     "webfontloader": "^1.6.28"
   },
   "scripts": {

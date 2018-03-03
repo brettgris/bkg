@@ -9,9 +9,13 @@ $other-item-border: 1px solid $black;
 $other-titleart-width: 300px;
 $other-titleart-height: 40px;
 
+$footer-gradient-height: 4px;
+
 .other{
-	border-top: $other-item-border;
-	border-bottom: $other-item-border;
+	.gradient{
+		height: $footer-gradient-height;
+		@include linear-gradient(to right, $primary-color 0%, $third-color 50%, $secondary-color 100%);
+	}
 
 	.direction{
 		flex-direction: row;

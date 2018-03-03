@@ -27,3 +27,67 @@
 		}
 	]
 },
+{
+	"path": "spartacusultimateshowdown",
+
+	"title": "Ultimate Showdown",
+	"title-wrap": "Ultimate<br/>Showdown",
+
+	"titleart": "images/projects/spartacus/spartacus_titleart.svg",
+	"background": "images/projects/spartacus/ultimateshowdown_background.jpg",
+	"projectimage": "images/projects/spartacus/ultimateshowdown_projectimage.png",
+
+	"video": "videos/spartacus.mp4",
+	"poster": "videos/spartacus.jpg",
+
+	"description": "A facebook gladiator tournament where participants help their favorite gladiators from the television series \"Spartacus\" in their battle to become the champion.",
+
+	"link": "",
+	"copy":[
+		{
+			"title": "A TOURNAMENT WORTHY OF GLADIATORS",
+			"copy": "In the break between the second and the final season of \"Spartacus\", there was a desire to engage the large Facebook fan base and draw hype to the release of the second season on DVD. Therefore, a gladiator battle tournament was created where fans of the show could vote for their favorite gladiator in their battle to become the champion.",
+			"image": "images/projects/spartacus/spartacus_top1.png"
+		},{
+			"title": "TWO GLADIATORS FACE OFF IN THE ARENA",
+			"copy": "Each day featured a new pair of gladiators to battle against each other, and fans were asked to pick who they wanted or thought would win if the two gladiators fought in the arena. After the fans voted, they were shown the voting percentages to see if their gladiator was winning, and on their way to becoming champion, or if they might be eliminated from the tournament.",
+			"image": "images/projects/spartacus/spartacus_battle1.png"
+		},{
+			"title": "WHO WILL BE CHAMPION?",
+			"copy": "The tournament field consisted of the 8 most popular gladiators from the first two seasons, and were seeded in similar fashion to the NCAA basketball tournament. The winner of each first round matchup moved on to another battle and ultimately ended with a champion that was not the legendary Spartacus, but the fan favorite Ganicus.",
+			"image": "images/projects/spartacus/spartacus_brackets1.png"
+		},{
+			"title": "A CHANCE TO WIN",
+			"copy": "In addition to the battles, this experience was used to promote the release of the second season of \"Spartacus\" on DVD. Once a fan voted in the daily battle, they earned a chance to win a copy of the second season on DVD or Blu-ray and could come back each day for another shot to win. ",
+			"image": "images/projects/spartacus/spartacus_sweeps1.png"
+		}
+	]
+}			{
+				"path": "blacksailspresskit",
+
+				"title": "Press Kit",
+				"title-wrap": "Press Kit",
+
+				"titleart": "images/projects/blacksails/blacksails_titleart.svg",
+				"background": "images/projects/blacksails/presskit_background.jpg",
+				"projectimage": "images/projects/blacksails/presskit_projectimage.png",
+
+				"video": "videos/blacksails.mp4",
+				"poster": "videos/blacksails.jpg",
+
+				"description": "A promotional microsite for the final season of the television show \"Black Sails\", featuring custom motion graphics and an innovative interface to bring to life the printed press kit.",
+
+				"link": "http://brettgrisinger.com/projects/bks4presskit/",
+
+				"copy":[
+					{
+						"title": "CREATING THE WORLD",
+						"copy": "The main feature of this press kit is the introductory motion graphics where it features every page from the printed press kit with subtle animations. These motion graphics combined with custom sound design help to give a glimpse into the pirate world that is created in \"Black Sails.\"",
+						"image": "images/projects/blacksails/pk_1.png"
+					},{
+						"title": "CONTENT IS KING",
+						"copy": "User experiences and interfaces can sometimes get overwhelming with both navigations and sub-navigations. As an innovative experience in this press kit, content becomes the main focus with sub-navigations becoming secondary by minimizing them and allowing expansion.",
+						"image": "images/projects/blacksails/pk_2.png"
+					}
+				]
+			},

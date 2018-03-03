@@ -1,0 +1,11 @@
+<svg viewBox="0 0 1260 1200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 1260 1200;" xml:space="preserve" preserveAspectRatio="none slice">
+	<defs>
+		<linearGradient id="Gradient" x1="0" x2=".5" y1="0" y2="1">
+	        <stop offset="0%" stop-color="#ff234a"/>
+	        <stop offset="100%" stop-color="#f45a7e"/>
+      </linearGradient>
+	</defs>
+	<polygon fill="url(#Gradient)" points="0 200, 630 0, 1260 200, 1260 1000, 630 1200, 0 1000" />
+	<polyline points="0 200 630 0 1260 200" stroke="#4fb4e8" stroke-width="1" stroke-opacity=".3" fill="none" />
+	<polyline points="0 1000 630 1200 1260 1000" stroke="#4fb4e8" stroke-width="1" stroke-opacity=".3" fill="none" />
+</svg>

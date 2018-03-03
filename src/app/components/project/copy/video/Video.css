@@ -1,3 +1,76 @@
-.mobile-details-copy .video {
-  background: #000222 !important;
-  color: #ffffff; }
+.mobile-details-copy > .video {
+  width: 100%;
+  background: url(/images/project_video.svg);
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: 100% 100%; }
+  .mobile-details-copy > .video .top {
+    height: 25vh; }
+  .mobile-details-copy > .video .content {
+    position: relative;
+    width: 100vw; }
+    .mobile-details-copy > .video .content .floating {
+      top: 0vw; }
+      .mobile-details-copy > .video .content .floating.visible {
+        opacity: 0.07;
+        filter: alpha(opacity=7); }
+    .mobile-details-copy > .video .content .project {
+      height: 100%;
+      width: 100%;
+      position: relative;
+      top: 0;
+      left: 0;
+      padding-top: 56.25%;
+      min-height: 500px; }
+      .mobile-details-copy > .video .content .project .container, .mobile-details-copy > .video .content .project .wrapper {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin: 0; }
+      .mobile-details-copy > .video .content .project .wrapper > div {
+        padding-top: 56.25%;
+        width: 100%;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+        max-width: 90vw;
+        left: 50%;
+        transform: translateX(-50%); }
+        .mobile-details-copy > .video .content .project .wrapper > div video {
+          position: absolute;
+          top: 0;
+          max-height: 100%;
+          background: #000222;
+          border: 1px solid #000222;
+          box-shadow: 0 0 50px rgba(0, 2, 34, 0.35);
+          max-width: 90vw;
+          width: auto !important;
+          height: auto !important; }
+  .mobile-details-copy > .video .bottom {
+    height: 25vh;
+    position: relative;
+    bottom: 0;
+    width: 100%; }
+    .mobile-details-copy > .video .bottom .floating {
+      top: 0;
+      bottom: 0; }
+      .mobile-details-copy > .video .bottom .floating.visible {
+        opacity: 0.07;
+        filter: alpha(opacity=7); }
+      .mobile-details-copy > .video .bottom .floating > div {
+        background-position: center 100%; }
+    .mobile-details-copy > .video .bottom:after {
+      height: 10px;
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      border-bottom: 1px solid #000222;
+      content: "";
+      display: block;
+      background: rgba(0, 2, 34, 0.15);
+      background: -webkit-linear-gradient(bottom, rgba(0, 2, 34, 0.15) 0%, rgba(0, 2, 34, 0) 100%);
+      background: linear-gradient(to top, rgba(0, 2, 34, 0.15) 0%, rgba(0, 2, 34, 0) 100%); }

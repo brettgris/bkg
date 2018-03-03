@@ -7,15 +7,18 @@ import { Link as ScrollLink } from 'react-scroll';
 import Background from 'app/components/background/Background';
 
 class Header extends Component{
+
 	render(){
 		const { current, data } = this.props;
 		if ( !current || !data ) return null;
 
 		const titleArtStyle = {backgroundImage:`url(${current.titleart})`};
 
+
+
 		return (
 			<header className="mobile-detail-header d-flex align-items-center justify-content-end flex-column" style={{height:this.props.height}}>
-				<div className="mask" style={{height:this.props.height+5}}></div>
+				<div className="mask" style={{height:this.props.height}}></div>
 				<Background
 					video={current.video}
 					image={current.background}

@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import './Copy.css';
 
-// import Solve from './solve/Solve';
-// import Video from './video/Video';
+import Solve from './solve/Solve';
+import Video from './video/Video';
 // import Features from './features/Features';
 import Block from './block/Block';
 
@@ -13,14 +13,20 @@ class Copy extends Component{
 		this.copyclasses = "col-11 col-sm-10 col-lg-9 col-xl-8";
 	}
 
-	//<Solve class={this.copyclasses} />
-	// <Video class={this.copyclasses} />
-	// <Features class={this.copyclasses} />
-
 	render(){
 		return (
 			<div id="copy" className="mobile-details-copy">
-				{ this.renderCopyBlocks() }
+				<Solve
+					class={this.copyclasses}
+					pa={this.props.pa}
+					current={this.props.current}
+				/>
+				<Video
+					class={this.copyclasses}
+					height={this.props.height}
+					pa={this.props.pa}
+					current={this.props.current}
+				/>
 			</div>
 		);
 	}

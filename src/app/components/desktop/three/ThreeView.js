@@ -77,6 +77,8 @@ class ThreeView extends Component{
 		let ca = this.props.cameraanimate*2;
 		ca = Math.min(Math.max(-1, ca), 1);
 
+		ca = ca * -1;
+
 		const nx = (this.state.xPerc<0) ? -1 : 1;
 		const ny = (this.state.yPerc<0) ? -1 : 1;
 
@@ -90,7 +92,7 @@ class ThreeView extends Component{
 			positionVars.y = -250;
 		}
 
-		const xPerc = positionVars.x*ca + this.state.xPerc*this.state.xPerc*nx*20;
+		const xPerc = positionVars.x*ca + this.state.xPerc*this.state.xPerc*nx*20 + 25;
 		const rotateY = xPerc/-200 * .1;
 
 		const yPerc = positionVars.y*ca*ca + this.state.yPerc;

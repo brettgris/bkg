@@ -1,24 +1,113 @@
 import React, {Component} from 'react';
 import './Solve.css';
 
+import Waypoint from 'react-waypoint';
+
 class Solve extends Component{
+	constructor(props){
+		super(props);
+
+		this.state = {
+			visible: false,
+			sticky: true,
+			client: false,
+			ask: false,
+			solve: false
+		}
+	}
+
 	render(){
+		const visible = (this.state.visible) ? 'visible' : 'hidden';
+		const sticky = (this.state.sticky) ? 'sticky' : 'not-sticky';
+		const client = (this.state.client) ? 'visible' : 'hidden';
+		const ask = (this.state.ask) ? 'visible' : 'hidden';
+		const solve = (this.state.solve) ? 'visible' : 'hidden';
+
 		return(
 			<div className="solve row section justify-content-center">
-				<div className={this.props.class}>
-					<div className="group">
-						<h4>Client</h4>
-						<p>Original marketing for the television limited series, The White Queen. This series is a riveting portrayal of one of the most dramatic and turbulent times in English history. This epic begins in war-torn 1464 and is uniquely told through the perspective of three different, yet equally relentless women- Elizabeth Woodville, Margaret Beaufort and Anne Neville. In their quest for power, they will scheme, manipulate and seduce their way onto the English throne.</p>
-					</div>
-					<div className="group">
-						<h4>Ask</h4>
-						<p>Concept and create a digital experience for the viewers of the limited series by expanding a key concept of the series and work in conjunction with show art directions and producers to create assets.</p>
-					</div>
-					<div className="group">
-						<h4>Solution</h4>
-						<p>After evaluation of the scripts and early teasers, it was apparent that a key part of this show was all the characters and the relationships between them. This show spans hundreds of years and a lot of the relationships change in each episode. We sought to create a digital version of a family tree of the British Monarchy during the span of the show and to create an interface that allowed the user to see how the monarchy changed in each episode with marriages, births and deaths. We also wanted to keep users engaged by adding a social campaign that encouraged viewers to vote to award characters in different categories that would show on the interface.</p>
-					</div>
+				<div className={`floating ${visible} ${sticky}`}>
+					<div style={{backgroundImage:`url("/images/overview.svg")`}}></div>
 				</div>
+				<Waypoint
+					onEnter={()=>this.setState({visible:true})}
+					onLeave={()=>this.setState({visible:false})}
+					scrollableAncestor={window}
+					topOffset={200}
+					bottomOffset={200}
+				>
+					<div className={`${this.props.class} front`}>
+						<Waypoint
+							onEnter={()=>this.setState({sticky:false})}
+							onLeave={()=>this.setState({sticky:true})}
+							scrollableAncestor={window}
+							topOffset={200}
+							bottomOffset={200}
+						/>
+						<div className="group">
+								<div className={`image ${client}`}>
+									<div  style={{backgroundImage:`url(${this.props.current.solve.client.image})`}}></div>
+								</div>
+
+								<Waypoint
+									scrollableAncestor={window}
+									topOffset={300}
+									bottomOffset={300}
+									onEnter={()=>this.setState({client:true})}
+									onLeave={()=>this.setState({client:false})}
+								>
+									<div className={`details ${client}`}>
+										<h6>Client</h6>
+										<div>
+											<div className="ta" style={{backgroundImage:`url(${this.props.current.solve.client.title})`}}></div>
+											<p>{this.props.current.solve.client.copy}</p>
+										</div>
+									</div>
+								</Waypoint>
+						</div>
+						<div className="group reverse">
+								<div className={`image ${ask}`}>
+									<div  style={{backgroundImage:`url(${this.props.current.solve.ask.image})`}}></div>
+								</div>
+
+								<Waypoint
+									scrollableAncestor={window}
+									topOffset={300}
+									bottomOffset={300}
+									onEnter={()=>this.setState({ask:true})}
+									onLeave={()=>this.setState({ask:false})}
+								>
+									<div className={`details ${ask}`}>
+										<h6>Ask</h6>
+										<div>
+											<h4>{this.props.current.solve.ask.title}</h4>
+											<p>{this.props.current.solve.ask.copy}</p>
+										</div>
+									</div>
+								</Waypoint>
+						</div>
+						<div className="group">
+								<div className={`image ${solve}`}>
+									<div  style={{backgroundImage:`url(${this.props.current.solve.solve.image})`}}></div>
+								</div>
+
+								<Waypoint
+									scrollableAncestor={window}
+									topOffset={300}
+									bottomOffset={300}
+									onEnter={()=>this.setState({solve:true})}
+									onLeave={()=>this.setState({solve:false})}
+								>
+									<div className={`details ${solve}`}>
+										<h6>Solve</h6>
+										<div>
+											<h4>{this.props.current.solve.solve.title}</h4>
+											<p>{this.props.current.solve.solve.copy}</p>
+										</div>
+									</div>
+								</Waypoint>
+						</div>
+					</div>
+				</Waypoint>
 			</div>
 		)
 	}

@@ -30,6 +30,7 @@ class Other extends Component{
 				<div className="d-flex direction">
 					{ this.renderOthers(projects) }
 				</div>
+				<div className="gradient"></div>
 			</div>
 		);
 	}

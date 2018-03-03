@@ -22,56 +22,65 @@
 				"video": "videos/whitequeen.mp4",
 				"poster": "videos/whitequeen.jpg",
 
-				"description": "An interactive family tree for the television mini-series \"The White Queen\" that updates with each episode and includes a fan voting module.",
+				"description": "An interactive family tree of the British Monarchy for the television mini-series \"The White Queen\" that updates with each marriage, birth and death that occur during the span of each episode.",
 
-				"copy":[
-					{
-						"title": "BUILT FOR A ROYAL FAMILY",
-						"copy": "The television mini-series \"The White Queen\" focuses on the battle for the English Throne by three different relentless women, starting in the 1400’s. To help fans keep track of the characters in their quests for power, an interactive family tree was developed for the royal family of England during the time period that the show spanned.",
-						"image": "images/projects/whitequeen/familytree_devices.png"
-					},{
-						"title": "UPDATING WITH EACH EPISODE’S EVENTS",
-						"copy": "The goal of The White Queen Family Tree is to help users keep track of the different characters throughout the 10 episode mini-series. In order to accomplish this, the experience is built on a large grid interface and a XML data file that the site parses and then interprets to setup how it’s laid out. As the episode slider changes, it sorts through the data changes and then uses the grid layout to move, update, and make connections to the 90 different characters, as a visualization of the events in each episode. ",
-						"image": "images/projects/whitequeen/familytree_grid.png"
-					},{
-						"title": "MAKING THE USER EXPERIENCE AS SEAMLESS AS POSSIBLE",
-						"copy": "Since the family tree houses large amounts of information for the user, it is built as an experience that does not require a fan to learn how to use it. The user experience is built very similar to a mapping interface with zoom, panning, and clicking on points. On computers, this is accomplished with mouse interactions, click and drag to pan, mouse wheel to zoom, and click on points to open character panels. On tablets, this is accomplished with touch dragging to pan, pinch/expand to zoom, and touch to open character panels. All of this, creates an interface without a steep learning curve, in order to easily explore and learn more about the series.",
-						"image": "images/projects/whitequeen/familytree_top.png"
-					},{
-						"title": "THE MOST SCHEMING SCHEMER",
-						"copy": "As an added bonus to encourage users to return each week, the family tree also includes a voting module. Based on the current week’s episode, there are three awards to be given out to who the fans deem as most deserving that week. The awards include \"Power Player\", \"Scheming Schemer\", \"War of the Words\", \"Shock and Awe\", \"Scene Stealer\" and \"If Looks Could Kill.\" ",
-						"image": "images/projects/whitequeen/familytree_vote.png"
+				"solve":{
+					"client":{
+						"title":"images/projects/whitequeen/whitequeen_titleart.svg",
+						"copy":"The White Queen is a riveting portrayal of one of the most dramatic and turbulent times in English history. This epic series begins in war-torn 1464 and is uniquely told through the perspective of three different, yet equally relentless women - Elizabeth Woodville, Margaret Beaufort and Anne Neville. In their quest for power, they will scheme, manipulate and seduce their way onto the English throne.",
+						"image":"images/projects/whitequeen/ft_image1.jpg"
+					},
+					"ask":{
+						"title":"Informative Digital Experience",
+						"copy":"Original marketing requested that we concept and create an informative digital experience for the viewers of the limited series by identifying and expanding on a key concept occurring throughout the series that would be beneficial and engaging to the fans of the series.",
+						"image":"images/projects/whitequeen/ft_image2.jpg"
+					},
+					"solve":{
+						"title":"Creating a Family Tree",
+						"copy":"After evaluation of the scripts and early teasers, it was apparent that a key part of this show was all the characters and the relationships between them. We sought to create a digital version of a family tree of the British Monarchy during the span of the show with an interface that allowed the user to see how the monarchy changed in each episode with each marriage, birth and death. We also wanted to keep users engaged by adding a social campaign that encouraged viewers to vote to award characters in six different categories.",
+						"image":"images/projects/whitequeen/ft_image3.jpg"
 					}
-				]
-			},
-			{
-				"path": "blacksailspresskit",
+				},
 
-				"title": "Press Kit",
-				"title-wrap": "Press Kit",
+				"projectvideo":"videos/wqft.mp4",
+				"projectposter":"videos/wqft.jpg"
 
-				"titleart": "images/projects/blacksails/blacksails_titleart.svg",
-				"background": "images/projects/blacksails/presskit_background.jpg",
-				"projectimage": "images/projects/blacksails/presskit_projectimage.png",
+			},{
+				"path": "spartacusbuildyourlegacy",
 
-				"video": "videos/blacksails.mp4",
-				"poster": "videos/blacksails.jpg",
+				"title": "Build Your Legacy",
+				"title-wrap": "Build<br/>Your Legacy",
 
-				"description": "A promotional microsite for the final season of the television show \"Black Sails\", featuring custom motion graphics and an innovative interface to bring to life the printed press kit.",
+				"titleart": "images/projects/spartacus/spartacus_titleart.svg",
+				"background": "images/projects/spartacus/byl_background.jpg",
+				"projectimage": "images/projects/spartacus/byl_projectimage.png",
 
-				"link": "http://brettgrisinger.com/projects/bks4presskit/",
+				"video": "videos/spartacus.mp4",
+				"poster": "videos/spartacus.jpg",
 
-				"copy":[
-					{
-						"title": "CREATING THE WORLD",
-						"copy": "The main feature of this press kit is the introductory motion graphics where it features every page from the printed press kit with subtle animations. These motion graphics combined with custom sound design help to give a glimpse into the pirate world that is created in \"Black Sails.\"",
-						"image": "images/projects/blacksails/pk_1.png"
-					},{
-						"title": "CONTENT IS KING",
-						"copy": "User experiences and interfaces can sometimes get overwhelming with both navigations and sub-navigations. As an innovative experience in this press kit, content becomes the main focus with sub-navigations becoming secondary by minimizing them and allowing expansion.",
-						"image": "images/projects/blacksails/pk_2.png"
+				"description": "An affiliate training game to promote sales for the prequel season of the television show \"Spartacus\", featuring game play about building the walls of a new arena.",
+
+				"solve":{
+					"client":{
+						"title":"images/projects/spartacus/spartacus_titleart.svg",
+						"copy":"In the prequel season of the television series, Spartacus, the House of Batiatus is on the rise, basking in the glow of its infamous champion Gannicus. Poised to overthrow his father and take control, a young Batiatus will freely betray anyone to ensure his gladiators are in the highest demand. With his loyal and calculating wife Lucretia by his side, they will stop at nothing to deceive the masses.",
+						"image":"images/projects/spartacus/byl_image1.jpg"
+					},
+					"ask":{
+						"title":"A Promotional & Training Game",
+						"copy":"Affiliate marketing requested that we concept and create an engaging digital game that would be sent out to call service representatives. This would require that we identify and expand a key aspect from the prequel season while avoiding both a fighting game that was done for the first season and without showing violence. These games were used for promotion and training so we were also requested to incorporation trivia questions in addition to the game play.",
+						"image":"images/projects/spartacus/byl_image2.jpg"
+					},
+					"solve":{
+						"title":"Building The Arena",
+						"copy":"Since this prequel season was about the rise of a gladiator house, we came up with a game about building the gladiator arena. The game play involved strategically stacking tetris-shaped pieces against gravity to build up the walls. For each level you had to build a wall to a higher height before the time ran out.",
+						"image":"images/projects/spartacus/byl_image3.jpg"
 					}
-				]
+				},
+
+				"projectvideo":"videos/byl.mp4",
+				"projectposter":"videos/byl.jpg"
+
 			},
 			{
 				"path": "outlanderapothecary",
@@ -88,57 +97,63 @@
 
 				"description": "An informative experience for fans of the television series \"Outlander,\" highlighting the unique attributes of each herb that Claire studies and/or uses to treat illnesses.",
 
-				"link": "http://www.brettgrisinger.com/projects/olsac/index.html",
-				"copy":[
-					{
-						"title": "A LOOK INTO THE PAST",
-						"copy": "The Outlander Apothecary Cabinet is an informative experience for fans of the television series \"Outlander,\" allowing users a glimpse into Claire's world in the 1700s as an apothecary. The cabinet provides a look into the 14 herbs and tinctures used by Claire to treat illnesses and also get details on how they were used.",
-						"image": "images/projects/outlander/apothecary_devices.png"
-					},{
-						"title": "PLACING THE HERBS IN THE CABINET",
-						"copy": "This was developed in collaboration with set photographers to make the interface a replica of the actual cabinet from the set of \"Outlander,\" From this shot, a few bottles were pulled out, and with a scale tween, it was possible to visualize them coming out of the cabinet on rollover.",
-						"image": "images/projects/outlander/apothecary_rollover.png"
-					},{
-						"title": "HOW THE HERBS WHERE USED IN THE 1700s",
-						"copy": "Each herb can be selected, by clicking on the image, providing the user with a drawing of the herb and a detailed description of how Claire used the herb to treat illness in the 1700's, as well as other ways each herb was used for health benefits. ",
-						"image": "images/projects/outlander/apothecary_details.png"
+				"solve":{
+					"client":{
+						"title":"images/projects/outlander/outlander_titleart.svg",
+						"copy":"Outlander follows the story of Claire Randall, a married combat nurse from 1945, who is mysteriously swept back in time to 1743. Upon her arrival, she is immediately thrown into an unknown world where her life is threatened. But when she is forced to marry Jamie Fraser, a chivalrous and romantic young Scottish warrior, a passionate relationship is ignited. Now, Claire's heart is torn between two vastly different men in two irreconcilable lives.",
+						"image":"images/projects/outlander/oa_image1.jpg"
+					},
+					"ask":{
+						"title":"An Experience for the Community",
+						"copy":"Original marketing requested that we concept and create a digital experience that would be housed within the larger social Outlander community site and that would focus on Claire’s knowledge of medicine and herbs from the future as well as her experience as a nurse in the 1700’s.",
+						"image":"images/projects/outlander/oa_image2.jpg"
+					},
+					"solve":{
+						"title":"An Interactive Cabinet",
+						"copy":"We set out to create an experience as true to the show as possible. We worked directly with the photographers on set to use photos from Claire’s actual medicine cabinet from the set. From there, we designed an interface where the user could roll over the jars in the cabinet and they would come forward. While working with the internal copywriter and digital artist, we created the descriptions and art for each herb.",
+						"image":"images/projects/outlander/oa_image3.jpg"
 					}
-				]
+				},
+
+				"projectvideo":"videos/ols_ac.mp4",
+				"projectposter":"videos/ols_acs.jpg"
+
 			},{
-				"path": "spartacusultimateshowdown",
+				"path": "starzfyc",
 
-				"title": "Ultimate Showdown",
-				"title-wrap": "Ultimate<br/>Showdown",
+				"title": "For Your Consideration",
+				"title-wrap": "For Your<br/>Consideration",
 
-				"titleart": "images/projects/spartacus/spartacus_titleart.svg",
-				"background": "images/projects/spartacus/ultimateshowdown_background.jpg",
-				"projectimage": "images/projects/spartacus/ultimateshowdown_projectimage.png",
+				"titleart": "images/projects/starz/starz_titleart.svg",
+				"background": "images/projects/starz/fyc_background.jpg",
+				"projectimage": "images/projects/starz/fyc_projectimage.png",
 
-				"video": "videos/spartacus.mp4",
-				"poster": "videos/spartacus.jpg",
+				"video": "videos/power.mp4",
+				"poster": "videos/power.jpg",
 
-				"description": "A facebook gladiator tournament where participants help their favorite gladiators from the television series \"Spartacus\" in their battle to become the champion.",
+				"description": "A website sent out to award voting bodies to allow screening of the different STARZ original programming that are up for award consideration.",
 
-				"link": "",
-				"copy":[
-					{
-						"title": "A TOURNAMENT WORTHY OF GLADIATORS",
-						"copy": "In the break between the second and the final season of \"Spartacus\", there was a desire to engage the large Facebook fan base and draw hype to the release of the second season on DVD. Therefore, a gladiator battle tournament was created where fans of the show could vote for their favorite gladiator in their battle to become the champion.",
-						"image": "images/projects/spartacus/spartacus_top1.png"
-					},{
-						"title": "TWO GLADIATORS FACE OFF IN THE ARENA",
-						"copy": "Each day featured a new pair of gladiators to battle against each other, and fans were asked to pick who they wanted or thought would win if the two gladiators fought in the arena. After the fans voted, they were shown the voting percentages to see if their gladiator was winning, and on their way to becoming champion, or if they might be eliminated from the tournament.",
-						"image": "images/projects/spartacus/spartacus_battle1.png"
-					},{
-						"title": "WHO WILL BE CHAMPION?",
-						"copy": "The tournament field consisted of the 8 most popular gladiators from the first two seasons, and were seeded in similar fashion to the NCAA basketball tournament. The winner of each first round matchup moved on to another battle and ultimately ended with a champion that was not the legendary Spartacus, but the fan favorite Ganicus.",
-						"image": "images/projects/spartacus/spartacus_brackets1.png"
-					},{
-						"title": "A CHANCE TO WIN",
-						"copy": "In addition to the battles, this experience was used to promote the release of the second season of \"Spartacus\" on DVD. Once a fan voted in the daily battle, they earned a chance to win a copy of the second season on DVD or Blu-ray and could come back each day for another shot to win. ",
-						"image": "images/projects/spartacus/spartacus_sweeps1.png"
+				"solve":{
+					"client":{
+						"title":"images/projects/starz/starz_titleart.svg",
+						"copy":"STARZ is a leading global media and entertainment company that offers premium subscription video programming with 17 premium pay TV channels and associated on-demand and online services, including the STARZ app. Subscribers are offered STARZ original series, first-run movies and other popular movie and television programming.",
+						"image":"images/projects/starz/fyc_image1.jpg"
+					},
+					"ask":{
+						"title":"A Site to Watch Eligable Series",
+						"copy":"Public Relations requested that we create a site that will be sent out to the different voting bodies of award shows that allows the user to see what original series are up for consideration and quickly watch the season or episodes that are up for awards.",
+						"image":"images/projects/starz/fyc_image2.jpg"
+					},
+					"solve":{
+						"title":"A Focused and Flexible Site",
+						"copy":"The site that we created allows for multiple landing points for the different voting bodies and only shows the original programming that is up for awards for that voting body. The site is designed to quickly present the originals available and allows for quick viewing of the episodes available. The interface is a focused version of the STARZ streaming application and follows all brand guidelines.",
+						"image":"images/projects/starz/fyc_image3.jpg"
 					}
-				]
+				},
+
+				"projectvideo":"videos/fyc.mp4",
+				"projectposter":"videos/fyc.jpg"
+
 			}
 		]
 	},

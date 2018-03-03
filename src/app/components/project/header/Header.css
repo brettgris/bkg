@@ -3,7 +3,7 @@
   overflow: hidden;
   transition: height 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
   .mobile-detail-header .mask {
-    background: url(/images/marquee.svg);
+    background: url(/images/marquee_gradient.svg);
     background-repeat: no-repeat;
     background-position: center 100%;
     background-size: cover;
@@ -26,11 +26,14 @@
     transition: height 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
     .mobile-detail-header .description > div {
       width: 50%;
-      margin-bottom: 75px; }
+      margin-bottom: 10vh; }
       @media (max-width: 1025px) {
         .mobile-detail-header .description > div {
-          margin-bottom: 100px;
+          margin-bottom: 15vh;
           width: 65%; } }
+      @media (max-width: 769px) {
+        .mobile-detail-header .description > div {
+          margin-bottom: 20vh; } }
     .mobile-detail-header .description .titleart {
       height: 70px;
       background-repeat: no-repeat;

@@ -58,7 +58,7 @@ FOOTER
     margin-top: 60px;
     margin-bottom: 20px; }
   .mobile-footer .gradient {
-    height: 6px;
+    height: 4px;
     background: #ff234a;
     background: -webkit-linear-gradient(left, #ff234a 0%, #C195D3 50%, #4FB4E8 100%);
     background: linear-gradient(to right, #ff234a 0%, #C195D3 50%, #4FB4E8 100%); }

@@ -1,0 +1,15 @@
+<svg viewBox="0 0 1260 1200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="enable-background:new 0 0 1260 1200;" xml:space="preserve" preserveAspectRatio="none slice">
+	<defs>
+		<linearGradient id="Gradient" x1="0" x2=".5" y1="0" y2="1">
+	        <stop offset="0%" stop-color="#ff234a"/>
+	        <stop offset="100%" stop-color="#f45a7e"/>
+      	</linearGradient>
+		<linearGradient id="Gradient2" x1="0" x2="0" y1="0" y2="1">
+	        <stop offset="0%" stop-color="#2f0d29"/>
+	        <stop offset="100%" stop-color="#190c16"/>
+      	</linearGradient>
+	</defs>
+	<polygon fill="url(#Gradient2)" points="0 0, 0 200, 630 0, 1260 200, 1260 0" />
+	<polygon fill="url(#Gradient)" points="0 200, 630 0, 1260 200, 1260 1200, 0 1200" />
+	<polyline points="0 200 630 0 1260 200" stroke="#4fb4e8" stroke-width="1" stroke-opacity=".3" fill="none" />
+</svg>

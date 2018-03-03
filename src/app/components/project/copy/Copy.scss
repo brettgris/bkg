@@ -1,34 +1,62 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/breakpoints.scss';
+@import 'app/styles/mixins.scss';
+@import 'app/styles/transition.scss';
+
+$diagonal-size: 20%;
 
 .mobile-details-copy{
-	background: url(/images/bg_bind.png) $white;
+	z-index: 0;
+	position: relative;
+	background: #142544;
 
-	.section{
-		padding: 50px 0;
-		text-align: center;
+	h4{
+		color: $white;
+	}
 
-		@include md(){
-			padding: 25px 0;
+	p{
+		font-size: 16px;
+		color: $light-grey;
+	}
+
+	h6{
+		color: $primary-color;
+	}
+
+	.floating{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:10vw;
+		@include opacity(.01);
+		transition: all $transition-speed $transition-ease;
+		overflow: hidden;
+
+		&>div{
+			background-repeat: no-repeat;
+			background-position: 50% 0;
+			background-size: 90%;
+			width: 100%;
+			height: 100%;
+			transform-origin: top center;
+			//background-attachment: fixed;
+
+
+
+
 		}
 
-		h3{
-			font-size: 28px;
-			line-height: 36px;
-			margin-bottom: 10px;
-			text-transform: uppercase;
-			font-weight: 900;
-			letter-spacing: 1.5px;
+		&.visible{
+			@include opacity(.03);
+		}
 
-			@include sm(){
-				font-size: 24px;
-				line-height: 28px;
+		&.sticky{
+			// height: 100%;
+			//
+			&>div{
+				background-attachment: fixed;
+				background-position: 50% 10vw;
 			}
-		}
-
-		&:nth-child(even){
-			background: #e6e6e6;
-			border:1px solid $light-grey;
 		}
 	}
 

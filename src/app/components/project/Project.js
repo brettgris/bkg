@@ -9,9 +9,6 @@ import Copy from './copy/Copy';
 import Other from './other/Other';
 import Close from './close/Close';
 
-import Contact from 'app/components/mobile/contact/Contact';
-import Footer from 'app/components/footer/Footer';
-
 class Project extends Component{
 	constructor(props){
 		super(props);
@@ -66,6 +63,7 @@ class Project extends Component{
 
 				<Copy
 					current={this.state.current}
+					pa={this.props.pa}
 				/>
 
 				<Other
@@ -74,10 +72,6 @@ class Project extends Component{
 				/>
 
 				<Close />
-
-				<Contact />
-
-				<Footer />
 			</div>
 		);
 	}
@@ -86,7 +80,8 @@ class Project extends Component{
 function mapStateToProps(state) {
 	return {
 		data: state.data.projects,
-		project: state.project
+		project: state.project,
+		pa: state.pageanimate
 	};
 }
 
