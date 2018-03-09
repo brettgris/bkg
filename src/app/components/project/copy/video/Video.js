@@ -53,9 +53,9 @@ class Video extends Component{
 							<div style={{backgroundImage:`url("/images/project.svg")`}}></div>
 						</div>
 
-						<div className="project d-flex align-items-center justify-content-center">
-							<div className="container d-flex justify-content-center">
-								<div className="wrapper col-12 d-flex align-items-end justify-content-center"
+						<div className="project">
+							{/* <div className="container"> */}
+								<div className="wrapper"
 									onMouseEnter={()=>this.setState({controls:true})}
 									onMouseLeave={()=>this.setState({controls:false})}
 									onTouchStart={()=>this.setState({controls:true})}
@@ -71,7 +71,7 @@ class Video extends Component{
 										/>
 									</div>
 								</div>
-							</div>
+							{/* </div> */}
 						</div>
 					</div>
 					</Waypoint>
