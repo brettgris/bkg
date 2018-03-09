@@ -55,7 +55,7 @@ class Video extends Component{
 
 						<div className="project d-flex align-items-center justify-content-center">
 							<div className="container d-flex justify-content-center">
-								<div className="wrapper col-12 col-sm-11 d-flex align-items-end justify-content-center"
+								<div className="wrapper col-12 d-flex align-items-end justify-content-center"
 									onMouseEnter={()=>this.setState({controls:true})}
 									onMouseLeave={()=>this.setState({controls:false})}
 									onTouchStart={()=>this.setState({controls:true})}
