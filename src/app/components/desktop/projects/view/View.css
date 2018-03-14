@@ -78,6 +78,23 @@ header a {
       .projects .cf {
         padding-left: 125px;
         padding-right: 125px; } }
+    .projects .cf:after {
+      content: " ";
+      display: none;
+      background: pink;
+      position: absolute;
+      width: 100%;
+      z-index: -1;
+      height: 30vw;
+      bottom: 0;
+      left: 0;
+      right: 0; }
+      @media (max-width: 1200px) {
+        .projects .cf:after {
+          display: block;
+          background: rgba(0, 2, 34, 0);
+          background: -webkit-linear-gradient(top, rgba(0, 2, 34, 0) 0%, rgba(0, 2, 34, 0.75) 100%);
+          background: linear-gradient(to bottom, rgba(0, 2, 34, 0) 0%, rgba(0, 2, 34, 0.75) 100%); } }
   .projects .wrapper {
     margin: auto;
     height: 100%;
@@ -100,7 +117,22 @@ header a {
           padding-bottom: 30px; } }
       .projects .wrapper .view .copy {
         text-align: center;
-        visibility: hidden; }
+        visibility: hidden;
+        position: relative; }
+        .projects .wrapper .view .copy:after {
+          content: "";
+          position: absolute;
+          width: 200%;
+          height: 200%;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          z-index: -1;
+          background: -webkit-radial-gradient(center, circle cover, rgba(0, 2, 34, 0.7) 0%, rgba(0, 2, 34, 0) 65%);
+          background: radial-gradient(center, circle cover, rgba(0, 2, 34, 0.7) 0%, rgba(0, 2, 34, 0) 65%); }
+          @media (max-width: 1200px) {
+            .projects .wrapper .view .copy:after {
+              display: none; } }
         .projects .wrapper .view .copy h2 {
           color: #ffffff;
           opacity: 0.01;

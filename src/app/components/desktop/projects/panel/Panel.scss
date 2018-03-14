@@ -41,11 +41,25 @@ $panel-item-focused-height: 400px;
 			width: 100%;
 			transform-origin: 50% center;
 			position: relative;
-			overflow: hidden;
+			// overflow: hidden;
 
 			transform: scale(.75);
 
 			transition: all 1s $transition-ease;
+
+			.gradient{
+				position: absolute;
+				width: 100vw;
+				height: 100vw;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				@include radial-gradient(rgba($black,.7) 0%, rgba($black,0) 65%);
+				z-index: 1;
+				@include opacity(.01);
+
+				transition: opacity $transition-speed $transition-ease;
+			}
 
 			.copy{
 				width: 100%;
@@ -114,6 +128,10 @@ $panel-item-focused-height: 400px;
 				height: $panel-item-focused-height;
 				transform: scale(1);
 
+				.gradient{
+					@include opacity(1);
+				}
+
 				.copy{
 					color: $white;
 					transform: translateY(-35px);
@@ -136,7 +154,7 @@ $panel-item-focused-height: 400px;
 				.ta{
 					transform: translateY(75px);
 
-					@include opacity(.15);
+					@include opacity(.35);
 				}
 			}
 		}

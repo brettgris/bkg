@@ -24,7 +24,7 @@ class Header extends Component{
 				<Background
 					video={data.video}
 					image={data.image}
-					poster={data.poster}  
+					poster={data.poster}
 					width={this.props.width}
 					height={this.props.height}
 				/>

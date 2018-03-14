@@ -19,6 +19,8 @@
 		align-items: center;
 		justify-content: center;
 
+		@include radial-gradient(rgba($black,.5),rgba($black,0))
+
 		transition: height $transition-speed $transition-ease;
 	}
 
@@ -64,6 +66,16 @@
 			color: $white;
 			text-transform: uppercase;
 			letter-spacing: 5px;
+
+			margin-top: 20px;
+
+			@include sm(){
+				font-size: 21px;
+				line-height: 30px;
+				letter-spacing: 1px;
+			}
+
+
 		}
 		p{
 			color: $light-grey;

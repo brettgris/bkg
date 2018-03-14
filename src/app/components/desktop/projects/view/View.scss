@@ -23,6 +23,24 @@ $project-layout-size: 1200px;
 			padding-left: 125px;
 			padding-right: 125px;
 		}
+
+		&:after{
+			content: " ";
+			display: none;
+			background: pink;
+			position: absolute;
+			width: 100%;
+			z-index: -1;
+			height: 30vw;
+			bottom: 0;
+			left: 0;
+			right: 0;
+
+			@include td(){
+				display: block;
+				@include linear-gradient(to bottom, rgba($black,0) 0%, rgba($black,.75) 100%);
+			}
+		}
 	}
 	.wrapper{
 		margin:auto;
@@ -48,6 +66,7 @@ $project-layout-size: 1200px;
 		.view{
 			width: 40%;
 
+
 			@include td(){
 				width: 90%;
 				padding-bottom: 30px;
@@ -56,6 +75,24 @@ $project-layout-size: 1200px;
 			.copy{
 				text-align: center;
 				visibility: hidden;
+				position: relative;
+
+				&:after{
+					content: "";
+					position: absolute;
+					width: 200%;
+					height: 200%;
+					top: 50%;
+					left:50%;
+					transform: translate(-50%, -50%);
+					z-index: -1;
+
+					@include radial-gradient(rgba($black,.7) 0%, rgba($black,0) 65%);
+
+					@include td(){
+						display: none;
+					}
+				}
 
 				h2{
 					color: $white;

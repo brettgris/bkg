@@ -18,12 +18,14 @@ class View extends Component{
 		//const align = (this.props.current%2===0) ? 'end' : 'start';
 		// const direction = (this.props.current%2===0) ? 'flex-row' : 'flex-row-reverse';
 
-
+		const vStyle = {
+			opacity: 1-this.props.pageanimate
+		}
 
 		return(
 			<div className="cf">
 				<div className={`wrapper ${side}`}>
-					<div className="view">
+					<div className="view" style={vStyle}>
 						<div>
 							{ this.renderCopy() }
 						</div>

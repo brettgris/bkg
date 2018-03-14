@@ -25,26 +25,26 @@ class Home extends Component{
 
 		const copystyle={
 			opacity: 1-pa
-		}
-
-		const buttonstyle={
-			opacity: 1-pa
-		}
+		};
 
 		return(
 			<section className="home">
-				<div className="headline d-flex align-items-center justify-content-center">
+				<div className="headline d-flex align-items-center justify-content-center" style={copystyle}>
 					<div className="content col-11 col-lg-10 col-xl-8">
 						<h1>
 							{ this.renderSVG() }
 						</h1>
 					</div>
 				</div>
-				<div className="copy d-flex align-items-end justify-content-center">
-					<div className="content col-11 col-lg-10 col-xl-8">
-						<p style={copystyle}>{data.description}</p>
-						<div style={buttonstyle}>
-							<Button copy="VIEW PROJECTS" color="whitetocolor" to="/projects" />
+				<div className="copy d-flex align-items-end justify-content-center" style={copystyle}>
+					<div className="gradient"></div>
+					<div className="content col-11 col-lg-10 col-xl-8" >
+						<div  >
+
+							<p>{data.description}</p>
+							<div>
+								<Button copy="VIEW PROJECTS" color="whitetocolor" to="/projects" />
+							</div>
 						</div>
 					</div>
 				</div>

@@ -68,6 +68,7 @@ class Panel extends Component{
 						<h2>{data.title}</h2>
 						<p>{data.description}</p>
 					</div>
+					<div className="gradient"></div>
 					<div className="ta" style={taStyle}></div>
 				</li>
 			)

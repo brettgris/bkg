@@ -1,4 +1,12 @@
 {
+	"links":[{
+		"link": "pdf/brettgrisinger_resume.pdf",
+		"icon": "far fa-file-alt"
+	},{
+		"link": "https://www.linkedin.com/in/brett-grisinger/",
+		"icon": "fab fa-linkedin"
+	}],
+
 	"path": "starzfyc",
 
 	"title": "For Your Consideration",

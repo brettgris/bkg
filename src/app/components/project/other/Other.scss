@@ -2,6 +2,7 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/mixins.scss';
 @import 'app/styles/breakpoints.scss';
+@import 'app/styles/type.scss';
 
 $other-item-height: 350px;
 $other-item-border: 1px solid $black;
@@ -86,10 +87,10 @@ $footer-gradient-height: 4px;
 				text-align: center;
 				color: $white;
 				text-transform: uppercase;
-				font-weight: 600;
 				letter-spacing: 5px;
 				margin-top: 10px;
 				font-size: 22px;
+				font-family:$font-family-body;
 			}
 
 			.hover{

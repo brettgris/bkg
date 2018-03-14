@@ -56,6 +56,7 @@ class Slider extends Component{
 	}
 
 	handleStart(e,d){
+		e.preventDefault();
 		this.props.setProjectsMenu(true);
 	}
 
@@ -64,6 +65,7 @@ class Slider extends Component{
 	}
 
 	handleDrag(e,d){
+		e.preventDefault();
 		this.calcPosition(d);
 	}
 

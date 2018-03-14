@@ -1,8 +1,8 @@
 {
 	"home": {
-		"headline": "WELCOME",
+		"headline": "Creating Digital Experiences That Tell A Story",
 		"svg": "here",
-		"description": "I'm a well-versed digital design manager with over 12 years of professional experience. I have a passion for leveraging a design thinking process to create innovative and engaging user-centered digital experiences and interfaces.",
+		"description": "There is nothing like the satisfaction of rolling out a new project, and I would like to invite you to have a look at some of my recent projects that I am excited to share with you.",
 		"icon": "fal fa-chevron-circle-down",
 		"video": "videos/starz.mp4",
 		"image": "images/starz.jpg"
@@ -169,13 +169,6 @@
 		"email": "brett.grisinger@gmail.com",
 		"phone": "303-884-4919",
 		"links":[
-			{
-				"link": "pdf/brettgrisinger_resume.pdf",
-				"icon": "far fa-file-alt"
-			},{
-				"link": "https://www.linkedin.com/in/brett-grisinger/",
-				"icon": "fab fa-linkedin"
-			}
 		],
 		"copyright": "&copy; Brett Grisinger. All Rights Reserved."
 	}

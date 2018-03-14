@@ -2,6 +2,7 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/transition.scss';
 @import 'app/styles/breakpoints.scss';
+@import 'app/styles/type.scss';
 
 .mobile-details-copy{
 	.solve{
@@ -79,6 +80,7 @@
 
 					h4{
 						text-align: left;
+						font-family:$font-family-body;
 
 						@include sm(){
 							text-align: center;

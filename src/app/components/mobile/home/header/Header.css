@@ -74,6 +74,8 @@ header a {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: -webkit-radial-gradient(center, circle cover, rgba(0, 2, 34, 0.5), rgba(0, 2, 34, 0));
+    background: radial-gradient(center, circle cover, rgba(0, 2, 34, 0.5), rgba(0, 2, 34, 0));
     transition: height 0.4s cubic-bezier(0.2, 0.3, 0.25, 0.9); }
   .mobile-home-header .description {
     text-align: center;
@@ -104,7 +106,13 @@ header a {
     .mobile-home-header .description h2 {
       color: #ffffff;
       text-transform: uppercase;
-      letter-spacing: 5px; }
+      letter-spacing: 5px;
+      margin-top: 20px; }
+      @media (max-width: 769px) {
+        .mobile-home-header .description h2 {
+          font-size: 21px;
+          line-height: 30px;
+          letter-spacing: 1px; } }
     .mobile-home-header .description p {
       color: #CCCCCC;
       width: 100%; }

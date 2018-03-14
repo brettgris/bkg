@@ -2,6 +2,7 @@
 @import 'app/styles/transition.scss';
 @import 'app/styles/mixins.scss';
 @import 'app/styles/breakpoints.scss';
+@import 'app/styles/type.scss';
 
 .mobile-detail-header{
 	position: relative;
@@ -74,13 +75,20 @@
 		h3{
 			color: $white;
 			text-transform: uppercase;
-			letter-spacing: 5px;
+			letter-spacing: 3px;
 			margin-top: 10px;
+			font-family:$font-family-body;
+			font-size: 30px;
+
+			@include sm(){
+				font-size: 22px;
+				line-height: 26px;
+			}
 		}
 
 		p{
 			color: $light-grey;
-			margin-top: 20px;
+			margin-top: 15px;
 
 			@include sm(){
 				display: none;

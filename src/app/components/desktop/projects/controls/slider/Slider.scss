@@ -23,11 +23,15 @@ $slider-handle-height: 50px;
 			display: block;
 			height: 100%;
 			width: 2px;
-			background-image: linear-gradient(rgba($white,.5) 10%, rgba(255,255,255,0) 0%);
-			background-position: right;
-			background-size: 1px 7px;
-			background-repeat: repeat-y;
-			opacity: .75;
+			opacity: .3;
+			@include linear-gradient(to top, $control-color-1, $control-color-2);
+
+			//background: $primary-color;
+			// background-image: linear-gradient(rgba($white,.5) 10%, rgba(255,255,255,0) 0%);
+			// background-position: right;
+			// background-size: 1px 7px;
+			// background-repeat: repeat-y;
+			//
 
 			transition: opacity $transition-speed $transition-ease;
 		}
@@ -36,7 +40,7 @@ $slider-handle-height: 50px;
 	&.panel-open{
 		.rail{
 			&::after{
-				opacity: 1;
+				opacity: .65;
 			}
 		}
 	}
@@ -48,21 +52,32 @@ $slider-handle-height: 50px;
 		top: 0;
 		font-size: $slider-handle-width;
 		color: $control-off-color;
-		cursor: move;
+		cursor: pointer;
+
 
 		transition: all $transition-speed*2 $transition-ease;
 
-		&.react-draggable-dragging {
-			transition: none;
-		}
+
 
 		.ic{
 			width: $slider-handle-width;
 			height: $slider-handle-height;
+
+			transform: scale(.85);
+			transition: all $transition-speed $transition-ease;
 		}
 
 		.ib{
-			color: $control-off-color;
+			// color: $control-off-color;
+			// color: $white;
+			background: linear-gradient(140deg, #aaa 0%,$white 40%, $white 60%, #aaa 100%);
+			border-radius: 50%;
+			border: 1px solid rgba($white,.3);
+			color: transparent;
+			box-shadow: 0 0 20px rgba($black,.35);
+
+
+			transition: all $transition-speed $transition-ease;
 		}
 
 		.if{
@@ -70,8 +85,19 @@ $slider-handle-height: 50px;
 		}
 
 		&:hover{
+
+
 			.ib{
-				color: $control-hover-color;
+				background: linear-gradient(140deg, $white 50%, #ccc 100%);
+				box-shadow: 0 0 20px rgba($black,.65);
+			}
+		}
+
+		&.react-draggable-dragging {
+			transition: none;
+
+			.ic{
+				transform: scale(1);
 			}
 		}
 

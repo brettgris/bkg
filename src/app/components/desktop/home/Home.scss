@@ -1,6 +1,7 @@
 @import 'app/styles/colors.scss';
 @import 'app/styles/type.scss';
 @import 'app/styles/transition.scss';
+@import 'app/styles/mixins.scss';
 
 .home{
 	.headline{
@@ -9,6 +10,8 @@
 		z-index: 500;
 		position: absolute;
 		overflow: hidden;
+
+		@include radial-gradient(rgba($black,.65) 0%, rgba($black,0) 50%);
 
 		h1{
 			text-align: center;
@@ -21,10 +24,11 @@
 			svg{
 				fill: $white;
 				overflow: visible;
-				filter: drop-shadow(0 0 10px rgba($black,.4));
+				filter: drop-shadow(0 0 10px rgba($black,.5));
 
 				path{
 					transform-origin: center center;
+
 				}
 			}
 		}
@@ -51,12 +55,32 @@
 		position: absolute;
 		overflow: hidden;
 
+		.gradient{
+			width: 100vw;
+			height: 20vw;
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			@include linear-gradient(to bottom, rgba($black,0) 0%, rgba($black,.65) 50%, rgba($black,.75) 100%);
+			z-index: 0;
+		}
+
 		.content{
 			text-align: center;
 			padding-bottom: 50px;
 
+
 			@include td(){
 				padding-bottom: 30px;
+			}
+
+			h2{
+				color: $white;
+				text-transform: uppercase;
+				font-size: 30px;
+				line-height: 34px;
+				letter-spacing: 3px;
 			}
 
 			p{
